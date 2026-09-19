@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+    <title>TestShare | No Results Found</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#00c3fd",
+                    "on-secondary-fixed-variant": "#474746",
+                    "primary": "#ffc688",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "secondary": "#c8c6c5",
+                    "on-tertiary": "#003547",
+                    "surface-bright": "#393939",
+                    "primary-fixed": "#ffddbb",
+                    "surface-container-highest": "#353534",
+                    "on-primary-container": "#673d00",
+                    "on-secondary-container": "#b7b5b4",
+                    "outline-variant": "#544434",
+                    "surface": "#131313",
+                    "secondary-container": "#474746",
+                    "on-surface-variant": "#dac3ad",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "inverse-primary": "#885200",
+                    "primary-container": "#ff9f0d",
+                    "on-primary-fixed-variant": "#673d00",
+                    "surface-dim": "#131313",
+                    "surface-container": "#201f1f",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed": "#001e2b",
+                    "outline": "#a28d7a",
+                    "on-primary-fixed": "#2b1700",
+                    "on-primary": "#482900",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-fixed-dim": "#70d2ff",
+                    "tertiary-fixed": "#c0e8ff",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb868",
+                    "on-background": "#e5e2e1",
+                    "background": "#131313",
+                    "surface-variant": "#353534",
+                    "on-error-container": "#ffdad6",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#303030",
+                    "inverse-surface": "#e5e2e1",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "on-tertiary-container": "#004d66",
+                    "on-surface": "#e5e2e1",
+                    "surface-tint": "#ffb868",
+                    "tertiary": "#90daff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "48px",
+                    "container-margin": "20px",
+                    "base": "8px",
+                    "stack-sm": "4px",
+                    "stack-md": "12px",
+                    "stack-lg": "24px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 1);
+            border: 1px solid #2D2D2D;
+        }
+        .image-overlay {
+            background: linear-gradient(0deg, rgba(18, 18, 18, 0.7) 0%, rgba(18, 18, 18, 0.2) 100%);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden bg-surface text-on-surface">
+    <!-- Top Navigation Bar -->
+    <header class="docked full-width top-0 z-50 bg-surface border-b border-surface-variant sticky-top">
+        <nav class="flex justify-between items-center w-full px-container-margin py-base max-w-full">
+            <div class="flex items-center gap-stack-lg">
+                <a href="index.html" class="text-decoration-none"><span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">TestShare</span></a>
+                <div class="hidden md:flex items-center gap-stack-lg">
+                    <a class="text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md px-3 py-2 text-decoration-none" href="index.html">Home</a>
+                    <a class="text-primary font-bold border-b-2 border-primary font-label-md text-label-md px-3 py-2 text-decoration-none" href="redesigned_seller_menu_offers.html">Offers</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-stack-md">
+                <div class="hidden md:block relative">
+                    <input class="bg-surface border border-outline-variant px-4 py-2 text-label-md font-label-md focus:border-primary-container outline-none w-64 transition-all rounded-2" placeholder="Search..." type="text">
+                    <span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant">search</span>
+                </div>
+                <a href="my_profile_testshare.html" class="flex items-center justify-center w-10 h-10 hover:bg-surface-container-high transition-colors rounded-circle text-decoration-none">
+                    <span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="min-h-screen pt-24 pb-32 px-container-margin my-4">
+        <!-- Search Info Banner -->
+        <div class="max-w-screen-xl mx-auto mb-stack-lg my-3">
+            <div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">
+                <span>Search</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                <span class="text-primary">"Blueberry Lobster Rolls"</span>
+            </div>
+        </div>
+
+        <!-- Empty State Section -->
+        <section class="max-w-screen-xl mx-auto flex flex-col items-center justify-center py-section-gap my-5">
+            <div class="relative w-48 h-48 mb-stack-lg my-4">
+                <div class="absolute inset-0 bg-primary opacity-5 blur-3xl rounded-full"></div>
+                <div class="relative flex items-center justify-center w-full h-full border border-surface-variant bg-surface-container-low rounded-circle">
+                    <span class="material-symbols-outlined text-[80px] text-outline-variant select-none" style="font-variation-settings: 'wght' 200;">search_off</span>
+                </div>
+            </div>
+            <div class="text-center max-w-lg">
+                <h1 class="font-headline-xl text-headline-xl mb-base text-on-background font-bold">No results found</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">
+                    We couldn't find anything matching your search. Try adjusting your filters or checking for typos.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-stack-md my-4">
+                    <button onclick="window.location.href='index.html'" class="bg-primary-container text-on-primary-fixed px-8 py-3 font-label-md text-label-md uppercase tracking-wider transition-transform active:scale-95 duration-100 w-full sm:w-auto rounded-2 fw-bold border-0">
+                        Clear all filters
+                    </button>
+                    <button onclick="window.location.href='index.html'" class="border border-on-background text-on-background px-8 py-3 font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-high transition-colors w-full sm:w-auto rounded-2 bg-transparent fw-bold">
+                        Back to home
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="max-w-screen-xl mx-auto border-t border-surface-variant my-section-gap my-5"></div>
+
+        <!-- Recommendations Section -->
+        <section class="max-w-screen-xl mx-auto my-5">
+            <div class="flex items-center justify-between mb-stack-lg my-4">
+                <h2 class="font-headline-md text-headline-md text-on-background font-bold">Popular near you</h2>
+                <a class="text-primary font-label-md text-label-md hover:underline text-decoration-none" href="index.html">View all</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Card 1 -->
+                <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="glass-card group cursor-pointer overflow-hidden relative rounded-3">
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                        <img alt="Gourmet Burger" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/gourmet_burger.png">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-primary-container text-on-primary-fixed px-2 py-1 font-label-sm text-label-sm uppercase tracking-tighter rounded-1 fw-bold">Fast Delivery</span>
+                        </div>
+                        <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                            <div>
+                                <h3 class="font-headline-md text-headline-md text-white mb-1">The Butcher's Son</h3>
+                                <div class="flex items-center gap-2 text-on-primary text-label-sm font-label-sm">
+                                    <span class="material-symbols-outlined text-[16px] text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="text-white">4.9 (500+)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container">
+                        <span class="text-on-surface-variant font-label-md text-label-md">Burger • American • $$</span>
+                        <span class="text-primary font-label-md text-label-md">20-30 min</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="glass-card group cursor-pointer overflow-hidden relative rounded-3">
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                        <img alt="Artisan Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/artisan_pizza.png">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-surface-container-highest text-white px-2 py-1 font-label-sm text-label-sm border border-outline-variant rounded-1">Free Delivery</span>
+                        </div>
+                        <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                            <div>
+                                <h3 class="font-headline-md text-headline-md text-white mb-1">Napoli Artisan</h3>
+                                <div class="flex items-center gap-2 text-on-primary text-label-sm font-label-sm">
+                                    <span class="material-symbols-outlined text-[16px] text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="text-white">4.7 (1.2k)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container">
+                        <span class="text-on-surface-variant font-label-md text-label-md">Pizza • Italian • $$</span>
+                        <span class="text-primary font-label-md text-label-md">15-25 min</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="glass-card group cursor-pointer overflow-hidden relative rounded-3">
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                        <img alt="Healthy Bowl" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/healthy_bowl.png">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute top-3 left-3 flex gap-2">
+                            <span class="bg-secondary-container text-white px-2 py-1 font-label-sm text-label-sm border border-outline-variant rounded-1">Healthy</span>
+                        </div>
+                        <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                            <div>
+                                <h3 class="font-headline-md text-headline-md text-white mb-1">Green Garden</h3>
+                                <div class="flex items-center gap-2 text-on-primary text-label-sm font-label-sm">
+                                    <span class="material-symbols-outlined text-[16px] text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="text-white">4.8 (850)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container">
+                        <span class="text-on-surface-variant font-label-md text-label-md">Salads • Vegan • $</span>
+                        <span class="text-primary font-label-md text-label-md">10-20 min</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full px-container-margin py-section-gap flex flex-col md:flex-row justify-between items-center gap-stack-lg border-t border-surface-variant bg-surface-container-lowest py-5">
+        <div class="flex flex-col items-center md:items-start gap-stack-sm">
+            <span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">TestShare</span>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-0">© 2024 TestShare. All rights reserved.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-stack-lg">
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest text-decoration-none" href="#">About Us</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest text-decoration-none" href="seller_registration_testshare.html">Partner with us</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest text-decoration-none" href="#">Privacy Policy</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-widest text-decoration-none" href="#">Support</a>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation Bar (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container border-t border-surface-variant">
+        <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-transform duration-200 text-decoration-none" href="index.html">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-label-sm text-label-sm">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-primary transition-transform duration-200 scale-110 text-decoration-none" href="redesigned_seller_menu_offers.html">
+            <span class="material-symbols-outlined" data-icon="local_offer">local_offer</span>
+            <span class="font-label-sm text-label-sm">Offers</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-transform duration-200 text-decoration-none" href="order_history_reviews_2.html">
+            <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+            <span class="font-label-sm text-label-sm">Orders</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-transform duration-200 text-decoration-none" href="your_cart.html">
+            <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+            <span class="font-label-sm text-label-sm">Cart</span>
+        </a>
+    </nav>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Search input animation focus
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-1', 'ring-primary');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-1', 'ring-primary');
+            });
+        }
+    </script>
+</body>
+</html>

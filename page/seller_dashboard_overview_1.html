@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Seller Dashboard | TestShare</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#a28d7a",
+                    "on-secondary": "#233143",
+                    "on-primary-container": "#673d00",
+                    "background": "#1a120a",
+                    "on-secondary-fixed-variant": "#39485a",
+                    "primary-container": "#ff9f0d",
+                    "on-error": "#690005",
+                    "outline-variant": "#544434",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed": "#0d1c2d",
+                    "surface-container": "#271e15",
+                    "surface-container-lowest": "#140d06",
+                    "surface-container-highest": "#3d3329",
+                    "secondary-fixed-dim": "#b9c8de",
+                    "on-primary-fixed-variant": "#673d00",
+                    "inverse-on-surface": "#382f25",
+                    "on-primary": "#482900",
+                    "secondary-fixed": "#d4e4fa",
+                    "primary-fixed-dim": "#ffb868",
+                    "on-tertiary-fixed": "#001e2b",
+                    "primary": "#ffc688",
+                    "on-tertiary-container": "#004d66",
+                    "surface-bright": "#42372d",
+                    "secondary-container": "#39485a",
+                    "on-surface": "#f1e0d1",
+                    "inverse-primary": "#885200",
+                    "error-container": "#93000a",
+                    "tertiary": "#90daff",
+                    "on-primary-fixed": "#2b1700",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "tertiary-fixed-dim": "#70d2ff",
+                    "inverse-surface": "#f1e0d1",
+                    "on-tertiary": "#003547",
+                    "tertiary-container": "#00c3fd",
+                    "tertiary-fixed": "#c0e8ff",
+                    "surface-container-low": "#221a11",
+                    "surface-tint": "#ffb868",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#3d3329",
+                    "on-secondary-container": "#a7b6cc",
+                    "surface": "#1a120a",
+                    "surface-dim": "#1a120a",
+                    "on-surface-variant": "#dac3ad",
+                    "primary-fixed": "#ffddbb",
+                    "secondary": "#b9c8de",
+                    "surface-container-high": "#32281f",
+                    "on-background": "#f1e0d1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "container-max-width": "1440px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1a120a; }
+        ::-webkit-scrollbar-thumb { background: #3d3329; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff9f0d; }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        @keyframes pulse-amber {
+            0%, 100% { opacity: 1; border-color: rgba(255, 159, 13, 0.5); }
+            50% { opacity: 0.7; border-color: rgba(255, 159, 13, 1); }
+        }
+        .order-flash {
+            animation: pulse-amber 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+<div class="flex h-screen w-full">
+    <!-- Sidebar Navigation -->
+    <aside class="hidden md:flex flex-col h-full w-64 border-r border-outline-variant bg-surface-container-lowest transition-all duration-200 ease-in-out shrink-0">
+        <div class="px-6 py-8 flex flex-col gap-2">
+            <a href="index.html" class="text-decoration-none"><div class="font-headline-sm text-headline-sm text-primary-container font-bold">TestShare</div></a>
+            <div class="flex items-center gap-3 mt-4">
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+                    <img class="w-full h-full object-cover" data-alt="A professional headshot of a restaurant manager in a minimalist black studio setting, lit with warm amber accents." src="images/restaurant_manager_headshot.png">
+                </div>
+                <div>
+                    <p class="font-label-md text-label-md text-on-surface mb-0 font-bold">Admin Console</p>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Enterprise Tier</p>
+                </div>
+            </div>
+        </div>
+        <nav class="flex-1 px-4 py-4 flex flex-col gap-2 overflow-y-auto">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="seller_registration_approval_pending_status.html">
+                <span class="material-symbols-outlined">pending_actions</span>
+                Review Status
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-surface-container-high rounded transition-all font-label-md text-label-md text-decoration-none" href="seller_dashboard_overview_1.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                Dashboard Preview
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="seller_dashboard_overview_2.html">
+                <span class="material-symbols-outlined">analytics</span>
+                Advanced Metrics
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="menu_order_management_1.html">
+                <span class="material-symbols-outlined">restaurant_menu</span>
+                Menu Management
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="redesigned_order_management_testshare_seller_panel.html">
+                <span class="material-symbols-outlined">list_alt</span>
+                Orders Panel
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="redesigned_seller_menu_offers.html">
+                <span class="material-symbols-outlined">local_offer</span>
+                Menu Offers
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="reviews_ratings_testshare_seller_panel.html">
+                <span class="material-symbols-outlined">star_rate</span>
+                Reviews &amp; Ratings
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="store_settings_profile.html">
+                <span class="material-symbols-outlined">settings</span>
+                Store Settings
+            </a>
+        </nav>
+        <div class="p-4 border-t border-outline-variant">
+            <button onclick="window.location.href='index.html'" class="w-full py-2 bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md rounded hover:bg-surface-container-highest transition-colors font-bold">
+                Exit Portal
+            </button>
+            <a class="flex items-center justify-center gap-3 px-4 py-3 mt-2 text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md text-decoration-none font-bold" href="#">
+                <span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden bg-background relative">
+        <!-- Top App Bar -->
+        <header class="flex justify-between items-center px-8 py-4 border-b border-outline-variant bg-background z-20 shrink-0">
+            <div class="flex items-center gap-8">
+                <h1 class="font-headline-md text-headline-md font-bold text-primary mb-0">Overview</h1>
+                <div class="relative hidden lg:block">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                    <input class="bg-surface-container-low border border-outline-variant rounded px-10 py-2 w-80 text-on-surface focus:border-primary-container focus:ring-0 transition-all font-body-sm text-body-sm" placeholder="Search orders..." type="text">
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="p-2 text-on-surface-variant hover:text-primary transition-colors bg-transparent border-0">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button class="p-2 text-on-surface-variant hover:text-primary transition-colors bg-transparent border-0">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
+                <button onclick="window.location.href='menu_order_management_1.html'" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-lg font-bold hover:bg-primary-fixed-dim transition-all active:scale-95 border-0 font-bold">
+                    Get Started
+                </button>
+            </div>
+        </header>
+        <!-- Notification Flash Panel -->
+        <div class="mx-8 mt-6 shrink-0" id="new-order-panel">
+            <div class="order-flash bg-primary-container/10 border border-primary-container p-4 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-primary-container p-2 rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    </div>
+                    <div>
+                        <p class="font-label-md text-label-md text-primary font-bold mb-1">New Incoming Order: #9842-X</p>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant mb-0">Spicy Ramen Bowl x 2, Miso Soup x 1 • Just now</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="this.parentElement.parentElement.parentElement.remove()" class="px-4 py-2 bg-primary text-on-primary font-label-sm text-label-sm font-bold rounded uppercase border-0 hover:brightness-110 active:scale-95 transition-all">Accept</button>
+                    <button class="px-4 py-2 border border-outline-variant text-on-surface font-label-sm text-label-sm font-bold rounded uppercase bg-transparent hover:bg-surface-container transition-all active:scale-95" onclick="this.parentElement.parentElement.parentElement.remove()">Dismiss</button>
+                </div>
+            </div>
+        </div>
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto px-8 py-6">
+            <div class="bento-grid">
+                <!-- Stats Section -->
+                <div class="col-span-12 lg:col-span-8 flex flex-col gap-6">
+                    <!-- Chart Card -->
+                    <div class="bg-surface-container-low border border-outline-variant p-6 rounded-xl">
+                        <div class="flex justify-between items-end mb-8">
+                            <div>
+                                <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-1 font-bold">Total Revenue</h3>
+                                <p class="font-display-lg text-display-lg text-on-surface font-bold mb-0">$124,592.00</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="px-3 py-1 bg-primary text-on-primary text-label-sm font-bold rounded-full">Live</span>
+                                <span class="px-3 py-1 bg-surface-container-highest border border-outline-variant text-on-surface-variant text-label-sm rounded-full font-bold">+12.5%</span>
+                            </div>
+                        </div>
+                        <!-- Mock Revenue Chart -->
+                        <div class="h-64 w-full flex items-end gap-2 group mt-12">
+                            <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[40%]"></div>
+                            <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[65%]"></div>
+                            <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[55%]"></div>
+                            <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[80%]"></div>
+                            <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[95%]"></div>
+                            <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[75%]"></div>
+                            <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[60%]"></div>
+                            <div class="flex-1 bg-primary/40 h-full rounded-t relative">
+                                <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-surface-container-highest border border-primary px-2 py-1 rounded text-label-sm whitespace-nowrap font-bold">$18.2k</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-4 text-on-surface-variant font-label-sm text-label-sm px-1 font-bold">
+                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><span>Today</span>
+                        </div>
+                    </div>
+                    <!-- Live Order Tracking -->
+                    <div class="bg-background mt-4">
+                        <h2 class="font-headline-md text-headline-md font-bold mb-6 text-on-surface">Live Tracking</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Order Card 1 -->
+                            <div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl hover:border-primary/50 transition-all group cursor-pointer" onclick="window.location.href='redesigned_order_management_testshare_seller_panel.html'">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-label-md text-label-md text-on-surface font-bold">Order #2241</div>
+                                    <div class="flex items-center gap-1.5 px-2 py-0.5 bg-green-900/30 text-green-400 border border-green-800 rounded text-label-sm font-bold">
+                                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                                        Preparing
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-center">
+                                    <div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden border border-outline-variant shrink-0">
+                                        <img class="w-full h-full object-cover" data-alt="Close-up shot of an artisanal truffle burger on a dark ceramic plate." src="images/artisanal_truffle_burger.png">
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-body-sm text-body-sm text-on-surface font-semibold mb-1 font-bold">Truffle Umami Burger</p>
+                                        <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Table 12 • 8 min left</p>
+                                    </div>
+                                    <button class="text-on-surface-variant group-hover:text-primary transition-colors bg-transparent border-0">
+                                        <span class="material-symbols-outlined">chevron_right</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Order Card 2 -->
+                            <div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl hover:border-primary/50 transition-all group cursor-pointer" onclick="window.location.href='redesigned_order_management_testshare_seller_panel.html'">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-label-md text-label-md text-on-surface font-bold">Order #2242</div>
+                                    <div class="flex items-center gap-1.5 px-2 py-0.5 bg-primary-container/10 text-primary border border-primary-container/30 rounded text-label-sm font-bold">
+                                        <span class="w-1.5 h-1.5 bg-primary-container rounded-full"></span>
+                                        Out for Delivery
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-center">
+                                    <div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden border border-outline-variant shrink-0">
+                                        <img class="w-full h-full object-cover" data-alt="A gourmet wood-fired pizza with fresh basil and mozzarella." src="images/gourmet_woodfired_pizza.png">
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-body-sm text-body-sm text-on-surface font-semibold mb-1 font-bold">Margherita Special</p>
+                                        <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Home • Driver: John S.</p>
+                                    </div>
+                                    <button class="text-on-surface-variant group-hover:text-primary transition-colors bg-transparent border-0">
+                                        <span class="material-symbols-outlined">chevron_right</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Sidebar Stats -->
+                <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                    <!-- Revenue Breakdown -->
+                    <div class="bg-surface-container-low border border-outline-variant p-6 rounded-xl h-full flex flex-col">
+                        <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mb-6">Sales Channels</h3>
+                        <div class="space-y-6 flex-1 space-y-6">
+                            <div class="space-y-2">
+                                <div class="flex justify-between font-label-md text-label-md mb-2">
+                                    <span class="text-on-surface font-bold">Dine-in</span>
+                                    <span class="text-primary font-bold">64%</span>
+                                </div>
+                                <div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary" style="width: 64%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2 mt-6">
+                                <div class="flex justify-between font-label-md text-label-md mb-2">
+                                    <span class="text-on-surface font-bold">Takeaway</span>
+                                    <span class="text-primary-container font-bold">28%</span>
+                                </div>
+                                <div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary-container" style="width: 28%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2 mt-6">
+                                <div class="flex justify-between font-label-md text-label-md mb-2">
+                                    <span class="text-on-surface font-bold">Delivery</span>
+                                    <span class="text-primary font-bold">8%</span>
+                                </div>
+                                <div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                    <div class="h-full bg-outline" style="width: 8%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-outline-variant">
+                            <p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-4 tracking-widest font-bold">Top Selling Item</p>
+                            <div class="flex items-center gap-4 bg-surface-container-highest/50 p-4 rounded-xl border border-outline-variant">
+                                <div class="w-14 h-14 bg-surface-container rounded border border-outline-variant shrink-0 overflow-hidden">
+                                    <img class="w-full h-full object-cover" data-alt="Extreme close-up of premium golden sushi rolls with fresh salmon and avocado." src="images/golden_sushi_rolls.png">
+                                </div>
+                                <div>
+                                    <p class="font-body-md text-body-md text-on-surface font-bold mb-1">Midnight Sushi Set</p>
+                                    <p class="font-label-sm text-label-sm text-primary mb-0">1,204 sold this week</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Real-time Activity -->
+                    <div class="bg-surface-container-low border border-outline-variant p-6 rounded-xl">
+                        <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4 font-bold">Operations</h3>
+                        <div class="space-y-4 space-y-4">
+                            <div class="flex gap-4 items-start mb-4">
+                                <div class="mt-1.5 w-2 h-2 rounded-full bg-primary shrink-0"></div>
+                                <div>
+                                    <p class="font-body-sm text-body-sm text-on-surface mb-1 font-bold">Kitchen staff updated stock for 'Ribeye'</p>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">2 mins ago</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start mb-4">
+                                <div class="mt-1.5 w-2 h-2 rounded-full bg-outline shrink-0"></div>
+                                <div>
+                                    <p class="font-body-sm text-body-sm text-on-surface mb-1 font-bold">Table 4 requested check</p>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">15 mins ago</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="mt-1.5 w-2 h-2 rounded-full bg-primary-container shrink-0"></div>
+                                <div>
+                                    <p class="font-body-sm text-body-sm text-on-surface mb-1 font-bold">Daily auto-report generated</p>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">1 hour ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="w-full border-t border-outline-variant bg-background shrink-0">
+            <div class="flex flex-col md:flex-row justify-between items-center px-8 py-4 w-full max-w-container-max-width mx-auto">
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-0">© 2024 TestShare Enterprise. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">Privacy Policy</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">Terms of Service</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">API Docs</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">Contact Support</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Custom Main JS -->
+<script src="../js/main.js"></script>
+<!-- Micro-interaction Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Hover effect for tracking cards
+        const cards = document.querySelectorAll('.bento-grid > div');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(255, 159, 13, 0.3)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = '#2D2D2D';
+            });
+        });
+
+        // Simulate live updates
+        setInterval(() => {
+            const revenue = document.querySelector('.font-display-lg');
+            if (revenue) {
+                const current = parseFloat(revenue.textContent.replace('$', '').replace(',', ''));
+                const next = (current + Math.random() * 10).toFixed(2);
+                revenue.textContent = '$' + next.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+        }, 3000);
+    });
+</script>
+</body>
+</html>

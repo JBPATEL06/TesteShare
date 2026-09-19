@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare | Premium Food Delivery</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#353534",
+                    "on-surface": "#e5e2e1",
+                    "primary-fixed": "#ffddbb",
+                    "surface-dim": "#131313",
+                    "tertiary": "#90daff",
+                    "on-surface-variant": "#dac3ad",
+                    "on-error": "#690005",
+                    "tertiary-container": "#00c3fd",
+                    "surface-container-lowest": "#0e0e0e",
+                    "outline-variant": "#544434",
+                    "tertiary-fixed-dim": "#70d2ff",
+                    "surface-container-highest": "#353534",
+                    "outline": "#a28d7a",
+                    "surface-container-low": "#1c1b1b",
+                    "background": "#131313",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "on-tertiary-fixed": "#001e2b",
+                    "primary": "#ffc688",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#2b1700",
+                    "secondary-container": "#474746",
+                    "on-tertiary-container": "#004d66",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-primary-fixed-variant": "#673d00",
+                    "surface-bright": "#393939",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "on-primary": "#482900",
+                    "surface-container": "#201f1f",
+                    "primary-fixed-dim": "#ffb868",
+                    "on-tertiary": "#003547",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-secondary": "#303030",
+                    "inverse-on-surface": "#313030",
+                    "secondary": "#c8c6c5",
+                    "primary-container": "#ff9f0d",
+                    "inverse-surface": "#e5e2e1",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "inverse-primary": "#885200",
+                    "on-primary-container": "#673d00",
+                    "tertiary-fixed": "#c0e8ff",
+                    "surface": "#131313",
+                    "surface-tint": "#ffb868",
+                    "on-secondary-fixed-variant": "#474746",
+                    "error-container": "#93000a",
+                    "on-background": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "12px",
+                    "section-gap": "48px",
+                    "stack-lg": "24px",
+                    "base": "8px",
+                    "stack-sm": "4px",
+                    "container-margin": "20px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .solid-border {
+            border: 1px solid #2D2D2D;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container font-body-md">
+    <!-- TopNavBar -->
+    <header class="bg-surface border-b border-surface-variant flex justify-between items-center w-full px-container-margin py-base max-w-full sticky top-0 z-[60]">
+        <div class="flex items-center gap-stack-lg">
+            <a href="index.html" class="text-decoration-none"><span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">TestShare</span></a>
+            <!-- Location Selector -->
+            <div class="hidden md:flex items-center gap-base px-base py-stack-sm solid-border bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group rounded-2">
+                <span class="material-symbols-outlined text-primary">location_on</span>
+                <span class="font-label-md text-label-md text-on-surface">Manhattan, NY</span>
+                <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">expand_more</span>
+            </div>
+        </div>
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-md mx-gutter hidden md:block">
+            <div class="relative group">
+                <input class="w-full bg-surface solid-border px-stack-lg py-2 focus:border-primary-container focus:ring-0 outline-none transition-all text-body-md font-body-md placeholder:text-on-surface-variant rounded-2" placeholder="Search for restaurants or dishes..." type="text">
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary">search</span>
+            </div>
+        </div>
+        <nav class="flex items-center gap-stack-lg">
+            <a class="hidden md:block font-label-md text-label-md text-primary font-bold border-b-2 border-primary py-1 text-decoration-none" href="redesigned_seller_menu_offers.html">Offers</a>
+            <a href="my_profile_testshare.html" class="hover:bg-surface-container-high transition-colors p-2 flex items-center justify-center active:scale-95 duration-100 rounded-circle text-decoration-none">
+                <span class="material-symbols-outlined text-primary">person</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="min-h-screen max-w-7xl mx-auto px-container-margin pb-32">
+        <!-- Mobile Search & Location -->
+        <div class="md:hidden pt-stack-lg pb-base space-y-stack-md">
+            <div class="flex items-center gap-base px-stack-md py-stack-sm solid-border bg-surface-container-low rounded-2">
+                <span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+                <span class="font-label-sm text-label-sm text-on-surface">Manhattan, NY</span>
+            </div>
+            <div class="relative">
+                <input class="w-full bg-surface-container solid-border px-stack-lg py-3 outline-none text-body-md rounded-2" placeholder="Search TestShare" type="text">
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="py-section-gap">
+            <div class="flex flex-col gap-base">
+                <h1 class="font-headline-xl text-headline-xl md:text-headline-xl text-on-surface max-w-2xl leading-tight font-bold">
+                    Premium Curation. <span class="text-primary-container">Solid-State Dining.</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-0">
+                    High-contrast minimalism for the urban palate. Every dish is a statement of architectural precision.
+                </p>
+            </div>
+        </section>
+
+        <!-- Restaurant Feed Toggle -->
+        <div class="flex mb-stack-lg">
+            <div class="inline-flex p-1 bg-surface-container-low solid-border rounded-full">
+                <a href="home_store_exploration.html" class="px-stack-lg py-2 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md transition-all text-decoration-none fw-bold">
+                    Explore Restaurants
+                </a>
+                <a href="index.html" class="px-stack-lg py-2 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all text-decoration-none">
+                    Explore Dishes
+                </a>
+            </div>
+        </div>
+
+        <section class="space-y-section-gap">
+            <!-- Restaurant Card 1 -->
+            <article class="bg-surface-container solid-border p-0 overflow-hidden group rounded-3 mb-5">
+                <div class="p-stack-lg flex flex-col md:flex-row md:items-center justify-between gap-stack-md">
+                    <div class="flex items-center gap-stack-md">
+                        <div class="w-12 h-12 solid-border bg-surface flex items-center justify-center rounded-2">
+                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+                        </div>
+                        <div>
+                            <h2 class="font-headline-md text-headline-md text-on-surface mb-1">The Obsidian Grill</h2>
+                            <div class="flex items-center gap-base">
+                                <span class="flex items-center text-primary-container font-label-md text-label-md">
+                                    <span class="material-symbols-outlined text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                                </span>
+                                <span class="text-on-surface-variant font-label-md text-label-md">• French-Japanese Fusion</span>
+                                <span class="text-on-surface-variant font-label-md text-label-md">• 20-30 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-stack-md">
+                        <a href="your_cart.html" class="px-stack-lg py-2 bg-primary-container text-on-primary-container font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all text-decoration-none rounded-2 fw-bold">Custom Order</a>
+                        <a href="home_store_exploration.html" class="px-stack-lg py-2 solid-border text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors text-decoration-none rounded-2">View All</a>
+                    </div>
+                </div>
+                <!-- Main Dishes - Horizontal Scroll -->
+                <div class="px-stack-lg pb-stack-lg">
+                    <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-stack-md">Signature Selections</p>
+                    <div class="flex gap-gutter overflow-x-auto hide-scrollbar pb-base">
+                        <!-- Dish 1 -->
+                        <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="flex-none w-[280px] solid-border bg-surface p-base group/dish cursor-pointer rounded-2">
+                            <div class="aspect-video mb-base relative overflow-hidden rounded-1">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover/dish:scale-110" alt="Wagyu Gold Tartare" src="images/wagyu_gold_tartare.png">
+                                <div class="absolute inset-0 bg-black/20 group-hover/dish:bg-transparent transition-colors"></div>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-label-md text-label-md text-on-surface mb-0">Wagyu Gold Tartare</h3>
+                                    <p class="text-on-surface-variant font-label-sm text-label-sm mb-0">Yuzu, black truffle, shiso</p>
+                                </div>
+                                <span class="font-label-md text-label-md text-primary-container fw-bold">$34</span>
+                            </div>
+                        </div>
+                        <!-- Dish 2 -->
+                        <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="flex-none w-[280px] solid-border bg-surface p-base group/dish cursor-pointer rounded-2">
+                            <div class="aspect-video mb-base relative overflow-hidden rounded-1">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover/dish:scale-110" alt="Ink & Gold Risotto" src="images/ink_gold_risotto.png">
+                                <div class="absolute inset-0 bg-black/20 group-hover/dish:bg-transparent transition-colors"></div>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-label-md text-label-md text-on-surface mb-0">Ink & Gold Risotto</h3>
+                                    <p class="text-on-surface-variant font-label-sm text-label-sm mb-0">Squid ink, Hokkaido uni</p>
+                                </div>
+                                <span class="font-label-md text-label-md text-primary-container fw-bold">$42</span>
+                            </div>
+                        </div>
+                        <!-- Dish 3 -->
+                        <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="flex-none w-[280px] solid-border bg-surface p-base group/dish cursor-pointer rounded-2">
+                            <div class="aspect-video mb-base relative overflow-hidden rounded-1">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover/dish:scale-110" alt="Bluefin Trilogy" src="images/bluefin_trilogy.png">
+                                <div class="absolute inset-0 bg-black/20 group-hover/dish:bg-transparent transition-colors"></div>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-label-md text-label-md text-on-surface mb-0">Bluefin Trilogy</h3>
+                                    <p class="text-on-surface-variant font-label-sm text-label-sm mb-0">Akami, Chutoro, Otoro</p>
+                                </div>
+                                <span class="font-label-md text-label-md text-primary-container fw-bold">$28</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Restaurant Card 2 -->
+            <article class="bg-surface-container solid-border p-0 overflow-hidden group rounded-3 mb-5">
+                <div class="p-stack-lg flex flex-col md:flex-row md:items-center justify-between gap-stack-md">
+                    <div class="flex items-center gap-stack-md">
+                        <div class="w-12 h-12 solid-border bg-surface flex items-center justify-center rounded-2">
+                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">local_pizza</span>
+                        </div>
+                        <div>
+                            <h2 class="font-headline-md text-headline-md text-on-surface mb-1">Artisan Crust Lab</h2>
+                            <div class="flex items-center gap-base">
+                                <span class="flex items-center text-primary-container font-label-md text-label-md">
+                                    <span class="material-symbols-outlined text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span> 4.7
+                                </span>
+                                <span class="text-on-surface-variant font-label-md text-label-md">• Gourmet Neapolitan</span>
+                                <span class="text-on-surface-variant font-label-md text-label-md">• 15-25 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-stack-md">
+                        <a href="your_cart.html" class="px-stack-lg py-2 bg-primary-container text-on-primary-container font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all text-decoration-none rounded-2 fw-bold">Custom Order</a>
+                        <a href="home_store_exploration.html" class="px-stack-lg py-2 solid-border text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors text-decoration-none rounded-2">View All</a>
+                    </div>
+                </div>
+                <div class="px-stack-lg pb-stack-lg">
+                    <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-stack-md">Fresh From Oven</p>
+                    <div class="flex gap-gutter overflow-x-auto hide-scrollbar pb-base">
+                        <!-- Dish 1 -->
+                        <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="flex-none w-[280px] solid-border bg-surface p-base group/dish cursor-pointer rounded-2">
+                            <div class="aspect-video mb-base relative overflow-hidden rounded-1">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover/dish:scale-110" alt="The Truffle Sourdough" src="images/truffle_sourdough.png">
+                                <div class="absolute inset-0 bg-black/20 group-hover/dish:bg-transparent transition-colors"></div>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-label-md text-label-md text-on-surface mb-0">The Truffle Sourdough</h3>
+                                    <p class="text-on-surface-variant font-label-sm text-label-sm mb-0">Aged dough, black truffle</p>
+                                </div>
+                                <span class="font-label-md text-label-md text-primary-container fw-bold">$26</span>
+                            </div>
+                        </div>
+                        <!-- Dish 2 -->
+                        <div onclick="window.location.href='food_item_detail_wagyu_gold_tartare.html'" class="flex-none w-[280px] solid-border bg-surface p-base group/dish cursor-pointer rounded-2">
+                            <div class="aspect-video mb-base relative overflow-hidden rounded-1">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover/dish:scale-110" alt="Forest Fungi" src="images/forest_fungi_dish.png">
+                                <div class="absolute inset-0 bg-black/20 group-hover/dish:bg-transparent transition-colors"></div>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-label-md text-label-md text-on-surface mb-0">Forest Fungi</h3>
+                                    <p class="text-on-surface-variant font-label-sm text-label-sm mb-0">Roasted garlic, wild mix</p>
+                                </div>
+                                <span class="font-label-md text-label-md text-primary-container fw-bold">$22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Quick Filters Chips -->
+        <section class="mt-section-gap my-5">
+            <div class="flex items-center gap-gutter overflow-x-auto hide-scrollbar pb-stack-lg">
+                <button class="flex-none px-stack-lg py-2 bg-surface-container solid-border font-label-sm text-label-sm text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all rounded-2">Fast Delivery</button>
+                <button class="flex-none px-stack-lg py-2 bg-surface-container solid-border font-label-sm text-label-sm text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all rounded-2">Vegan</button>
+                <button class="flex-none px-stack-lg py-2 bg-surface-container solid-border font-label-sm text-label-sm text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all rounded-2">Top Rated</button>
+                <button class="flex-none px-stack-lg py-2 bg-surface-container solid-border font-label-sm text-label-sm text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all rounded-2">New Arrivals</button>
+                <button class="flex-none px-stack-lg py-2 bg-surface-container solid-border font-label-sm text-label-sm text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all rounded-2">Alcohol</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container border-t border-surface-variant md:hidden">
+        <a class="flex flex-col items-center justify-center text-primary transition-transform duration-200 active:scale-110 text-decoration-none" href="index.html">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+            <span class="font-label-sm text-label-sm">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-transform duration-200 active:scale-110 text-decoration-none" href="redesigned_seller_menu_offers.html">
+            <span class="material-symbols-outlined">local_offer</span>
+            <span class="font-label-sm text-label-sm">Offers</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-transform duration-200 active:scale-110 text-decoration-none" href="order_history_reviews_2.html">
+            <span class="material-symbols-outlined">receipt_long</span>
+            <span class="font-label-sm text-label-sm">Orders</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-transform duration-200 active:scale-110 text-decoration-none" href="your_cart.html">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span class="font-label-sm text-label-sm">Cart</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="w-full px-container-margin py-section-gap flex flex-col md:flex-row justify-between items-center gap-stack-lg bg-surface-container-lowest border-t border-surface-variant mt-24 py-5">
+        <div class="flex flex-col items-center md:items-start gap-stack-md">
+            <span class="font-headline-md text-headline-md text-primary tracking-tight font-bold">TestShare</span>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-0">© 2024 TestShare. All rights reserved.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-stack-lg">
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">About Us</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="seller_registration_testshare.html">Partner with us</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">Privacy Policy</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">Support</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

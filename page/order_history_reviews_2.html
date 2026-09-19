@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Order History | TestShare</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534",
+                        "primary": "#ffc688",
+                        "on-primary": "#482900",
+                        "outline-variant": "#544434",
+                        "on-primary-fixed-variant": "#673d00",
+                        "surface": "#131313",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#ffb868",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#00c3fd",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "inverse-on-surface": "#313030",
+                        "surface-container": "#201f1f",
+                        "tertiary": "#90daff",
+                        "on-primary-container": "#673d00",
+                        "tertiary-fixed": "#c0e8ff",
+                        "inverse-primary": "#885200",
+                        "primary-fixed": "#ffddbb",
+                        "primary-container": "#ff9f0d",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#2b1700",
+                        "on-tertiary-fixed": "#001e2b",
+                        "surface-bright": "#393939",
+                        "secondary-container": "#474746",
+                        "on-secondary": "#303030",
+                        "secondary": "#c8c6c5",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-background": "#e5e2e1",
+                        "tertiary-fixed-dim": "#70d2ff",
+                        "surface-variant": "#353534",
+                        "on-tertiary-container": "#004d66",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#dac3ad",
+                        "on-secondary-fixed-variant": "#474746",
+                        "outline": "#a28d7a",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary": "#003547",
+                        "background": "#131313",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed-dim": "#ffb868"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px",
+                        "container-margin": "20px",
+                        "gutter": "16px",
+                        "section-gap": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+    <!-- Top Navigation -->
+    <nav class="sticky top-0 z-50 bg-surface-container border-b border-outline-variant px-container-margin py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-gutter">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-decoration-none"><span class="text-primary font-headline-md font-bold">TestShare</span></a>
+            </div>
+            <div class="flex-1 max-w-2xl relative hidden md:block">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                <input class="w-full bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 text-body-md focus:ring-2 focus:ring-primary placeholder:text-on-surface-variant" placeholder="Search orders or restaurants..." type="text">
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="relative bg-transparent border-0 p-1">
+                    <span class="material-symbols-outlined text-on-surface">notifications</span>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></span>
+                </button>
+                <div onclick="window.location.href='my_profile_testshare.html'" class="flex items-center gap-2 cursor-pointer group">
+                    <div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center group-hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary-fixed-dim text-sm">person</span>
+                    </div>
+                    <span class="text-label-md hidden sm:block font-bold">My Account</span>
+                    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">expand_more</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-container-margin py-stack-lg w-full my-4">
+        <div class="flex border-b border-outline-variant mb-stack-lg mb-4">
+            <button onclick="window.location.href='order_history_reviews_2.html'" class="px-6 py-3 text-label-md font-bold text-primary border-b-2 border-primary transition-colors bg-transparent border-0 pb-3 border-bottom border-2 border-warning">
+                Order History
+            </button>
+            <button onclick="window.location.href='your_cart.html'" class="px-6 py-3 text-label-md font-semibold text-on-surface-variant hover:text-on-surface transition-colors bg-transparent border-0 pb-3">
+                Cart
+            </button>
+        </div>
+        <header class="mb-stack-lg my-4">
+            <h1 class="text-headline-xl text-on-surface font-bold mb-2">Order History</h1>
+            <p class="text-on-surface-variant text-body-md mb-0">Manage your past orders and share your feedback.</p>
+        </header>
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-gutter my-4">
+            <!-- Sidebar / Filters -->
+            <aside class="lg:col-span-1 space-y-stack-lg mb-4">
+                <div class="bg-surface-container rounded-3 p-6 border border-outline-variant p-4">
+                    <h2 class="text-label-md uppercase tracking-wider mb-stack-md text-on-surface font-bold mb-3">Filter By</h2>
+                    <div class="space-y-4">
+                        <div class="mb-3">
+                            <label class="text-label-sm text-on-surface-variant block mb-2 font-bold">Order Status</label>
+                            <select class="w-full bg-surface-container-highest border-outline-variant rounded-2 text-body-md p-2 text-on-surface">
+                                <option>All Orders</option>
+                                <option>Delivered</option>
+                                <option>Cancelled</option>
+                                <option>In Progress</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="text-label-sm text-on-surface-variant block mb-2 font-bold">Time Period</label>
+                            <select class="w-full bg-surface-container-highest border-outline-variant rounded-2 text-body-md p-2 text-on-surface">
+                                <option>Last 3 months</option>
+                                <option>Last 6 months</option>
+                                <option>2023</option>
+                                <option>Earlier</option>
+                            </select>
+                        </div>
+                        <button class="w-full py-2 bg-surface-container-high hover:bg-surface-container-highest text-primary-fixed-dim text-label-md rounded-2 transition-colors border border-outline-variant font-bold uppercase tracking-wider">
+                            Clear All Filters
+                        </button>
+                    </div>
+                </div>
+            </aside>
+            <!-- Order List -->
+            <section class="lg:col-span-3 space-y-gutter">
+                <!-- Order Card 1 -->
+                <article class="bg-surface-container rounded-3 border border-outline-variant overflow-hidden mb-4">
+                    <div class="p-6 flex flex-col md:flex-row gap-gutter p-4">
+                        <div class="w-24 h-24 rounded-2 overflow-hidden bg-surface-container-high shrink-0 mr-4 mb-3 md:mb-0">
+                            <img alt="Restaurant" class="w-full h-full object-cover" src="images/restaurant_bg_1.png">
+                        </div>
+                        <div class="flex-1 space-y-2">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="text-headline-md text-on-surface font-bold mb-1">The Pizza Artisan</h3>
+                                    <p class="text-label-sm text-on-surface-variant mb-0">Order #UA-98231 • Oct 12, 2023</p>
+                                </div>
+                                <span class="bg-green-900/30 text-green-400 text-label-sm px-3 py-1 rounded-full border border-green-800 font-bold">Delivered</span>
+                            </div>
+                            <div class="text-body-md text-on-surface-variant mb-3">
+                                1x Margherita Pizza (Large), 2x Garlic Knots, 1x Coke Zero
+                            </div>
+                            <div class="flex items-center justify-between pt-3 border-t border-surface-variant">
+                                <span class="text-headline-md text-primary font-bold">$34.50</span>
+                                <div class="flex gap-2">
+                                    <button onclick="window.location.href='../index.php?route=seller/store_menu'" class="px-4 py-2 border border-outline-variant bg-transparent text-on-surface text-label-md rounded-2 hover:bg-surface-container-high transition-colors font-bold">
+                                        View Details
+                                    </button>
+                                    <button onclick="window.location.href='../index.php?route=seller/store_menu'" class="px-4 py-2 bg-primary text-on-primary text-label-md font-bold rounded-2 hover:bg-primary-fixed transition-colors border-0 font-bold">
+                                        Write a Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Order Card 2 -->
+                <article class="bg-surface-container rounded-3 border border-outline-variant overflow-hidden mb-4">
+                    <div class="p-6 flex flex-col md:flex-row gap-gutter p-4">
+                        <div class="w-24 h-24 rounded-2 overflow-hidden bg-surface-container-high shrink-0 mr-4 mb-3 md:mb-0">
+                            <img alt="Restaurant" class="w-full h-full object-cover" src="images/restaurant_banner_1.png">
+                        </div>
+                        <div class="flex-1 space-y-2">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="text-headline-md text-on-surface font-bold mb-1">Sushi Zen Garden</h3>
+                                    <p class="text-label-sm text-on-surface-variant mb-0">Order #UA-97442 • Sep 28, 2023</p>
+                                </div>
+                                <span class="bg-green-900/30 text-green-400 text-label-sm px-3 py-1 rounded-full border border-green-800 font-bold">Delivered</span>
+                            </div>
+                            <div class="text-body-md text-on-surface-variant mb-3">
+                                1x Chef's Special Roll, 1x Miso Soup, 1x Salmon Sashimi (3pc)
+                            </div>
+                            <div class="flex items-center justify-between pt-3 border-t border-surface-variant">
+                                <span class="text-headline-md text-primary font-bold">$52.10</span>
+                                <div class="flex gap-2">
+                                    <button onclick="window.location.href='../index.php?route=seller/store_menu'" class="px-4 py-2 border border-outline-variant bg-transparent text-on-surface text-label-md rounded-2 hover:bg-surface-container-high transition-colors font-bold">
+                                        View Details
+                                    </button>
+                                    <button onclick="window.location.href='../index.php?route=seller/store_menu'" class="px-4 py-2 bg-surface-container-highest text-primary-fixed-dim text-label-md font-bold rounded-2 border border-outline-variant hover:bg-surface-variant transition-colors flex items-center gap-1 font-bold">
+                                        <span class="material-symbols-outlined text-sm">star</span>
+                                        View Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Order Card 3 (Cancelled) -->
+                <article class="bg-surface-container/50 rounded-3 border border-outline-variant overflow-hidden opacity-80 mb-4">
+                    <div class="p-6 flex flex-col md:flex-row gap-gutter p-4">
+                        <div class="w-24 h-24 rounded-2 overflow-hidden bg-surface-container-high shrink-0 grayscale mr-4 mb-3 md:mb-0">
+                            <img alt="Restaurant" class="w-full h-full object-cover" src="images/restaurant_card_bg.png">
+                        </div>
+                        <div class="flex-1 space-y-2">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="text-headline-md text-on-surface font-bold mb-1">Green Bowl Salads</h3>
+                                    <p class="text-label-sm text-on-surface-variant mb-0">Order #UA-96210 • Sep 15, 2023</p>
+                                </div>
+                                <span class="bg-error-container/30 text-error text-label-sm px-3 py-1 rounded-full border border-error-container font-bold">Cancelled</span>
+                            </div>
+                            <div class="text-body-md text-on-surface-variant italic mb-3">
+                                Order was cancelled by restaurant. Refund processed.
+                            </div>
+                            <div class="flex items-center justify-between pt-3 border-t border-surface-variant">
+                                <span class="text-headline-md text-on-surface-variant font-bold">$22.00</span>
+                                <button class="px-4 py-2 border border-outline-variant bg-transparent text-on-surface text-label-md rounded-2 hover:bg-surface-container-high transition-colors font-bold">
+                                    Help Center
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center py-stack-lg px-container-margin gap-stack-md mt-24 py-5">
+        <div class="flex flex-col items-center md:items-start gap-1">
+            <span class="font-headline-sm text-headline-sm font-bold text-primary">TestShare</span>
+            <span class="font-label-sm text-label-sm text-secondary mb-0">© 2024 TestShare Technologies Inc.</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-stack-lg gap-y-stack-sm gap-4">
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">About Us</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Careers</a>
+            <a href="seller_registration_testshare.html" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Partner with Us</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Terms of Service</a>
+            <a href="#" class="text-primary underline font-label-sm text-label-sm underline-offset-4 cursor-pointer text-decoration-none">Privacy Policy</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Contact Support</a>
+        </div>
+        <div class="flex gap-stack-md gap-2">
+            <div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group p-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-primary-container">language</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group p-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-primary-container">share</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Mobile Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container border-t border-outline-variant flex justify-around py-3">
+        <button onclick="window.location.href='index.html'" class="flex flex-col items-center gap-1 bg-transparent border-0">
+            <span class="material-symbols-outlined text-on-surface-variant">home</span>
+            <span class="text-label-sm text-on-surface-variant">Home</span>
+        </button>
+        <button onclick="window.location.href='order_history_reviews_2.html'" class="flex flex-col items-center gap-1 text-primary bg-transparent border-0">
+            <span class="material-symbols-outlined text-primary">history</span>
+            <span class="text-label-sm text-primary">Orders</span>
+        </button>
+        <button onclick="window.location.href='your_cart.html'" class="flex flex-col items-center gap-1 bg-transparent border-0">
+            <span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+            <span class="text-label-sm text-on-surface-variant">Cart</span>
+        </button>
+        <button onclick="window.location.href='my_profile_testshare.html'" class="flex flex-col items-center gap-1 bg-transparent border-0">
+            <span class="material-symbols-outlined text-on-surface-variant">person</span>
+            <span class="text-label-sm text-on-surface-variant">Profile</span>
+        </button>
+    </nav>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

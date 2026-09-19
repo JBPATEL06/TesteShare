@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare - Restaurant Details</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- Tailwind Theme Config -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#353534",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-container": "#474746",
+                    "on-surface-variant": "#dac3ad",
+                    "error": "#ffb4ab",
+                    "on-secondary": "#303030",
+                    "surface-container": "#201f1f",
+                    "primary-fixed-dim": "#ffb868",
+                    "on-secondary-container": "#b7b5b4",
+                    "secondary": "#c8c6c5",
+                    "primary": "#ffc688",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "on-secondary-fixed-variant": "#474746",
+                    "surface-dim": "#131313",
+                    "on-primary": "#482900",
+                    "tertiary-fixed": "#c0e8ff",
+                    "secondary-fixed": "#e5e2e1",
+                    "tertiary-container": "#00c3fd",
+                    "on-background": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed-dim": "#70d2ff",
+                    "on-tertiary-fixed": "#001e2b",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#885200",
+                    "inverse-on-surface": "#313030",
+                    "outline": "#a28d7a",
+                    "primary-container": "#ff9f0d",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "on-surface": "#e5e2e1",
+                    "surface-bright": "#393939",
+                    "on-tertiary": "#003547",
+                    "surface-tint": "#ffb868",
+                    "outline-variant": "#544434",
+                    "on-primary-fixed": "#2b1700",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary": "#90daff",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-container": "#004d66",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-primary-container": "#673d00",
+                    "primary-fixed": "#ffddbb",
+                    "on-primary-fixed-variant": "#673d00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "12px",
+                    "container-margin": "20px",
+                    "stack-sm": "4px",
+                    "stack-lg": "24px",
+                    "gutter": "16px",
+                    "section-gap": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #2D2D2D; border-radius: 4px; }
+        /* Tab switching logic */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { border-color: #ff9f0d; color: #ff9f0d; font-weight: bold; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-surface text-on-surface">
+    <!-- TopNavBar -->
+    <header class="bg-surface text-primary docked full-width top-0 border-b border-surface-variant z-40 sticky-top">
+        <nav class="flex justify-between items-center w-full px-container-margin py-base max-w-full">
+            <div class="flex items-center gap-gutter">
+                <a href="index.html" class="text-decoration-none"><span class="font-headline-md text-headline-md font-bold text-primary">TestShare</span></a>
+                <div class="hidden md:flex gap-gutter ml-stack-lg">
+                    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors px-3 py-1 text-decoration-none" href="redesigned_seller_menu_offers.html">Offers</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-stack-md">
+                <div class="hidden md:flex bg-surface-container-low border border-surface-variant px-4 py-2 rounded-2 items-center gap-base">
+                    <span class="material-symbols-outlined text-on-surface-variant">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-body-md text-on-surface placeholder-on-surface-variant w-64" placeholder="Search menu items..." type="text">
+                </div>
+                <button onclick="window.location.href='my_profile_testshare.html'" class="material-symbols-outlined hover:bg-surface-container-high p-2 transition-colors bg-transparent border-0 text-primary rounded-circle">person</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow pt-base">
+        <!-- Restaurant Hero Section -->
+        <section class="px-container-margin py-base border-b border-surface-variant bg-surface-container-low py-4">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-gutter items-start">
+                <div class="relative w-full md:w-48 h-48 border border-surface-variant rounded-3 overflow-hidden mr-4">
+                    <img class="w-full h-full object-cover" alt="The Ember Kitchen" src="images/ember_kitchen_logo.png">
+                </div>
+                <div class="flex-grow space-y-base">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                        <div>
+                            <h1 class="font-headline-lg text-headline-lg text-on-surface font-bold mb-1">The Ember Kitchen</h1>
+                            <p class="font-body-md text-on-surface-variant mb-0">Artisanal Burgers & Wood-Fired Sides • Modern American</p>
+                        </div>
+                        <div class="bg-primary-container text-on-primary-container px-3 py-1 font-label-md rounded-2 flex items-center gap-stack-sm mt-3 md:mt-0 font-bold self-start">
+                            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.8 (500+ Reviews)
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-stack-lg mt-base pt-2 border-t border-surface-variant">
+                        <div class="flex items-center gap-stack-sm font-label-md text-on-surface mr-4">
+                            <span class="material-symbols-outlined text-primary mr-1">schedule</span>
+                            25-35 mins
+                        </div>
+                        <div class="flex items-center gap-stack-sm font-label-md text-on-surface mr-4">
+                            <span class="material-symbols-outlined text-primary mr-1">delivery_dining</span>
+                            Free delivery
+                        </div>
+                        <div class="flex items-center gap-stack-sm font-label-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary mr-1">payments</span>
+                            Min. order $15.00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secondary Navigation (Tabs) -->
+        <section class="sticky top-[65px] bg-surface z-30 border-b border-surface-variant">
+            <div class="max-w-7xl mx-auto px-container-margin flex gap-stack-lg">
+                <button class="tab-btn active py-4 font-label-md text-label-md border-b-2 border-transparent transition-all bg-transparent mr-4" onclick="switchTab('menu', this)">Menu</button>
+                <button class="tab-btn py-4 font-label-md text-label-md border-b-2 border-transparent transition-all bg-transparent text-on-surface-variant" onclick="switchTab('reviews', this)">Reviews & Comments</button>
+            </div>
+        </section>
+
+        <!-- Content Area -->
+        <div class="max-w-7xl mx-auto px-container-margin py-stack-lg my-4">
+            <!-- Menu Tab -->
+            <div class="tab-content active" id="tab-menu">
+                <div class="flex flex-col lg:flex-row gap-section-gap">
+                    <!-- Sticky Sidebar -->
+                    <aside class="hidden lg:block w-64 shrink-0">
+                        <div class="sticky top-[140px] space-y-stack-md">
+                            <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-base font-bold mb-3">Categories</h3>
+                            <nav class="space-y-1">
+                                <a class="block py-2 px-3 border-l-2 border-primary text-primary font-label-md bg-surface-container text-decoration-none font-bold mb-1" href="#starters">Starters</a>
+                                <a class="block py-2 px-3 border-l-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-md transition-colors text-decoration-none mb-1" href="#mains">Main Dishes</a>
+                                <a class="block py-2 px-3 border-l-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-md transition-colors text-decoration-none mb-1" href="#sides">Wood-Fired Sides</a>
+                                <a class="block py-2 px-3 border-l-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-md transition-colors text-decoration-none" href="#drinks">Cold Drinks</a>
+                            </nav>
+                        </div>
+                    </aside>
+                    <!-- Dishes List -->
+                    <div class="flex-grow space-y-section-gap">
+                        <!-- Category: Starters -->
+                        <section id="starters" class="mb-5">
+                            <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-lg border-b border-surface-variant pb-base font-bold pb-2 mb-4">Starters</h2>
+                            <div class="space-y-0 divide-y divide-surface-variant border-t border-surface-variant">
+                                <!-- Item 1 -->
+                                <div class="py-stack-lg flex gap-gutter py-4">
+                                    <div class="flex-grow pr-gutter pr-4">
+                                        <h3 class="font-body-lg text-body-lg font-semibold text-on-surface font-bold">Smoked Bone Marrow</h3>
+                                        <p class="font-body-md text-on-surface-variant mt-stack-sm mb-2">Herb crust, shallot jam, toasted sourdough, sea salt flakes.</p>
+                                        <div class="mt-base flex items-center gap-stack-lg">
+                                            <span class="font-label-md text-primary font-bold mr-3">$18.00</span>
+                                            <span class="bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded-1 text-[10px] uppercase font-bold tracking-tighter">Popular</span>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-24 h-24 border border-surface-variant shrink-0 group overflow-hidden rounded-2">
+                                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Smoked Bone Marrow" src="images/smoked_bone_marrow.png">
+                                        <button class="absolute bottom-1 right-1 bg-primary text-on-primary w-8 h-8 flex items-center justify-center rounded-sm shadow-xl active:scale-95 transition-all border-0">
+                                            <span class="material-symbols-outlined text-[20px]">add</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Item 2 -->
+                                <div class="py-stack-lg flex gap-gutter py-4">
+                                    <div class="flex-grow pr-gutter pr-4">
+                                        <h3 class="font-body-lg text-body-lg font-semibold text-on-surface font-bold">Burrata & Heirloom</h3>
+                                        <p class="font-body-md text-on-surface-variant mt-stack-sm mb-2">Creamy burrata, balsamic reduction, basil oil, ancient grain cracker.</p>
+                                        <div class="mt-base">
+                                            <span class="font-label-md text-primary font-bold">$16.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-24 h-24 border border-surface-variant shrink-0 group overflow-hidden rounded-2">
+                                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Burrata & Heirloom" src="images/burrata_heirloom.png">
+                                        <button class="absolute bottom-1 right-1 bg-primary text-on-primary w-8 h-8 flex items-center justify-center rounded-sm shadow-xl active:scale-95 transition-all border-0">
+                                            <span class="material-symbols-outlined text-[20px]">add</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Category: Mains -->
+                        <section id="mains" class="mb-5">
+                            <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-lg border-b border-surface-variant pb-base font-bold pb-2 mb-4">Main Dishes</h2>
+                            <div class="space-y-0 divide-y divide-surface-variant border-t border-surface-variant">
+                                <div class="py-stack-lg flex gap-gutter py-4">
+                                    <div class="flex-grow pr-gutter pr-4">
+                                        <h3 class="font-body-lg text-body-lg font-semibold text-on-surface font-bold">The Charcoal Signature</h3>
+                                        <p class="font-body-md text-on-surface-variant mt-stack-sm mb-2">Dry-aged beef, smoked cheddar, truffle aioli, onion compote on brioche.</p>
+                                        <div class="mt-base">
+                                            <span class="font-label-md text-primary font-bold">$24.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-24 h-24 border border-surface-variant shrink-0 group overflow-hidden rounded-2">
+                                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="The Charcoal Signature" src="images/charcoal_signature.png">
+                                        <button class="absolute bottom-1 right-1 bg-primary text-on-primary w-8 h-8 flex items-center justify-center rounded-sm shadow-xl active:scale-95 transition-all border-0">
+                                            <span class="material-symbols-outlined text-[20px]">add</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="py-stack-lg flex gap-gutter py-4">
+                                    <div class="flex-grow pr-gutter pr-4">
+                                        <h3 class="font-body-lg text-body-lg font-semibold text-on-surface font-bold">Pan-Seared Sea Bass</h3>
+                                        <p class="font-body-md text-on-surface-variant mt-stack-sm mb-2">Crispy skin, wild mushroom risotto, lemon-thyme foam.</p>
+                                        <div class="mt-base">
+                                            <span class="font-label-md text-primary font-bold">$32.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-24 h-24 border border-surface-variant shrink-0 group overflow-hidden rounded-2">
+                                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Pan-Seared Sea Bass" src="images/pan_seared_sea_bass.png">
+                                        <button class="absolute bottom-1 right-1 bg-primary text-on-primary w-8 h-8 flex items-center justify-center rounded-sm shadow-xl active:scale-95 transition-all border-0">
+                                            <span class="material-symbols-outlined text-[20px]">add</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- Cart Sidebar (Desktop) -->
+                    <aside class="hidden lg:block w-80 shrink-0">
+                        <div class="sticky top-[140px] border border-surface-variant bg-surface-container-low p-stack-lg rounded-3 p-4">
+                            <h3 class="font-headline-md text-on-surface mb-stack-lg font-bold mb-4">Your Order</h3>
+                            <div class="space-y-stack-md mb-section-gap mb-4">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex gap-base items-center">
+                                        <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded-1 text-xs font-bold mr-2">1</span>
+                                        <span class="font-body-md text-on-surface font-bold">Signature Burger</span>
+                                    </div>
+                                    <span class="font-label-md text-on-surface font-bold">$24.00</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-surface-variant pt-stack-md space-y-base pt-3 mb-4">
+                                <div class="flex justify-between font-body-md text-on-surface-variant mb-2">
+                                    <span>Subtotal</span>
+                                    <span>$24.00</span>
+                                </div>
+                                <div class="flex justify-between font-body-md text-on-surface-variant mb-2">
+                                    <span>Delivery Fee</span>
+                                    <span>$0.00</span>
+                                </div>
+                                <div class="flex justify-between font-label-md text-on-surface pt-base border-t border-surface-variant pt-2 font-bold">
+                                    <span>Total</span>
+                                    <span class="text-primary">$24.00</span>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='your_cart.html'" class="w-full bg-primary-container text-on-primary-fixed font-bold py-3 rounded-2 hover:brightness-110 transition-all active:scale-95 border-0 uppercase tracking-wider">Go to Checkout</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-content" id="tab-reviews">
+                <div class="max-w-4xl mx-auto space-y-stack-lg">
+                    <!-- Reviews Header/Summary -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-center border border-surface-variant bg-surface-container-low p-stack-lg rounded-3 p-4 mb-5">
+                        <div class="text-center md:border-r border-surface-variant pr-4 mb-4 md:mb-0">
+                            <div class="text-headline-xl font-extrabold text-primary font-bold mb-2">4.8</div>
+                            <div class="flex justify-center text-primary-container gap-0.5 mb-2">
+                                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]">star_half</span>
+                            </div>
+                            <p class="font-label-sm text-on-surface-variant mb-0">Based on 500+ verified ratings</p>
+                        </div>
+                        <div class="md:col-span-2 pl-0 md:pl-4 space-y-2">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="font-label-sm text-on-surface w-12 font-bold">5 Star</span>
+                                <div class="flex-grow bg-surface-variant h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary-container h-full w-[85%]"></div>
+                                </div>
+                                <span class="font-label-sm text-on-surface-variant w-8 text-right">85%</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="font-label-sm text-on-surface w-12 font-bold">4 Star</span>
+                                <div class="flex-grow bg-surface-variant h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary-container h-full w-[10%]"></div>
+                                </div>
+                                <span class="font-label-sm text-on-surface-variant w-8 text-right">10%</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="font-label-sm text-on-surface w-12 font-bold">3 Star</span>
+                                <div class="flex-grow bg-surface-variant h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary-container h-full w-[3%]"></div>
+                                </div>
+                                <span class="font-label-sm text-on-surface-variant w-8 text-right">3%</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="font-label-sm text-on-surface w-12 font-bold">2 Star</span>
+                                <div class="flex-grow bg-surface-variant h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary-container h-full w-[1%]"></div>
+                                </div>
+                                <span class="font-label-sm text-on-surface-variant w-8 text-right">1%</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="font-label-sm text-on-surface w-12 font-bold">1 Star</span>
+                                <div class="flex-grow bg-surface-variant h-2 rounded-full overflow-hidden">
+                                    <div class="bg-primary-container h-full w-[1%]"></div>
+                                </div>
+                                <span class="font-label-sm text-on-surface-variant w-8 text-right">1%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Review Box -->
+                    <div class="bg-surface-container border border-surface-variant p-4 rounded-3 mb-5">
+                        <h3 class="font-headline-md text-on-surface font-bold mb-3">Leave a Review</h3>
+                        <div class="mb-3">
+                            <label class="font-label-sm text-on-surface-variant block mb-2 font-bold">Your Rating</label>
+                            <div class="flex gap-1 text-primary-container cursor-pointer">
+                                <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="font-label-sm text-on-surface-variant block mb-2 font-bold">Your Experience</label>
+                            <textarea class="w-full bg-surface border border-surface-variant p-3 text-on-surface focus:border-primary-container focus:ring-0 rounded-2 min-h-[100px] resize-none" placeholder="Share details of your dining experience..."></textarea>
+                        </div>
+                        <button class="bg-primary-container text-on-primary-container font-bold py-2 px-6 rounded-2 hover:brightness-110 active:scale-95 transition-all border-0 uppercase tracking-wider">Submit Review</button>
+                    </div>
+
+                    <!-- Individual Reviews List -->
+                    <div class="space-y-4">
+                        <div class="border-b border-surface-variant pb-4 mb-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-surface-container-high rounded-circle overflow-hidden">
+                                        <img class="w-full h-full object-cover" alt="Reviewer" src="images/user_profile_avatar.png">
+                                    </div>
+                                    <div>
+                                        <p class="font-label-md text-on-surface font-bold mb-0">Marcus Thorne</p>
+                                        <p class="font-label-sm text-on-surface-variant mb-0">2 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-primary-container">
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant font-body-md mb-0">"The Charcoal Signature burger is a masterpiece. Perfect sear on the dry-aged beef, and the truffle aioli brings it all together. Delivered fresh and piping hot!"</p>
+                        </div>
+
+                        <div class="border-b border-surface-variant pb-4 mb-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-surface-container-high rounded-circle overflow-hidden">
+                                        <img class="w-full h-full object-cover" alt="Reviewer" src="images/reviewer_avatar_1.png">
+                                    </div>
+                                    <div>
+                                        <p class="font-label-md text-on-surface font-bold mb-0">Elena Rostova</p>
+                                        <p class="font-label-sm text-on-surface-variant mb-0">1 week ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-primary-container">
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant font-body-md mb-0">"Exquisite presentation of the Pan-Seared Sea Bass. The lemon-thyme foam survived delivery perfectly. Truly premium solid-state dining!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center py-stack-lg px-container-margin gap-stack-md mt-24 py-5">
+        <div class="flex flex-col items-center md:items-start gap-1">
+            <span class="font-headline-sm text-headline-sm font-bold text-primary">TestShare</span>
+            <span class="font-label-sm text-label-sm text-secondary mb-0">© 2024 TestShare Technologies Inc.</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-stack-lg gap-y-stack-sm gap-4">
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">About Us</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Careers</a>
+            <a href="seller_registration_testshare.html" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Partner with Us</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Terms of Service</a>
+            <a href="#" class="text-primary underline font-label-sm text-label-sm underline-offset-4 cursor-pointer text-decoration-none">Privacy Policy</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Contact Support</a>
+        </div>
+        <div class="flex gap-stack-md gap-2">
+            <div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group p-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-primary-container">language</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group p-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-primary-container">share</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Tab switching logic
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active', 'text-primary');
+                b.classList.add('text-on-surface-variant');
+            });
+            document.getElementById('tab-' + tabId).classList.add('active');
+            btn.classList.add('active', 'text-primary');
+            btn.classList.remove('text-on-surface-variant');
+        }
+    </script>
+</body>
+</html>

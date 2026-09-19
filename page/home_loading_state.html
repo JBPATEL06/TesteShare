@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare | Loading Explore State</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#00c3fd",
+                      "on-secondary-fixed-variant": "#474746",
+                      "primary": "#ffc688",
+                      "on-secondary-fixed": "#1b1b1c",
+                      "secondary": "#c8c6c5",
+                      "on-tertiary": "#003547",
+                      "surface-bright": "#393939",
+                      "primary-fixed": "#ffddbb",
+                      "surface-container-highest": "#353534",
+                      "on-primary-container": "#673d00",
+                      "on-secondary-container": "#b7b5b4",
+                      "outline-variant": "#544434",
+                      "surface": "#131313",
+                      "secondary-container": "#474746",
+                      "on-surface-variant": "#dac3ad",
+                      "surface-container-high": "#2a2a2a",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "inverse-primary": "#885200",
+                      "primary-container": "#ff9f0d",
+                      "on-primary-fixed-variant": "#673d00",
+                      "surface-dim": "#131313",
+                      "surface-container": "#201f1f",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary-fixed": "#e5e2e1",
+                      "on-tertiary-fixed": "#001e2b",
+                      "outline": "#a28d7a",
+                      "on-primary-fixed": "#2b1700",
+                      "on-primary": "#482900",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-fixed-dim": "#70d2ff",
+                      "tertiary-fixed": "#c0e8ff",
+                      "on-error": "#690005",
+                      "error-container": "#93000a",
+                      "primary-fixed-dim": "#ffb868",
+                      "on-background": "#e5e2e1",
+                      "background": "#131313",
+                      "surface-variant": "#353534",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#313030",
+                      "on-secondary": "#303030",
+                      "inverse-surface": "#e5e2e1",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#004d66",
+                      "on-tertiary-container": "#004d66",
+                      "on-surface": "#e5e2e1",
+                      "surface-tint": "#ffb868",
+                      "tertiary": "#90daff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "container-margin": "20px",
+                      "base": "8px",
+                      "stack-sm": "4px",
+                      "stack-md": "12px",
+                      "stack-lg": "24px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              }
+            }
+          }
+        }
+      </script>
+    <style>
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .skeleton-shimmer {
+            background: linear-gradient(90deg, #1E1E1E 25%, #2D2D2D 50%, #1E1E1E 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col font-body-md">
+    <!-- TopNavBar -->
+    <header class="bg-surface border-b border-surface-variant flex justify-between items-center w-full px-container-margin py-base max-w-full sticky top-0 z-50">
+        <div class="flex items-center gap-stack-lg">
+            <a href="index.html" class="text-decoration-none"><span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">TestShare</span></a>
+            <nav class="hidden md:flex gap-stack-lg">
+                <a class="text-primary font-bold border-b-2 border-primary font-label-md text-label-md py-1 text-decoration-none" href="index.html">Home</a>
+                <a class="text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md py-1 px-2 rounded text-decoration-none" href="redesigned_seller_menu_offers.html">Offers</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-stack-md">
+            <div class="hidden md:flex items-center bg-surface-container-low border border-surface-variant px-stack-md py-stack-sm rounded-lg min-w-[320px]">
+                <span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+                <span class="text-on-surface-variant font-body-md opacity-50">Search for restaurants or dishes...</span>
+            </div>
+            <a href="my_profile_testshare.html" class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high transition-colors rounded-full text-decoration-none">person</a>
+        </div>
+    </header>
+    <!-- Main Content: Store Exploration Skeleton -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-container-margin py-section-gap my-4">
+        <!-- Hero Section Skeleton -->
+        <section class="mb-section-gap my-4">
+            <div class="w-full h-[300px] md:h-[420px] skeleton-shimmer border border-surface-variant rounded-xl flex flex-col justify-end p-stack-lg">
+                <div class="h-10 w-2/3 md:w-1/3 skeleton-shimmer opacity-50 rounded-lg mb-stack-md"></div>
+                <div class="h-6 w-1/2 md:w-1/4 skeleton-shimmer opacity-30 rounded-lg"></div>
+            </div>
+        </section>
+        <!-- Category Horizontal Strip Skeleton -->
+        <section class="mb-section-gap my-5">
+            <div class="flex gap-gutter overflow-hidden">
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-24 skeleton-shimmer border border-surface-variant rounded-lg"></div>
+            </div>
+        </section>
+        <!-- Two-Column Layout for Stores and Featured Dish Previews -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-section-gap my-5">
+            <!-- Left: Restaurant List Skeleton (Column Span 8) -->
+            <section class="lg:col-span-8 space-y-stack-lg">
+                <div class="h-8 w-48 skeleton-shimmer opacity-60 rounded mb-stack-lg"></div>
+                <!-- Restaurant Cards -->
+                <div class="divide-y divide-surface-variant border-t border-b border-surface-variant">
+                    <div class="py-stack-lg flex gap-gutter">
+                        <div class="w-24 h-24 md:w-32 md:h-32 skeleton-shimmer border border-surface-variant rounded flex-shrink-0"></div>
+                        <div class="flex-grow space-y-stack-md">
+                            <div class="h-6 w-1/3 skeleton-shimmer opacity-50 rounded"></div>
+                            <div class="h-4 w-1/4 skeleton-shimmer opacity-30 rounded"></div>
+                            <div class="flex gap-stack-md">
+                                <div class="h-5 w-16 skeleton-shimmer opacity-20 rounded"></div>
+                                <div class="h-5 w-16 skeleton-shimmer opacity-20 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-stack-lg flex gap-gutter">
+                        <div class="w-24 h-24 md:w-32 md:h-32 skeleton-shimmer border border-surface-variant rounded flex-shrink-0"></div>
+                        <div class="flex-grow space-y-stack-md">
+                            <div class="h-6 w-2/5 skeleton-shimmer opacity-50 rounded"></div>
+                            <div class="h-4 w-1/5 skeleton-shimmer opacity-30 rounded"></div>
+                            <div class="flex gap-stack-md">
+                                <div class="h-5 w-16 skeleton-shimmer opacity-20 rounded"></div>
+                                <div class="h-5 w-16 skeleton-shimmer opacity-20 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-stack-lg flex gap-gutter">
+                        <div class="w-24 h-24 md:w-32 md:h-32 skeleton-shimmer border border-surface-variant rounded flex-shrink-0"></div>
+                        <div class="flex-grow space-y-stack-md">
+                            <div class="h-6 w-1/4 skeleton-shimmer opacity-50 rounded"></div>
+                            <div class="h-4 w-1/6 skeleton-shimmer opacity-30 rounded"></div>
+                            <div class="flex gap-stack-md">
+                                <div class="h-5 w-16 skeleton-shimmer opacity-20 rounded"></div>
+                                <div class="h-5 w-16 skeleton-shimmer opacity-20 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Right: Signature Dish Previews Skeleton (Column Span 4) -->
+            <aside class="lg:col-span-4 space-y-stack-lg">
+                <div class="h-8 w-32 skeleton-shimmer opacity-60 rounded mb-stack-lg"></div>
+                <!-- Dish Preview Grid -->
+                <div class="grid grid-cols-1 gap-gutter">
+                    <div class="bg-surface-container border border-surface-variant p-stack-md rounded-xl space-y-stack-md">
+                        <div class="aspect-video w-full skeleton-shimmer border border-surface-variant rounded"></div>
+                        <div class="h-5 w-1/2 skeleton-shimmer opacity-40 rounded"></div>
+                        <div class="h-4 w-1/4 skeleton-shimmer opacity-20 rounded"></div>
+                    </div>
+                    <div class="bg-surface-container border border-surface-variant p-stack-md rounded-xl space-y-stack-md">
+                        <div class="aspect-video w-full skeleton-shimmer border border-surface-variant rounded"></div>
+                        <div class="h-5 w-1/2 skeleton-shimmer opacity-40 rounded"></div>
+                        <div class="h-4 w-1/4 skeleton-shimmer opacity-20 rounded"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container border-t border-surface-variant">
+        <a href="index.html" class="flex flex-col items-center justify-center text-primary transition-transform duration-200 scale-110 text-decoration-none">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-label-sm text-label-sm">Home</span>
+        </a>
+        <a href="redesigned_seller_menu_offers.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined">local_offer</span>
+            <span class="font-label-sm text-label-sm">Offers</span>
+        </a>
+        <a href="order_history_reviews_2.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined">receipt_long</span>
+            <span class="font-label-sm text-label-sm">Orders</span>
+        </a>
+        <a href="your_cart.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span class="font-label-sm text-label-sm">Cart</span>
+        </a>
+    </nav>
+    <!-- Footer -->
+    <footer class="w-full px-container-margin py-section-gap flex flex-col md:flex-row justify-between items-center gap-stack-lg bg-surface-container-lowest border-t border-surface-variant mt-section-gap py-5">
+        <span class="font-headline-md text-headline-md text-primary font-bold">TestShare</span>
+        <div class="flex gap-stack-lg flex-wrap justify-center">
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm text-decoration-none" href="#">About Us</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm text-decoration-none" href="seller_registration_testshare.html">Partner with us</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm text-decoration-none" href="#">Privacy Policy</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm text-decoration-none" href="#">Support</a>
+        </div>
+        <span class="text-on-surface-variant font-body-md text-body-md">© 2024 TestShare. All rights reserved.</span>
+    </footer>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+    <!-- Micro-interaction for skeleton fade-in effect simulation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const skeletons = document.querySelectorAll('.skeleton-shimmer');
+            skeletons.forEach((s, index) => {
+                s.style.animationDelay = `${index * 0.05}s`;
+            });
+        });
+    </script>
+</body>
+</html>

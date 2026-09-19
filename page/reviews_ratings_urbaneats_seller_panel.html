@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Reviews &amp; Ratings | TestShare Merchant Portal</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#90daff",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-tertiary": "#003547",
+                    "inverse-on-surface": "#313030",
+                    "outline": "#a28d7a",
+                    "on-error": "#690005",
+                    "surface-dim": "#131313",
+                    "on-primary-fixed-variant": "#673d00",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "on-secondary": "#303030",
+                    "tertiary-fixed": "#c0e8ff",
+                    "surface-tint": "#ffb868",
+                    "surface-bright": "#393939",
+                    "on-primary-fixed": "#2b1700",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "on-surface": "#e5e2e1",
+                    "on-primary": "#482900",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-container": "#004d66",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-highest": "#353534",
+                    "primary-fixed-dim": "#ffb868",
+                    "on-tertiary-fixed": "#001e2b",
+                    "surface": "#131313",
+                    "primary-fixed": "#ffddbb",
+                    "error": "#ffb4ab",
+                    "secondary": "#c8c6c5",
+                    "surface-container": "#201f1f",
+                    "surface-container-low": "#1c1b1b",
+                    "on-surface-variant": "#dac3ad",
+                    "secondary-container": "#474746",
+                    "primary-container": "#ff9f0d",
+                    "error-container": "#93000a",
+                    "inverse-primary": "#885200",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "background": "#131313",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-primary-container": "#673d00",
+                    "tertiary-container": "#00c3fd",
+                    "on-background": "#e5e2e1",
+                    "tertiary-fixed-dim": "#70d2ff",
+                    "primary": "#ffc688",
+                    "outline-variant": "#544434",
+                    "surface-variant": "#353534",
+                    "surface-container-high": "#2a2a2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "12px",
+                    "base": "8px",
+                    "stack-lg": "24px",
+                    "gutter": "16px",
+                    "stack-sm": "4px",
+                    "section-gap": "48px",
+                    "container-margin": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: #1E1E1E;
+            border: 1px solid #2D2D2D;
+            border-radius: 1rem;
+        }
+        .active-tab-indicator {
+            height: 2px;
+            background-color: #ff9f0d;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2D2D2D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #393939;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-surface-dim selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-40 flex justify-between items-center px-8 bg-surface border-b border-outline-variant shrink-0">
+    <div class="flex items-center gap-8">
+        <a href="index.html" class="text-decoration-none">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center text-on-primary-container">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+                </div>
+                <h1 class="font-headline-md text-headline-md font-bold text-primary mb-0">TestShare</h1>
+            </div>
+        </a>
+        <div class="relative hidden sm:block ml-4">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+            <input onkeyup="searchReviews(this.value)" class="bg-surface-container-low border border-outline-variant rounded-full pl-10 pr-4 py-1.5 text-body-md focus:border-primary-container focus:ring-0 w-80 text-on-surface" placeholder="Search reviews by text or customer..." type="text">
+        </div>
+    </div>
+    <div class="flex items-center gap-4">
+        <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors bg-transparent border-0">
+            <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button onclick="window.location.href='index.html'" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors bg-transparent border-0">
+            <span class="material-symbols-outlined">storefront</span>
+        </button>
+        <div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant ml-2">
+            <img class="w-full h-full object-cover" data-alt="A professional headshot of a restaurant owner" src="images/restaurant_owner_headshot.png">
+        </div>
+    </div>
+</header>
+
+<div class="flex min-h-[calc(100vh-4rem)] w-full">
+    <!-- SideNavBar -->
+    <aside class="w-64 flex flex-col py-6 px-4 bg-surface-container border-r border-outline-variant shrink-0 hidden md:flex">
+        <div class="mb-8 px-4">
+            <h1 class="font-headline-md text-[20px] font-bold text-primary mb-0">TestShare</h1>
+            <p class="text-label-sm text-on-surface-variant mb-0">Premium Merchant</p>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="seller_dashboard_overview_1.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="menu_order_management_1.html">
+                <span class="material-symbols-outlined">restaurant_menu</span>
+                <span>Menu Management</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="menu_order_management_2.html">
+                <span class="material-symbols-outlined">palette</span>
+                <span>Dish Studio</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="redesigned_order_management_testshare_seller_panel.html">
+                <span class="material-symbols-outlined">receipt_long</span>
+                <span>Orders</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="seller_dashboard_overview_2.html">
+                <span class="material-symbols-outlined">analytics</span>
+                <span>Analytics</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="redesigned_seller_menu_offers.html">
+                <span class="material-symbols-outlined">local_offer</span>
+                <span>Menu Offers</span>
+            </a>
+            <!-- Active State -->
+            <a class="flex items-center gap-3 px-4 py-2.5 bg-primary-container text-on-primary-container font-bold rounded-lg translate-x-1 transition-transform duration-200 text-decoration-none font-label-md text-label-md" href="reviews_ratings_testshare_seller_panel.html">
+                <span class="material-symbols-outlined">star</span>
+                <span>Reviews &amp; Ratings</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="store_settings_profile.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Store Settings</span>
+            </a>
+        </nav>
+        <div class="mt-auto space-y-4 pt-6 border-t border-outline-variant">
+            <button onclick="alert('Store is now Live Online!');" class="w-full bg-primary-container text-on-primary-container font-bold py-3 rounded-lg hover:opacity-90 transition-opacity border-0 font-bold">
+                Go Online
+            </button>
+            <div class="space-y-1">
+                <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant text-label-sm hover:text-on-surface text-decoration-none font-bold" href="#">
+                    <span class="material-symbols-outlined text-sm">support_agent</span>
+                    <span>Support</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant text-label-sm hover:text-on-surface text-decoration-none font-bold" href="#">
+                    <span class="material-symbols-outlined text-sm">help</span>
+                    <span>Help Center</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-8 overflow-y-auto">
+        <!-- Content Canvas -->
+        <div class="max-w-7xl mx-auto w-full">
+            <!-- Header Section -->
+            <div class="mb-8">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mb-1">Reviews &amp; Ratings</h2>
+                <p class="text-body-md text-on-surface-variant mt-2 mb-0">Monitor and manage customer feedback for your store and menu items.</p>
+            </div>
+            <!-- Bento Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+                <!-- Overall Rating -->
+                <div class="md:col-span-4 glass-card p-8 flex flex-col justify-center items-center text-center shadow-xl">
+                    <span class="text-label-md text-on-surface-variant uppercase tracking-widest mb-4 font-bold">Overall Store Rating</span>
+                    <div class="text-[64px] font-bold text-primary-container leading-none mb-4">4.7</div>
+                    <div class="flex gap-1 mb-4">
+                        <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+                    </div>
+                    <p class="text-on-surface-variant text-label-md mb-0 font-bold">Based on 1,240 reviews</p>
+                </div>
+                <!-- Rating Breakdown -->
+                <div class="md:col-span-8 glass-card p-8 shadow-xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-label-md text-on-surface-variant uppercase tracking-widest font-bold mb-0">Rating Distribution</span>
+                        <span class="text-label-sm text-tertiary font-bold mb-0">Top 1% in Category</span>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- 5 Stars -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-label-sm w-12 text-on-surface-variant font-bold">5 Star</span>
+                            <div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-container" style="width: 78%;"></div>
+                            </div>
+                            <span class="text-label-sm w-10 text-right font-bold">78%</span>
+                        </div>
+                        <!-- 4 Stars -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-label-sm w-12 text-on-surface-variant font-bold">4 Star</span>
+                            <div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-container opacity-80" style="width: 15%;"></div>
+                            </div>
+                            <span class="text-label-sm w-10 text-right font-bold">15%</span>
+                        </div>
+                        <!-- 3 Stars -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-label-sm w-12 text-on-surface-variant font-bold">3 Star</span>
+                            <div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-container opacity-60" style="width: 4%;"></div>
+                            </div>
+                            <span class="text-label-sm w-10 text-right font-bold">4%</span>
+                        </div>
+                        <!-- 2 Stars -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-label-sm w-12 text-on-surface-variant font-bold">2 Star</span>
+                            <div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-container opacity-40" style="width: 2%;"></div>
+                            </div>
+                            <span class="text-label-sm w-10 text-right font-bold">2%</span>
+                        </div>
+                        <!-- 1 Star -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-label-sm w-12 text-on-surface-variant font-bold">1 Star</span>
+                            <div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-container opacity-20" style="width: 1%;"></div>
+                            </div>
+                            <span class="text-label-sm w-10 text-right font-bold">1%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs and Filters -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-outline-variant">
+                <div class="flex gap-8 overflow-x-auto pb-0" id="reviewTabs">
+                    <button onclick="filterTab('ALL', this)" class="relative py-4 text-primary-container font-bold font-label-md whitespace-nowrap bg-transparent border-0 font-bold tab-btn">
+                        All Reviews
+                        <div class="active-tab-indicator"></div>
+                    </button>
+                    <button onclick="filterTab('STORE', this)" class="py-4 text-on-surface-variant hover:text-on-surface font-label-md whitespace-nowrap transition-colors bg-transparent border-0 font-bold tab-btn">
+                        Store Reviews
+                    </button>
+                    <button onclick="filterTab('DISH', this)" class="py-4 text-on-surface-variant hover:text-on-surface font-label-md whitespace-nowrap transition-colors bg-transparent border-0 font-bold tab-btn">
+                        Dish Reviews
+                    </button>
+                </div>
+                <div class="flex items-center gap-4 pb-2 md:pb-0">
+                    <select onchange="filterStar(this.value)" class="bg-surface-container border border-outline-variant text-label-sm rounded px-3 py-1.5 focus:ring-primary-container text-on-surface font-bold">
+                        <option value="ALL">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+                    <select class="bg-surface-container border border-outline-variant text-label-sm rounded px-3 py-1.5 focus:ring-primary-container text-on-surface font-bold">
+                        <option>Latest First</option>
+                        <option>Oldest First</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Reviews List -->
+            <div class="space-y-6" id="reviewsContainer">
+                <!-- Review Card 1 (Dish Review) -->
+                <div class="glass-card p-6 flex flex-col md:flex-row gap-6 shadow-md review-card" data-type="DISH" data-stars="5">
+                    <div class="flex-shrink-0">
+                        <div class="h-12 w-12 rounded-full border border-outline-variant overflow-hidden">
+                            <img class="w-full h-full object-cover" data-alt="Alex Rivera" src="images/alex_rivera_avatar.png">
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                            <div>
+                                <h4 class="font-bold text-on-surface mb-1">Alex Rivera</h4>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex text-primary-container">
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    </div>
+                                    <span class="text-xs text-on-surface-variant font-bold">Verified Order • Yesterday</span>
+                                </div>
+                            </div>
+                            <span class="bg-primary-container/20 text-primary-container border border-primary-container/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest self-start">Dish: Truffle Teriyaki Ribeye</span>
+                        </div>
+                        <p class="text-on-surface-variant mb-4">"The Truffle Teriyaki Ribeye was perfectly cooked to medium-rare. The truffle sauce has a rich, deep earthy flavor that complements the beef perfectly. Delivery was on time and packaging kept everything warm."</p>
+                        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant mb-4 reply-box" style="display: none;">
+                            <h5 class="font-bold text-primary text-sm mb-1">Your Reply:</h5>
+                            <p class="text-on-surface text-sm mb-0 reply-text"></p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-2 border-t border-outline-variant/50">
+                            <button onclick="showReplyInput(this)" class="text-primary hover:text-primary-container bg-transparent border-0 text-sm font-bold flex items-center gap-1 p-0">
+                                <span class="material-symbols-outlined text-sm">reply</span> Reply to Customer
+                            </button>
+                        </div>
+                        <div class="mt-3 reply-input-form" style="display: none;">
+                            <textarea class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-3 rounded-lg outline-none text-sm mb-2 resize-none" rows="2" placeholder="Write a public reply..."></textarea>
+                            <div class="flex justify-end gap-2">
+                                <button onclick="this.parentElement.parentElement.style.display='none'" class="px-4 py-1.5 border border-outline-variant rounded-lg text-xs text-on-surface hover:bg-surface-container-high font-bold bg-transparent">Cancel</button>
+                                <button onclick="submitReply(this)" class="px-4 py-1.5 bg-primary-container text-on-primary-container rounded-lg text-xs font-bold hover:opacity-90 border-0">Submit Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 (Store Review) -->
+                <div class="glass-card p-6 flex flex-col md:flex-row gap-6 shadow-md review-card" data-type="STORE" data-stars="5">
+                    <div class="flex-shrink-0">
+                        <div class="h-12 w-12 rounded-full bg-tertiary text-on-tertiary font-bold flex items-center justify-center text-lg">
+                            MK
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                            <div>
+                                <h4 class="font-bold text-on-surface mb-1">Maria K.</h4>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex text-primary-container">
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    </div>
+                                    <span class="text-xs text-on-surface-variant font-bold">Verified Elite Diner • 3 days ago</span>
+                                </div>
+                            </div>
+                            <span class="bg-surface-container-highest text-on-surface border border-outline-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest self-start">Store Experience</span>
+                        </div>
+                        <p class="text-on-surface-variant mb-4">"The Obsidian Grill consistently maintains the highest standards. Whether dining in or ordering through TestShare, the quality of service, packaging, and attention to detail is unmatched in the culinary district."</p>
+                        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant mb-4 reply-box" style="display: none;">
+                            <h5 class="font-bold text-primary text-sm mb-1">Your Reply:</h5>
+                            <p class="text-on-surface text-sm mb-0 reply-text"></p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-2 border-t border-outline-variant/50">
+                            <button onclick="showReplyInput(this)" class="text-primary hover:text-primary-container bg-transparent border-0 text-sm font-bold flex items-center gap-1 p-0">
+                                <span class="material-symbols-outlined text-sm">reply</span> Reply to Customer
+                            </button>
+                        </div>
+                        <div class="mt-3 reply-input-form" style="display: none;">
+                            <textarea class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-3 rounded-lg outline-none text-sm mb-2 resize-none" rows="2" placeholder="Write a public reply..."></textarea>
+                            <div class="flex justify-end gap-2">
+                                <button onclick="this.parentElement.parentElement.style.display='none'" class="px-4 py-1.5 border border-outline-variant rounded-lg text-xs text-on-surface hover:bg-surface-container-high font-bold bg-transparent">Cancel</button>
+                                <button onclick="submitReply(this)" class="px-4 py-1.5 bg-primary-container text-on-primary-container rounded-lg text-xs font-bold hover:opacity-90 border-0">Submit Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 (Dish Review - 4 Stars) -->
+                <div class="glass-card p-6 flex flex-col md:flex-row gap-6 shadow-md review-card" data-type="DISH" data-stars="4">
+                    <div class="flex-shrink-0">
+                        <div class="h-12 w-12 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-lg">
+                            DJ
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                            <div>
+                                <h4 class="font-bold text-on-surface mb-1">David J.</h4>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex text-primary-container">
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0;">star</span>
+                                    </div>
+                                    <span class="text-xs text-on-surface-variant font-bold">Verified Order • 1 week ago</span>
+                                </div>
+                            </div>
+                            <span class="bg-primary-container/20 text-primary-container border border-primary-container/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest self-start">Dish: Smoked Wagyu Gyoza</span>
+                        </div>
+                        <p class="text-on-surface-variant mb-4">"The smoked wagyu filling is incredible, very juicy and flavorful. My only minor feedback is I wish it came with a slightly larger container of the ponzu dip because it's so good!"</p>
+                        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant mb-4 reply-box">
+                            <h5 class="font-bold text-primary text-sm mb-1">Your Reply:</h5>
+                            <p class="text-on-surface text-sm mb-0 reply-text">Thank you for the wonderful feedback David! We are thrilled you loved the gyoza. We will make sure to include extra ponzu dip for your next order!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant shrink-0">
+    <div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+        <div class="flex flex-col items-center md:items-start gap-2">
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface mb-0">TestShare</span>
+            <p class="font-label-sm text-on-surface-variant mb-0">© 2024 TestShare. All rights reserved.</p>
+        </div>
+        <nav class="flex flex-wrap justify-center gap-8 mb-0">
+            <a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="#">Support</a>
+            <a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="#">Privacy Policy</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="#">Terms of Service</a>
+        </nav>
+        <div class="flex gap-4">
+            <button onclick="alert('Changing location preferences...')" class="w-10 h-10 border border-outline-variant rounded-lg flex items-center justify-center hover:border-primary transition-colors bg-transparent">
+                <span class="material-symbols-outlined text-on-surface-variant">public</span>
+            </button>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Custom Main JS -->
+<script src="../js/main.js"></script>
+<script>
+    let currentTab = 'ALL';
+    let currentStar = 'ALL';
+
+    function filterTab(tab, btn) {
+        currentTab = tab;
+        const buttons = document.querySelectorAll('#reviewTabs .tab-btn');
+        buttons.forEach(b => {
+            b.className = 'py-4 text-on-surface-variant hover:text-on-surface font-label-md whitespace-nowrap transition-colors bg-transparent border-0 font-bold tab-btn';
+            const ind = b.querySelector('.active-tab-indicator');
+            if (ind) ind.remove();
+        });
+        btn.className = 'relative py-4 text-primary-container font-bold font-label-md whitespace-nowrap bg-transparent border-0 font-bold tab-btn';
+        btn.innerHTML += '<div class="active-tab-indicator"></div>';
+        applyFilters();
+    }
+
+    function filterStar(star) {
+        currentStar = star;
+        applyFilters();
+    }
+
+    function applyFilters() {
+        const cards = document.querySelectorAll('.review-card');
+        cards.forEach(card => {
+            const matchTab = currentTab === 'ALL' || card.getAttribute('data-type') === currentTab;
+            const matchStar = currentStar === 'ALL' || card.getAttribute('data-stars') === currentStar;
+            if (matchTab && matchStar) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    function searchReviews(query) {
+        query = query.toLowerCase();
+        const cards = document.querySelectorAll('.review-card');
+        cards.forEach(card => {
+            if (card.innerText.toLowerCase().includes(query)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    function showReplyInput(btn) {
+        const form = btn.parentElement.parentElement.querySelector('.reply-input-form');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function submitReply(btn) {
+        const form = btn.parentElement.parentElement;
+        const textarea = form.querySelector('textarea');
+        const text = textarea.value.trim();
+        if (!text) {
+            alert('Please write a reply before submitting.');
+            return;
+        }
+        const parent = form.parentElement;
+        const replyBox = parent.querySelector('.reply-box');
+        replyBox.querySelector('.reply-text').innerText = text;
+        replyBox.style.display = 'block';
+        form.style.display = 'none';
+        parent.querySelector('button').remove();
+        alert('Reply posted successfully!');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare - Cart & Checkout</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#353534",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary-container": "#474746",
+                      "on-surface-variant": "#dac3ad",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#303030",
+                      "surface-container": "#201f1f",
+                      "primary-fixed-dim": "#ffb868",
+                      "on-secondary-container": "#b7b5b4",
+                      "secondary": "#c8c6c5",
+                      "primary": "#ffc688",
+                      "error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#004d66",
+                      "on-secondary-fixed-variant": "#474746",
+                      "surface-dim": "#131313",
+                      "on-primary": "#482900",
+                      "tertiary-fixed": "#c0e8ff",
+                      "secondary-fixed": "#e5e2e1",
+                      "tertiary-container": "#00c3fd",
+                      "on-background": "#e5e2e1",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary-fixed-dim": "#70d2ff",
+                      "on-tertiary-fixed": "#001e2b",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#885200",
+                      "inverse-on-surface": "#313030",
+                      "outline": "#a28d7a",
+                      "primary-container": "#ff9f0d",
+                      "on-error": "#690005",
+                      "on-secondary-fixed": "#1b1b1c",
+                      "on-surface": "#e5e2e1",
+                      "surface-bright": "#393939",
+                      "on-tertiary": "#003547",
+                      "surface-tint": "#ffb868",
+                      "outline-variant": "#544434",
+                      "on-primary-fixed": "#2b1700",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary": "#90daff",
+                      "background": "#131313",
+                      "surface": "#131313",
+                      "surface-container-low": "#1c1b1b",
+                      "on-tertiary-container": "#004d66",
+                      "surface-container-highest": "#353534",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-primary-container": "#673d00",
+                      "primary-fixed": "#ffddbb",
+                      "on-primary-fixed-variant": "#673d00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "12px",
+                      "container-margin": "20px",
+                      "stack-sm": "4px",
+                      "stack-lg": "24px",
+                      "gutter": "16px",
+                      "section-gap": "48px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1c1b1b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #353534;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-surface text-on-surface">
+    <!-- Top Navigation Bar -->
+    <header class="bg-surface border-b border-surface-variant flex justify-between items-center w-full px-container-margin py-base max-w-full sticky top-0 z-50">
+        <div class="flex items-center gap-stack-md">
+            <a href="index.html" class="text-decoration-none"><span class="font-headline-md text-headline-md font-bold text-primary">TestShare</span></a>
+        </div>
+        <nav class="hidden md:flex items-center gap-stack-lg">
+            <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors text-decoration-none" href="redesigned_seller_menu_offers.html">Offers</a>
+            <a href="my_profile_testshare.html" class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors text-decoration-none">
+                <span class="material-symbols-outlined text-primary">person</span>
+            </a>
+        </nav>
+        <div class="md:hidden">
+            <span class="material-symbols-outlined text-primary">shopping_cart</span>
+        </div>
+    </header>
+
+    <!-- Main Content Canvas -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-container-margin py-section-gap flex flex-col md:grid md:grid-cols-12 gap-gutter my-4">
+        <!-- Left Column: Cart Items -->
+        <div class="md:col-span-8 flex flex-col gap-stack-lg">
+            <div class="flex border-b border-surface-variant mb-stack-lg">
+                <a href="order_history_reviews_2.html" class="px-stack-lg py-stack-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors border-b-2 border-transparent text-decoration-none">Order History</a>
+                <a href="your_cart.html" class="px-stack-lg py-stack-md font-label-md text-label-md text-primary font-bold border-b-2 border-primary-container text-decoration-none">Cart</a>
+            </div>
+            <h1 class="font-headline-lg text-headline-lg mb-stack-md font-bold">My Cart</h1>
+            <div class="border border-surface-variant bg-surface-container-low rounded-3 overflow-hidden">
+                <!-- Cart Item 1 -->
+                <div class="flex items-center gap-gutter p-stack-lg border-b border-surface-variant p-4">
+                    <div class="w-24 h-24 flex-shrink-0 bg-surface-container border border-surface-variant relative rounded-2 overflow-hidden">
+                        <img class="w-full h-full object-cover" alt="Truffle Umami Burger" src="images/truffle_umami_burger.png">
+                    </div>
+                    <div class="flex-grow flex flex-col pl-2">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-headline-md text-headline-md text-on-surface font-bold">Truffle Umami Burger</h3>
+                            <span class="font-headline-md text-headline-md text-primary font-bold">$18.50</span>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Double patty, caramelized onions, truffle aioli.</p>
+                        <div class="flex items-center justify-between mt-auto pt-2">
+                            <div class="flex items-center border border-surface-variant bg-surface rounded-1 overflow-hidden">
+                                <button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 bg-transparent border-0">
+                                    <span class="material-symbols-outlined text-on-surface text-sm">remove</span>
+                                </button>
+                                <span class="w-10 h-10 flex items-center justify-center font-label-md text-label-md text-on-surface font-bold">1</span>
+                                <button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 bg-transparent border-0">
+                                    <span class="material-symbols-outlined text-on-surface text-sm">add</span>
+                                </button>
+                            </div>
+                            <button class="flex items-center gap-base text-on-surface-variant hover:text-error transition-colors bg-transparent border-0">
+                                <span class="material-symbols-outlined text-[20px]">delete</span>
+                                <span class="font-label-sm text-label-sm uppercase fw-bold">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 2 -->
+                <div class="flex items-center gap-gutter p-stack-lg border-b border-surface-variant p-4">
+                    <div class="w-24 h-24 flex-shrink-0 bg-surface-container border border-surface-variant relative rounded-2 overflow-hidden">
+                        <img class="w-full h-full object-cover" alt="Artisan Mezze Bowl" src="images/artisan_mezze_bowl.png">
+                    </div>
+                    <div class="flex-grow flex flex-col pl-2">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-headline-md text-headline-md text-on-surface font-bold">Artisan Mezze Bowl</h3>
+                            <span class="font-headline-md text-headline-md text-primary font-bold">$14.00</span>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Quinoa base, roasted chickpeas, tahini drizzle.</p>
+                        <div class="flex items-center justify-between mt-auto pt-2">
+                            <div class="flex items-center border border-surface-variant bg-surface rounded-1 overflow-hidden">
+                                <button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 bg-transparent border-0">
+                                    <span class="material-symbols-outlined text-on-surface text-sm">remove</span>
+                                </button>
+                                <span class="w-10 h-10 flex items-center justify-center font-label-md text-label-md text-on-surface font-bold">2</span>
+                                <button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 bg-transparent border-0">
+                                    <span class="material-symbols-outlined text-on-surface text-sm">add</span>
+                                </button>
+                            </div>
+                            <button class="flex items-center gap-base text-on-surface-variant hover:text-error transition-colors bg-transparent border-0">
+                                <span class="material-symbols-outlined text-[20px]">delete</span>
+                                <span class="font-label-sm text-label-sm uppercase fw-bold">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note to Restaurant -->
+                <div class="p-stack-lg p-4">
+                    <label class="block font-label-md text-label-md text-on-surface mb-stack-sm font-bold mb-2">Add a note for the restaurant</label>
+                    <textarea class="w-full bg-surface border border-surface-variant p-stack-md text-body-md text-on-surface focus:border-primary-container focus:ring-0 transition-all min-h-[100px] resize-none rounded-2 p-3" placeholder="Eg: No onions please, or extra napkins."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Bill Details & Promotions -->
+        <aside class="md:col-span-4 flex flex-col gap-stack-lg">
+            <!-- Promotions Section -->
+            <div class="bg-surface-container border border-surface-variant p-stack-lg flex flex-col gap-stack-md rounded-3 p-4 mb-4">
+                <h3 class="font-label-md text-label-md text-on-surface uppercase tracking-widest font-bold mb-3">Apply Coupon</h3>
+                <div class="flex gap-base mb-3">
+                    <input class="flex-grow bg-surface border border-surface-variant px-stack-md py-stack-sm text-body-md text-on-surface focus:border-primary-container focus:ring-0 rounded-2 p-2" placeholder="Coupon Code" type="text">
+                    <button class="px-stack-lg py-stack-sm bg-surface-variant text-on-surface font-label-md border border-surface-variant hover:bg-secondary-container transition-colors rounded-2 border-0 fw-bold px-4">Apply</button>
+                </div>
+                <!-- Active Promo -->
+                <div class="bg-primary-container/10 border border-primary/20 p-stack-md flex items-center justify-between group cursor-pointer hover:bg-primary-container/20 transition-all rounded-2 p-3">
+                    <div class="flex items-center gap-stack-md">
+                        <span class="material-symbols-outlined text-primary mr-2">local_offer</span>
+                        <div>
+                            <p class="font-label-md text-label-md text-primary mb-0 font-bold">URBAN50</p>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Save $5.00 on this order</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">chevron_right</span>
+                </div>
+            </div>
+
+            <!-- Bill Details Section -->
+            <div class="bg-surface-container border border-surface-variant p-stack-lg flex flex-col gap-stack-md rounded-3 p-4">
+                <h3 class="font-label-md text-label-md text-on-surface uppercase tracking-widest border-b border-surface-variant pb-stack-sm font-bold pb-3 mb-3">Bill Details</h3>
+                <div class="flex justify-between items-center mt-stack-sm mb-2">
+                    <span class="font-body-md text-body-md text-on-surface-variant">Item Total</span>
+                    <span class="font-body-md text-body-md text-on-surface font-bold">$46.50</span>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-body-md text-body-md text-on-surface-variant">Delivery Fee</span>
+                    <span class="font-body-md text-body-md text-on-surface font-bold">$2.99</span>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center gap-stack-sm">
+                        <span class="font-body-md text-body-md text-on-surface-variant mr-1">Taxes & Charges</span>
+                        <span class="material-symbols-outlined text-[16px] text-on-surface-variant">info</span>
+                    </div>
+                    <span class="font-body-md text-body-md text-on-surface font-bold">$1.80</span>
+                </div>
+                <div class="flex justify-between items-center text-primary mb-3">
+                    <span class="font-body-md text-body-md font-bold">Coupon Applied (URBAN50)</span>
+                    <span class="font-body-md text-body-md font-bold">-$5.00</span>
+                </div>
+                <div class="mt-stack-md pt-stack-md border-t border-surface-variant flex justify-between items-end pt-3 mb-4">
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-on-surface uppercase tracking-tighter font-bold">To Pay</span>
+                        <span class="font-headline-lg text-headline-lg text-on-surface font-bold">$46.29</span>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-primary font-bold">Save $5.00</span>
+                </div>
+                <button onclick="window.location.href='order_history_reviews_2.html'" class="w-full bg-primary-container text-on-primary-container py-3 rounded-2 font-label-md text-label-md font-bold uppercase tracking-widest mt-stack-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-stack-md border-0">
+                    Place Order
+                    <span class="material-symbols-outlined ml-2">arrow_forward</span>
+                </button>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="flex justify-center gap-stack-lg py-stack-md border-t border-surface-variant mt-4 pt-4">
+                <div class="flex flex-col items-center gap-stack-sm mr-4">
+                    <span class="material-symbols-outlined text-on-surface-variant mb-1">security</span>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">Secure Payment</span>
+                </div>
+                <div class="flex flex-col items-center gap-stack-sm">
+                    <span class="material-symbols-outlined text-on-surface-variant mb-1">timer</span>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">30 Min Delivery</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full px-container-margin py-section-gap flex flex-col md:flex-row justify-between items-center gap-stack-lg border-t border-surface-variant bg-surface-container-lowest mt-24 py-5">
+        <div class="flex flex-col items-center md:items-start gap-stack-sm">
+            <span class="font-headline-md text-headline-md text-primary font-bold">TestShare</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">© 2024 TestShare. All rights reserved.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-stack-lg">
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">About Us</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="seller_registration_testshare.html">Partner with us</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">Privacy Policy</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none" href="#">Support</a>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation Shell -->
+    <div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container border-t border-surface-variant">
+        <a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-label-sm text-label-sm">Home</span>
+        </a>
+        <a href="redesigned_seller_menu_offers.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined">local_offer</span>
+            <span class="font-label-sm text-label-sm">Offers</span>
+        </a>
+        <a href="order_history_reviews_2.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined">receipt_long</span>
+            <span class="font-label-sm text-label-sm">Orders</span>
+        </a>
+        <a href="your_cart.html" class="flex flex-col items-center justify-center text-primary scale-110 transition-transform duration-200 text-decoration-none">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+            <span class="font-label-sm text-label-sm">Cart</span>
+        </a>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Simple Interaction logic for quantity adjusters
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon && (icon.innerText === 'add' || icon.innerText === 'remove')) {
+                    const span = btn.parentElement.querySelector('span:not(.material-symbols-outlined)');
+                    if(span) {
+                        let val = parseInt(span.innerText);
+                        if (icon.innerText === 'add') val++;
+                        if (icon.innerText === 'remove' && val > 1) val--;
+                        span.innerText = val;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

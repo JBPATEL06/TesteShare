@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare | Premium Login</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN (Fallback for exact token matching) -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#c0e8ff",
+                        "primary-container": "#ff9f0d",
+                        "outline-variant": "#544434",
+                        "error": "#ffb4ab",
+                        "surface": "#131313",
+                        "tertiary-fixed-dim": "#70d2ff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#90daff",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#00c3fd",
+                        "surface-container-high": "#2a2a2a",
+                        "background": "#131313",
+                        "primary-fixed-dim": "#ffb868",
+                        "on-error": "#690005",
+                        "inverse-primary": "#885200",
+                        "surface-container-highest": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#ffc688",
+                        "surface-tint": "#ffb868",
+                        "on-tertiary-container": "#004d66",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#001e2b",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#303030",
+                        "outline": "#a28d7a",
+                        "on-primary-container": "#673d00",
+                        "on-secondary-fixed-variant": "#474746",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary-fixed-variant": "#673d00",
+                        "on-tertiary": "#003547",
+                        "inverse-on-surface": "#313030",
+                        "surface-dim": "#131313",
+                        "secondary": "#c8c6c5",
+                        "on-surface-variant": "#dac3ad",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "on-primary-fixed": "#2b1700",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#ffddbb",
+                        "on-primary": "#482900",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "secondary-container": "#474746"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-vh-100 d-flex flex-column align-items-center justify-content-center position-relative bg-surface text-on-surface font-body-md">
+    <!-- Background Layer -->
+    <div class="position-fixed inset-0 w-100 h-100 z-0">
+        <div class="w-100 h-100 bg-cover bg-center parallax-bg" style="background-image: url('images/login_bg.png'); background-size: cover; background-position: center; transform: scale(1.05);"></div>
+        <div class="position-absolute inset-0 glass-overlay"></div>
+    </div>
+
+    <!-- Main Content Shell -->
+    <main class="position-relative z-1 w-100 px-4 py-5 d-flex flex-column align-items-center" style="max-width: 450px;">
+        <!-- Brand Header -->
+        <header class="mb-5 text-center">
+            <h1 class="display-4 fw-bold text-primary-container tracking-tight mb-1">TestShare</h1>
+            <p class="fs-7 text-on-surface-variant text-uppercase tracking-widest mt-1">Obsidian Harvest</p>
+        </header>
+
+        <!-- Login Card -->
+        <div class="w-100 bg-surface-container border border-outline-variant p-4 p-md-5 rounded-3 shadow-lg">
+            <h2 class="fs-3 fw-bold text-on-surface mb-4">Welcome Back</h2>
+            <form class="d-flex flex-column gap-4" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                <!-- Email Field -->
+                <div class="d-flex flex-column gap-2">
+                    <label class="fs-7 fw-semibold text-secondary-custom" for="email">Email Address</label>
+                    <div class="position-relative">
+                        <span class="material-symbols-outlined position-absolute top-50 start-0 translate-middle-y ms-3 text-on-surface-variant z-2">mail</span>
+                        <input class="form-control bg-surface-container-lowest border-outline-variant text-on-surface py-3 ps-5 pe-3 input-focus-amber rounded-1" id="email" placeholder="name@company.com" type="email" required>
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="d-flex flex-column gap-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <label class="fs-7 fw-semibold text-secondary-custom" for="password">Password</label>
+                        <a class="fs-8 text-primary-custom text-decoration-none hover-underline" href="#">Forgot Password?</a>
+                    </div>
+                    <div class="position-relative">
+                        <span class="material-symbols-outlined position-absolute top-50 start-0 translate-middle-y ms-3 text-on-surface-variant z-2">lock</span>
+                        <input class="form-control bg-surface-container-lowest border-outline-variant text-on-surface py-3 ps-5 pe-3 input-focus-amber rounded-1" id="password" placeholder="••••••••" type="password" required>
+                    </div>
+                </div>
+
+                <!-- Remember Me -->
+                <div class="form-check d-flex align-items-center gap-2 mt-2">
+                    <input class="form-check-input bg-surface-container-lowest border-outline-variant text-primary-container mt-0" id="remember" type="checkbox">
+                    <label class="form-check-label fs-8 text-on-surface-variant" for="remember">Remember this device</label>
+                </div>
+
+                <!-- Login CTA -->
+                <button class="btn btn-primary-custom w-100 py-3 mt-3 d-flex align-items-center justify-content-center gap-2 fs-6 rounded-1 shadow" type="submit">
+                    <span>Login to Account</span>
+                    <span class="material-symbols-outlined fs-5">arrow_forward</span>
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="d-flex align-items-center gap-3 my-4">
+                <div class="flex-grow-1 bg-outline-variant" style="height: 1px;"></div>
+                <span class="fs-8 text-on-surface-variant text-uppercase">Or continue with</span>
+                <div class="flex-grow-1 bg-outline-variant" style="height: 1px;"></div>
+            </div>
+
+            <!-- Social Logins -->
+            <div class="row g-3">
+                <div class="col-6">
+                    <button class="btn btn-outline-secondary w-100 py-2 fs-8 text-on-surface-variant d-flex align-items-center justify-content-center gap-2">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style="width: 18px; height: 18px;">
+                        <span>Google</span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-outline-secondary w-100 py-2 fs-8 text-on-surface-variant d-flex align-items-center justify-content-center gap-2">
+                        <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" style="width: 18px; height: 18px; filter: invert(1);">
+                        <span>GitHub</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <footer class="mt-5 text-center">
+            <p class="fs-7 text-on-surface-variant">
+                Don't have an account? 
+                <a class="text-primary-custom fw-bold text-decoration-none hover-underline ms-1" href="register.html">Sign up now</a>
+            </p>
+        </footer>
+    </main>
+
+    <!-- Language & Support Bottom Row -->
+    <div class="position-absolute bottom-0 start-0 w-100 px-4 py-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 z-1 opacity-75">
+        <div class="d-flex gap-3 fs-8 text-secondary-custom">
+            <a class="text-decoration-none text-secondary-custom hover-primary" href="#">Privacy Policy</a>
+            <span class="text-outline-variant">/</span>
+            <a class="text-decoration-none text-secondary-custom hover-primary" href="#">Terms of Service</a>
+        </div>
+        <p class="fs-8 text-on-surface-variant mb-0">© 2024 TestShare Technologies Inc.</p>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

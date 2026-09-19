@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare | Join the Premium Fleet</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#c0e8ff",
+                        "primary-container": "#ff9f0d",
+                        "outline-variant": "#544434",
+                        "error": "#ffb4ab",
+                        "surface": "#131313",
+                        "tertiary-fixed-dim": "#70d2ff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#90daff",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#00c3fd",
+                        "surface-container-high": "#2a2a2a",
+                        "background": "#131313",
+                        "primary-fixed-dim": "#ffb868",
+                        "on-error": "#690005",
+                        "inverse-primary": "#885200",
+                        "surface-container-highest": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#ffc688",
+                        "surface-tint": "#ffb868",
+                        "on-tertiary-container": "#004d66",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#001e2b",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#303030",
+                        "outline": "#a28d7a",
+                        "on-primary-container": "#673d00",
+                        "on-secondary-fixed-variant": "#474746",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary-fixed-variant": "#673d00",
+                        "on-tertiary": "#003547",
+                        "inverse-on-surface": "#313030",
+                        "surface-dim": "#131313",
+                        "secondary": "#c8c6c5",
+                        "on-surface-variant": "#dac3ad",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "on-primary-fixed": "#2b1700",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#ffddbb",
+                        "on-primary": "#482900",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "secondary-container": "#474746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "2px",
+                        "xl": "4px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "4px",
+                        "base": "8px",
+                        "section-gap": "48px",
+                        "stack-md": "12px",
+                        "container-margin": "20px",
+                        "stack-lg": "24px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .solid-border {
+            border: 1px solid #2D2D2D;
+        }
+        .amber-glow:focus {
+            outline: none;
+            border-color: #ff9f0d;
+            box-shadow: 0 0 0 1px #ff9f0d;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .transition-standard {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #121212 inset !important;
+            -webkit-text-fill-color: #e5e2e1 !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-container-margin overflow-x-hidden bg-surface text-on-surface font-body-md">
+    <!-- Back Navigation -->
+    <div class="fixed top-base left-container-margin md:top-stack-lg md:left-stack-lg z-50">
+        <a class="flex items-center gap-base text-on-surface-variant hover:text-primary-container transition-standard group text-decoration-none" href="index.html">
+            <span class="material-symbols-outlined text-body-lg">arrow_back</span>
+            <span class="font-label-md text-label-md">BACK</span>
+        </a>
+    </div>
+    <!-- Main Registration Shell -->
+    <main class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-stretch my-4">
+        <!-- Branding & Imagery Side -->
+        <section class="hidden lg:flex flex-col justify-between p-stack-lg solid-border bg-surface-container-low relative overflow-hidden rounded-3">
+            <div class="z-10">
+                <h1 class="font-headline-xl text-headline-xl text-primary uppercase tracking-tighter">TestShare</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-sm max-w-sm">
+                    Access the city's most exclusive culinary experiences with obsidian-grade speed and reliability.
+                </p>
+            </div>
+            <!-- Dynamic Bento-style Image Composition -->
+            <div class="relative h-[450px] mt-section-gap grid grid-cols-2 grid-rows-2 gap-base z-10">
+                <div class="row-span-2 solid-border relative overflow-hidden group rounded-2">
+                    <img class="w-full h-full object-cover grayscale-[0.3] group-hover:scale-105 transition-standard" alt="Truffle pasta" src="images/truffle_pasta.png">
+                </div>
+                <div class="solid-border relative overflow-hidden group rounded-2">
+                    <img class="w-full h-full object-cover grayscale-[0.3] group-hover:scale-105 transition-standard" alt="App interface" src="images/app_interface_preview.png">
+                </div>
+                <div class="solid-border relative overflow-hidden group rounded-2">
+                    <img class="w-full h-full object-cover grayscale-[0.3] group-hover:scale-105 transition-standard" alt="Restaurant facade" src="images/restaurant_facade.png">
+                </div>
+            </div>
+            <div class="z-10 mt-stack-lg">
+                <div class="flex items-center gap-stack-sm text-label-sm font-label-sm text-secondary">
+                    <span class="w-base h-[1px] bg-primary"></span>
+                    <span>ESTABLISHED 2024</span>
+                </div>
+            </div>
+            <!-- Background Atmosphere -->
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 blur-[120px]"></div>
+        </section>
+        <!-- Form Side -->
+        <section class="bg-surface-container solid-border p-stack-lg md:p-section-gap flex flex-col justify-center rounded-3">
+            <div class="mb-stack-lg">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Create Account</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant">Fill in your details to start your premium journey.</p>
+            </div>
+            <form class="space-y-stack-md" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                <!-- Full Name -->
+                <div class="space-y-stack-sm">
+                    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Full Name</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">person</span>
+                        <input class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl" placeholder="John Doe" type="text" required>
+                    </div>
+                </div>
+                <!-- Email Address -->
+                <div class="space-y-stack-sm">
+                    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Email Address</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">mail</span>
+                        <input class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl" placeholder="john@example.com" type="email" required>
+                    </div>
+                </div>
+                <!-- Phone Number -->
+                <div class="space-y-stack-sm">
+                    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Phone Number</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">call</span>
+                        <input class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl" placeholder="+1 (555) 000-0000" type="tel" required>
+                    </div>
+                </div>
+                <!-- Address -->
+                <div class="space-y-stack-sm">
+                    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Address</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">location_on</span>
+                        <input class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl" placeholder="123 Luxury Lane, Suite 100" type="text" required>
+                    </div>
+                </div>
+                <!-- Pincode & Gender Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+                    <div class="space-y-stack-sm">
+                        <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Pincode</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">pin_drop</span>
+                            <input class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl" placeholder="000000" type="text" required>
+                        </div>
+                    </div>
+                    <div class="space-y-stack-sm">
+                        <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Gender</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">wc</span>
+                            <select class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl appearance-none cursor-pointer" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="material-symbols-outlined absolute right-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50 pointer-events-none">expand_more</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Password Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+                    <div class="space-y-stack-sm">
+                        <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Password</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">lock</span>
+                            <input class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl" placeholder="••••••••" type="password" required>
+                        </div>
+                    </div>
+                    <div class="space-y-stack-sm">
+                        <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Confirm Password</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">lock_reset</span>
+                            <input class="w-full bg-surface-container-lowest solid-border py-stack-md pl-[48px] pr-stack-md text-on-surface amber-glow transition-standard font-body-md text-body-md rounded-xl" placeholder="••••••••" type="password" required>
+                        </div>
+                    </div>
+                </div>
+                <!-- Checkboxes -->
+                <div class="pt-base space-y-base">
+                    <label class="flex items-start gap-base cursor-pointer group">
+                        <div class="relative flex items-center mt-1">
+                            <input class="peer appearance-none w-base h-base solid-border bg-surface-container-lowest checked:bg-primary-container checked:border-primary-container transition-standard rounded-lg" type="checkbox" required>
+                            <span class="material-symbols-outlined absolute text-on-primary-container text-[12px] opacity-0 peer-checked:opacity-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">check</span>
+                        </div>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-standard">
+                            I agree to the <a class="text-primary underline underline-offset-2" href="#">Terms of Service</a> and <a class="text-primary underline underline-offset-2" href="#">Privacy Policy</a>.
+                        </span>
+                    </label>
+                    <label class="flex items-start gap-base cursor-pointer group">
+                        <div class="relative flex items-center mt-1">
+                            <input class="peer appearance-none w-base h-base solid-border bg-surface-container-lowest checked:bg-primary-container checked:border-primary-container transition-standard rounded-lg" type="checkbox">
+                            <span class="material-symbols-outlined absolute text-on-primary-container text-[12px] opacity-0 peer-checked:opacity-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">check</span>
+                        </div>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface transition-standard">
+                            Send me exclusive offers, personalized menus, and urban food news.
+                        </span>
+                    </label>
+                </div>
+                <!-- Submit Button -->
+                <button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-widest py-stack-lg rounded-xl hover:opacity-90 active:scale-[0.98] transition-standard flex items-center justify-center gap-base mt-stack-lg fw-bold" type="submit">
+                    Create Account
+                    <span class="material-symbols-outlined">trending_flat</span>
+                </button>
+            </form>
+            <!-- Login Link -->
+            <div class="mt-section-gap pt-stack-lg border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-base">
+                <p class="font-label-md text-label-md text-on-surface-variant mb-0">Already a member of the collective?</p>
+                <a class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider hover:underline underline-offset-4 transition-standard text-decoration-none" href="login.html">Log In Instead</a>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Identity -->
+    <footer class="mt-section-gap w-full max-w-6xl flex flex-col md:flex-row justify-between items-center opacity-50 px-container-margin py-stack-lg">
+        <p class="font-label-sm text-label-sm mb-0">© 2024 TestShare Technologies Inc.</p>
+        <div class="flex gap-stack-lg mt-base md:mt-0">
+            <a class="font-label-sm text-label-sm hover:text-primary transition-standard text-decoration-none text-on-surface-variant" href="#">Legal</a>
+            <a class="font-label-sm text-label-sm hover:text-primary transition-standard text-decoration-none text-on-surface-variant" href="#">Security</a>
+            <a class="font-label-sm text-label-sm hover:text-primary transition-standard text-decoration-none text-on-surface-variant" href="#">Partnerships</a>
+        </div>
+    </footer>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Micro-interaction for form inputs
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                const icon = input.previousElementSibling;
+                if (icon && icon.classList.contains('material-symbols-outlined')) {
+                    icon.style.color = '#ff9f0d';
+                    icon.style.transition = 'color 0.2s ease';
+                }
+            });
+            input.addEventListener('blur', () => {
+                const icon = input.previousElementSibling;
+                if (icon && icon.classList.contains('material-symbols-outlined')) {
+                    icon.style.color = 'rgba(218, 195, 173, 0.5)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

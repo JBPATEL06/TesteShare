@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Dish Studio | TestShare Merchant Portal</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #e5e2e1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2d2d2d;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ff9f0d;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "tertiary-fixed": "#c0e8ff",
+                      "secondary-fixed": "#e5e2e1",
+                      "on-surface-variant": "#dac3ad",
+                      "secondary": "#c8c6c5",
+                      "primary-fixed": "#ffddbb",
+                      "outline-variant": "#544434",
+                      "inverse-primary": "#885200",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#303030",
+                      "primary-fixed-dim": "#ffb868",
+                      "on-secondary-fixed": "#1b1b1c",
+                      "primary-container": "#ff9f0d",
+                      "surface": "#131313",
+                      "on-tertiary-container": "#004d66",
+                      "inverse-on-surface": "#313030",
+                      "secondary-container": "#474746",
+                      "on-tertiary-fixed": "#001e2b",
+                      "surface-dim": "#131313",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-container": "#201f1f",
+                      "inverse-surface": "#e5e2e1",
+                      "on-surface": "#e5e2e1",
+                      "surface-variant": "#353534",
+                      "on-error-container": "#ffdad6",
+                      "outline": "#a28d7a",
+                      "on-tertiary-fixed-variant": "#004d66",
+                      "tertiary": "#90daff",
+                      "primary": "#ffc688",
+                      "on-secondary-fixed-variant": "#474746",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary": "#003547",
+                      "on-error": "#690005",
+                      "surface-tint": "#ffb868",
+                      "tertiary-fixed-dim": "#70d2ff",
+                      "surface-bright": "#393939",
+                      "on-secondary-container": "#b7b5b4",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#00c3fd",
+                      "on-primary-container": "#673d00",
+                      "background": "#131313",
+                      "on-primary-fixed": "#2b1700",
+                      "on-primary": "#482900",
+                      "surface-container-highest": "#353534",
+                      "surface-container-low": "#1c1b1b",
+                      "on-primary-fixed-variant": "#673d00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-lg": "24px",
+                      "section-gap": "48px",
+                      "gutter": "16px",
+                      "stack-sm": "4px",
+                      "base": "8px",
+                      "container-margin": "20px",
+                      "stack-md": "12px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="w-full h-16 sticky top-0 z-40 border-b border-outline-variant bg-surface px-8 flex justify-between items-center shrink-0">
+    <div class="flex items-center gap-8">
+        <a href="index.html" class="text-decoration-none">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center text-on-primary-container">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+                </div>
+                <h1 class="font-headline-md text-headline-md font-bold text-primary mb-0">TestShare</h1>
+            </div>
+        </a>
+        <nav class="hidden md:flex ml-8 gap-2 mb-0">
+            <a class="font-label-md text-label-md text-primary bg-surface-container-highest px-4 py-2 rounded-lg text-decoration-none font-bold" href="menu_order_management_2.html">Dish Studio</a>
+            <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors px-4 py-2 rounded-lg text-decoration-none font-bold" href="redesigned_order_management_testshare_seller_panel.html">Orders</a>
+        </nav>
+    </div>
+    <div class="flex items-center gap-4">
+        <button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors rounded-full active:opacity-80 bg-transparent border-0">
+            <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button onclick="window.location.href='index.html'" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors rounded-full active:opacity-80 bg-transparent border-0">
+            <span class="material-symbols-outlined">storefront</span>
+        </button>
+        <div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+        <button class="flex items-center gap-2 p-1 pr-3 hover:bg-surface-container-high transition-colors rounded-full active:opacity-80 bg-transparent border-0">
+            <span class="material-symbols-outlined text-primary">account_circle</span>
+            <span class="font-label-sm text-label-sm text-on-surface font-bold">Admin</span>
+        </button>
+    </div>
+</header>
+
+<!-- Sidebar Navigation & Main Canvas Container -->
+<div class="flex min-h-[calc(100vh-4rem)] w-full">
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 border-r border-outline-variant bg-surface-container py-6 px-4 flex flex-col hidden md:flex shrink-0">
+        <div class="mb-8 flex items-center gap-3 px-2">
+            <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+                <span class="material-symbols-outlined" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+            </div>
+            <div>
+                <p class="font-headline-md text-[20px] font-bold text-primary leading-tight mb-0">TestShare</p>
+                <p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-0">Premium Merchant</p>
+            </div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="seller_dashboard_overview_1.html">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 bg-primary-container text-on-primary-container font-bold rounded-lg translate-x-1 transition-transform text-decoration-none font-label-md text-label-md" href="menu_order_management_1.html">
+                <span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+                <span>Menu Management</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="menu_order_management_2.html">
+                <span class="material-symbols-outlined" data-icon="palette">palette</span>
+                <span class="text-primary font-bold">Dish Studio</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="redesigned_order_management_testshare_seller_panel.html">
+                <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                <span>Orders</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="seller_dashboard_overview_2.html">
+                <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                <span>Analytics</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="redesigned_seller_menu_offers.html">
+                <span class="material-symbols-outlined" data-icon="local_offer">local_offer</span>
+                <span>Menu Offers</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="reviews_ratings_testshare_seller_panel.html">
+                <span class="material-symbols-outlined" data-icon="star_rate">star_rate</span>
+                <span>Reviews &amp; Ratings</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-highest transition-all rounded-lg group text-decoration-none font-label-md text-label-md" href="store_settings_profile.html">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span>Store Settings</span>
+            </a>
+        </nav>
+        <div class="mt-auto pt-6 border-t border-outline-variant space-y-2">
+            <button onclick="alert('Store is now Live Online!');" class="w-full bg-primary-container text-on-primary-container font-bold py-3 rounded-lg mb-4 hover:opacity-90 active:scale-95 transition-all border-0 font-bold">
+                Go Online
+            </button>
+            <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface transition-colors text-decoration-none font-label-md text-label-md font-bold" href="#">
+                <span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+                <span>Support</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface transition-colors text-decoration-none font-label-md text-label-md font-bold" href="#">
+                <span class="material-symbols-outlined" data-icon="help">help</span>
+                <span>Help Center</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="flex-1 p-8 overflow-y-auto">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mb-1">Dish Studio</h2>
+                    <p class="text-on-surface-variant font-body-md text-body-md mb-0">Create and curate your digital culinary experience.</p>
+                </div>
+                <button class="bg-primary-container text-on-primary-container font-bold px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all border-0 font-bold" onclick="toggleForm()">
+                    <span class="material-symbols-outlined" data-icon="add">add</span>
+                    <span>Add New Dish</span>
+                </button>
+            </div>
+            <!-- Category Filter Tabs -->
+            <div class="flex gap-6 mb-8 border-b border-outline-variant overflow-x-auto pb-1">
+                <button class="px-4 py-2 text-primary font-bold border-b-2 border-primary whitespace-nowrap bg-transparent font-bold">All Items</button>
+                <button class="px-4 py-2 text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap bg-transparent border-0 font-bold">Appetizers</button>
+                <button class="px-4 py-2 text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap bg-transparent border-0 font-bold">Signature Mains</button>
+                <button class="px-4 py-2 text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap bg-transparent border-0 font-bold">Desserts</button>
+                <button class="px-4 py-2 text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap bg-transparent border-0 font-bold">Beverages</button>
+            </div>
+            <!-- Menu Grid -->
+            <div class="space-y-12 pb-12">
+                <!-- Section: Appetizers -->
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-1.5 h-6 bg-primary rounded-full"></span>
+                        <h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-0">Appetizers</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Item Card 1 -->
+                        <div class="bg-surface-container border border-outline-variant p-4 rounded-xl group hover:border-primary transition-colors flex flex-col justify-between">
+                            <div>
+                                <div class="relative w-full h-48 mb-4 rounded-lg overflow-hidden border border-outline-variant">
+                                    <div class="w-full h-full bg-cover bg-center" data-alt="A high-end studio photograph of crispy calamari rings served with a wedge of lemon and a small bowl of spicy marinara sauce." style="background-image: url('images/crispy_calamari.png');"></div>
+                                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                </div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="font-bold text-on-surface text-lg mb-1">Crispy Calamari</h4>
+                                        <p class="text-primary font-bold mb-0">$14.00</p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-[10px] text-on-surface-variant uppercase font-bold">Available</span>
+                                        <label class="relative inline-flex items-center cursor-pointer mb-0">
+                                            <input checked class="sr-only toggle-checkbox" type="checkbox">
+                                            <div class="w-10 h-5 bg-surface-variant rounded-full transition-colors toggle-label border border-outline-variant">
+                                                <div class="toggle-dot absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 mt-4">
+                                <button onclick="toggleForm()" class="flex-1 border border-outline-variant text-on-surface-variant py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors bg-transparent font-bold">Edit</button>
+                                <button onclick="this.parentElement.parentElement.remove()" class="px-3 border border-outline-variant text-on-surface-variant rounded-lg hover:text-error hover:border-error transition-colors bg-transparent">
+                                    <span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Item Card 2 -->
+                        <div class="bg-surface-container border border-outline-variant p-4 rounded-xl group hover:border-primary transition-colors flex flex-col justify-between">
+                            <div>
+                                <div class="relative w-full h-48 mb-4 rounded-lg overflow-hidden border border-outline-variant">
+                                    <div class="w-full h-full bg-cover bg-center" data-alt="Gourmet bruschetta slices topped with vine-ripened tomatoes, fresh basil leaves, and a drizzle of balsamic glaze on toasted artisan bread." style="background-image: url('images/gourmet_bruschetta.png');"></div>
+                                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                </div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="font-bold text-on-surface text-lg mb-1">Truffle Bruschetta</h4>
+                                        <p class="text-primary font-bold mb-0">$12.50</p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-[10px] text-on-surface-variant uppercase font-bold">Available</span>
+                                        <label class="relative inline-flex items-center cursor-pointer mb-0">
+                                            <input checked class="sr-only toggle-checkbox" type="checkbox">
+                                            <div class="w-10 h-5 bg-surface-variant rounded-full transition-colors toggle-label border border-outline-variant">
+                                                <div class="toggle-dot absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 mt-4">
+                                <button onclick="toggleForm()" class="flex-1 border border-outline-variant text-on-surface-variant py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors bg-transparent font-bold">Edit</button>
+                                <button onclick="this.parentElement.parentElement.remove()" class="px-3 border border-outline-variant text-on-surface-variant rounded-lg hover:text-error hover:border-error transition-colors bg-transparent">
+                                    <span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Section: Signature Mains -->
+                <section class="mt-12">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-1.5 h-6 bg-primary rounded-full"></span>
+                        <h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-0">Signature Mains</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Item Card 3 -->
+                        <div class="bg-surface-container border border-outline-variant p-4 rounded-xl group hover:border-primary transition-colors flex flex-col justify-between">
+                            <div>
+                                <div class="relative w-full h-48 mb-4 rounded-lg overflow-hidden border border-outline-variant">
+                                    <div class="w-full h-full bg-cover bg-center" data-alt="A perfectly seared 8oz beef tenderloin steak served on a dark ceramic plate with roasted asparagus and a vibrant chimichurri sauce." style="background-image: url('images/beef_tenderloin_steak.png');"></div>
+                                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                        <span class="bg-error text-on-error px-3 py-1 rounded text-[12px] font-bold uppercase tracking-widest">Sold Out</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="font-bold text-on-surface text-lg mb-1">Blackened Tenderloin</h4>
+                                        <p class="text-primary font-bold mb-0">$42.00</p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-[10px] text-on-surface-variant uppercase font-bold">Available</span>
+                                        <label class="relative inline-flex items-center cursor-pointer mb-0">
+                                            <input class="sr-only toggle-checkbox" type="checkbox">
+                                            <div class="w-10 h-5 bg-surface-variant rounded-full transition-colors toggle-label border border-outline-variant">
+                                                <div class="toggle-dot absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 mt-4">
+                                <button onclick="toggleForm()" class="flex-1 border border-outline-variant text-on-surface-variant py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors bg-transparent font-bold">Edit</button>
+                                <button onclick="this.parentElement.parentElement.remove()" class="px-3 border border-outline-variant text-on-surface-variant rounded-lg hover:text-error hover:border-error transition-colors bg-transparent">
+                                    <span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="flex flex-col md:flex-row justify-between items-center px-8 py-6 border-t border-outline-variant bg-surface shrink-0">
+    <p class="font-label-sm text-label-sm text-on-surface-variant mb-4 md:mb-0">© 2024 TestShare Merchant Portal. All rights reserved.</p>
+    <div class="flex gap-8">
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="#">Privacy Policy</a>
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="#">Terms of Service</a>
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="#">Merchant Support</a>
+    </div>
+</footer>
+
+<!-- Complex Add New Dish Modal (Hidden by Default) -->
+<div class="fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4 hidden" id="dishFormModal">
+    <div class="bg-surface border border-outline-variant w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar flex flex-col rounded-2xl shadow-2xl">
+        <div class="p-6 border-b border-outline-variant flex justify-between items-center sticky top-0 bg-surface z-10">
+            <h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-0">Add New Dish</h3>
+            <button class="text-on-surface-variant hover:text-on-surface transition-colors bg-transparent border-0 p-1" onclick="toggleForm()">
+                <span class="material-symbols-outlined" data-icon="close">close</span>
+            </button>
+        </div>
+        <form class="p-6 space-y-6" onsubmit="alert('Dish created successfully!'); toggleForm(); return false;">
+            <div class="space-y-2">
+                <label class="block font-label-md text-label-md text-on-surface-variant font-bold">Dish Name</label>
+                <input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-3 rounded-lg outline-none transition-all placeholder:text-on-surface-variant/30" placeholder="e.g. Signature Truffle Mac &amp; Cheese" type="text" required>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="block font-label-md text-label-md text-on-surface-variant font-bold">Category</label>
+                    <select class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-3 rounded-lg outline-none transition-all appearance-none font-bold">
+                        <option>Appetizers</option>
+                        <option>Signature Mains</option>
+                        <option>Desserts</option>
+                        <option>Beverages</option>
+                    </select>
+                </div>
+                <div class="space-y-2">
+                    <label class="block font-label-md text-label-md text-on-surface-variant font-bold">Price ($)</label>
+                    <input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-3 rounded-lg outline-none transition-all" placeholder="0.00" step="0.01" type="number" required>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <label class="block font-label-md text-label-md text-on-surface-variant font-bold">Description</label>
+                <textarea class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-3 rounded-lg outline-none transition-all resize-none placeholder:text-on-surface-variant/30" placeholder="Describe the flavors, ingredients, and presentation..." rows="4" required></textarea>
+            </div>
+            <div class="space-y-2">
+                <label class="block font-label-md text-label-md text-on-surface-variant font-bold">Dish Image</label>
+                <div class="border-2 border-dashed border-outline-variant p-8 text-center bg-surface-container rounded-xl group hover:border-primary transition-all cursor-pointer">
+                    <span class="material-symbols-outlined text-primary mb-2 text-[32px]" data-icon="cloud_upload">cloud_upload</span>
+                    <p class="font-body-md text-body-md text-on-surface font-bold mb-1">Click or drag to upload dish image</p>
+                    <p class="text-on-surface-variant font-label-sm text-label-sm mb-0">High-res JPEG or PNG (Max 5MB)</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 pt-6 border-t border-outline-variant">
+                <button class="flex-1 py-3 border border-outline-variant text-on-surface rounded-lg hover:bg-surface-container-high transition-colors font-bold bg-transparent" onclick="toggleForm()" type="button">Cancel</button>
+                <button class="flex-1 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all border-0 font-bold" type="submit">Create Dish</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Custom Main JS -->
+<script src="../js/main.js"></script>
+<script>
+    function toggleForm() {
+        const modal = document.getElementById('dishFormModal');
+        modal.classList.toggle('hidden');
+        if (!modal.classList.contains('hidden')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Close modal on click outside
+    document.getElementById('dishFormModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            toggleForm();
+        }
+    });
+</script>
+</body>
+</html>

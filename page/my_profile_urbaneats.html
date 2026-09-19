@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare | User Profile</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #131313;
+            color: #e5e2e1;
+            margin: 0;
+            padding: 0;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #2D2D2D; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff9f0d; }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#c0e8ff",
+                      "primary-container": "#ff9f0d",
+                      "outline-variant": "#544434",
+                      "error": "#ffb4ab",
+                      "surface": "#131313",
+                      "tertiary-fixed-dim": "#70d2ff",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "tertiary": "#90daff",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-container": "#00c3fd",
+                      "surface-container-high": "#2a2a2a",
+                      "background": "#131313",
+                      "primary-fixed-dim": "#ffb868",
+                      "on-error": "#690005",
+                      "inverse-primary": "#885200",
+                      "surface-container-highest": "#353534",
+                      "on-surface": "#e5e2e1",
+                      "primary": "#ffc688",
+                      "surface-tint": "#ffb868",
+                      "on-tertiary-container": "#004d66",
+                      "surface-variant": "#353534",
+                      "surface-bright": "#393939",
+                      "on-tertiary-fixed": "#001e2b",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary": "#303030",
+                      "outline": "#a28d7a",
+                      "on-primary-container": "#673d00",
+                      "on-secondary-fixed-variant": "#474746",
+                      "secondary-fixed": "#e5e2e1",
+                      "on-primary-fixed-variant": "#673d00",
+                      "on-tertiary": "#003547",
+                      "inverse-on-surface": "#313030",
+                      "surface-dim": "#131313",
+                      "secondary": "#c8c6c5",
+                      "on-surface-variant": "#dac3ad",
+                      "on-secondary-fixed": "#1b1b1c",
+                      "surface-container-low": "#1c1b1b",
+                      "on-tertiary-fixed-variant": "#004d66",
+                      "on-primary-fixed": "#2b1700",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#ffddbb",
+                      "on-primary": "#482900",
+                      "on-secondary-container": "#b7b5b4",
+                      "surface-container": "#201f1f",
+                      "on-background": "#e5e2e1",
+                      "secondary-container": "#474746"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-sm": "4px",
+                      "base": "8px",
+                      "section-gap": "48px",
+                      "stack-md": "12px",
+                      "container-margin": "20px",
+                      "stack-lg": "24px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container flex flex-col min-h-screen">
+    <!-- TopNavBar -->
+    <nav class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-container-margin max-w-full mx-auto">
+        <div class="flex items-center gap-stack-md">
+            <a href="index.html" class="text-decoration-none"><span class="font-headline-md text-headline-md font-bold text-primary">TestShare</span></a>
+            <div class="hidden md:flex items-center ml-8 gap-stack-lg">
+                <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer font-body-md text-body-md text-decoration-none">Browse</a>
+                <a href="redesigned_seller_menu_offers.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer font-body-md text-body-md text-decoration-none">Offers</a>
+                <span class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md">Account</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-stack-md">
+            <div class="hidden md:flex items-center gap-stack-md mr-4">
+                <a href="order_history_reviews_2.html" class="text-secondary font-medium cursor-pointer hover:text-primary transition-colors font-body-md text-body-md text-decoration-none">Orders</a>
+                <a href="#" class="text-secondary font-medium cursor-pointer hover:text-primary transition-colors font-body-md text-body-md text-decoration-none">Support</a>
+            </div>
+            <div class="flex items-center gap-stack-md">
+                <a href="your_cart.html" class="text-decoration-none"><span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-all">shopping_cart</span></a>
+                <span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-all">notifications</span>
+                <div class="w-8 h-8 rounded-full border border-outline overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+                    <img class="w-full h-full object-cover" alt="User profile avatar" src="images/user_profile_avatar.png">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Canvas -->
+    <main class="flex-grow max-w-7xl mx-auto px-container-margin py-section-gap w-full my-4">
+        <div class="mb-stack-lg my-4">
+            <h1 class="font-headline-xl text-headline-xl text-on-surface mb-2 font-bold">My Profile</h1>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-0">Manage your account settings, addresses, and delivery preferences.</p>
+        </div>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            <!-- Left Column: Personal Info & Security -->
+            <div class="lg:col-span-4 flex flex-col gap-gutter">
+                <!-- Personal Info Card -->
+                <section class="bg-surface-container border border-outline-variant p-stack-lg rounded-3 mb-4 p-4">
+                    <div class="flex flex-col items-center mb-stack-lg">
+                        <div class="w-32 h-32 rounded-3 border-2 border-primary-container overflow-hidden mb-stack-md shadow-2xl relative group">
+                            <img class="w-full h-full object-cover" alt="Julian Rivera profile picture" src="images/julian_rivera_avatar.png">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer">
+                                <span class="material-symbols-outlined text-white">edit</span>
+                            </div>
+                        </div>
+                        <h2 class="font-headline-md text-headline-md font-bold mb-1">Julian Rivera</h2>
+                        <span class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Gold Member</span>
+                    </div>
+                    <div class="space-y-stack-md mt-4">
+                        <div class="flex flex-col gap-1 mb-3">
+                            <label class="font-label-sm text-label-sm text-on-surface-variant font-bold">Email Address</label>
+                            <input class="w-full bg-background border border-outline-variant text-on-surface px-4 py-2 rounded-2 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all font-body-md text-body-md" type="email" value="julian.rivera@testshare.io">
+                        </div>
+                        <div class="flex flex-col gap-1 mb-4">
+                            <label class="font-label-sm text-label-sm text-on-surface-variant font-bold">Phone Number</label>
+                            <input class="w-full bg-background border border-outline-variant text-on-surface px-4 py-2 rounded-2 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all font-body-md text-body-md" type="tel" value="+1 (555) 012-3456">
+                        </div>
+                        <button class="w-full bg-primary-container text-on-primary-container font-bold py-3 rounded-2 hover:brightness-110 active:scale-[0.98] transition-all font-label-md text-label-md border-0 uppercase tracking-wider">SAVE CHANGES</button>
+                    </div>
+                </section>
+                <!-- Security Card -->
+                <section class="bg-surface-container border border-outline-variant p-stack-lg rounded-3 p-4">
+                    <div class="flex items-center gap-2 mb-stack-md mb-3">
+                        <span class="material-symbols-outlined text-primary">security</span>
+                        <h3 class="font-headline-md text-headline-md mb-0 font-bold">Security</h3>
+                    </div>
+                    <div class="space-y-stack-md">
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Last password change: 3 months ago</p>
+                        <button class="w-full border border-white bg-transparent text-on-surface font-bold py-3 rounded-2 hover:bg-white hover:text-black transition-all font-label-md text-label-md uppercase tracking-wider mb-4">CHANGE PASSWORD</button>
+                        <div class="flex items-center justify-between p-stack-md border border-outline-variant rounded-2 bg-background/50 p-3">
+                            <div class="flex flex-col">
+                                <span class="font-label-md text-label-md font-bold">Two-Factor Auth</span>
+                                <span class="font-label-sm text-label-sm text-green-400 font-bold">Active</span>
+                            </div>
+                            <span class="material-symbols-outlined text-green-400">verified_user</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Middle/Right Column: Addresses, Payments, Preferences -->
+            <div class="lg:col-span-8 flex flex-col gap-gutter">
+                <!-- Saved Addresses -->
+                <section class="bg-surface-container border border-outline-variant p-stack-lg rounded-3 mb-4 p-4">
+                    <div class="flex justify-between items-center mb-stack-lg mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <h3 class="font-headline-md text-headline-md mb-0 font-bold">Saved Addresses</h3>
+                        </div>
+                        <button class="text-primary font-bold font-label-md text-label-md hover:underline bg-transparent border-0 uppercase tracking-wider">+ ADD NEW</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+                        <!-- Home -->
+                        <div class="border border-outline-variant bg-surface-container-high p-stack-md rounded-3 relative group p-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary-container">home</span>
+                                    <span class="font-label-md text-label-md uppercase tracking-wider font-bold">Home</span>
+                                </div>
+                                <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-error transition-colors">delete</span>
+                            </div>
+                            <p class="font-body-md text-body-md mb-1">1248 Skyline Blvd, Apt 4C</p>
+                            <p class="font-body-md text-body-md text-on-surface-variant mb-0">New York, NY 10012</p>
+                            <div class="mt-4 pt-4 border-t border-outline-variant">
+                                <button class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors bg-transparent border-0 p-0 font-bold">Edit Details</button>
+                            </div>
+                        </div>
+                        <!-- Work -->
+                        <div class="border border-outline-variant bg-surface-container-high p-stack-md rounded-3 relative group p-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary-container">work</span>
+                                    <span class="font-label-md text-label-md uppercase tracking-wider font-bold">Work</span>
+                                </div>
+                                <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-error transition-colors">delete</span>
+                            </div>
+                            <p class="font-body-md text-body-md mb-1">UrbanTech Plaza, Suite 900</p>
+                            <p class="font-body-md text-body-md text-on-surface-variant mb-0">New York, NY 10001</p>
+                            <div class="mt-4 pt-4 border-t border-outline-variant">
+                                <button class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors bg-transparent border-0 p-0 font-bold">Edit Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Payment Methods -->
+                <section class="bg-surface-container border border-outline-variant p-stack-lg rounded-3 mb-4 p-4">
+                    <div class="flex justify-between items-center mb-stack-lg mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">credit_card</span>
+                            <h3 class="font-headline-md text-headline-md mb-0 font-bold">Payment Methods</h3>
+                        </div>
+                        <button class="text-primary font-bold font-label-md text-label-md hover:underline bg-transparent border-0 uppercase tracking-wider">+ ADD CARD</button>
+                    </div>
+                    <div class="space-y-stack-md">
+                        <!-- Card 1 -->
+                        <div class="flex items-center justify-between p-stack-md border border-outline-variant rounded-2 bg-surface-container-high p-3 mb-3">
+                            <div class="flex items-center gap-stack-md">
+                                <div class="w-12 h-8 bg-black/40 border border-outline-variant rounded-1 flex items-center justify-center mr-3">
+                                    <span class="font-bold text-[10px] text-white">VISA</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-body-md text-body-md font-bold">Visa ending in 4242</span>
+                                    <span class="font-label-sm text-label-sm text-on-surface-variant mb-0">Expires 12/26</span>
+                                </div>
+                            </div>
+                            <span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded-1 font-label-sm text-label-sm font-bold">PRIMARY</span>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="flex items-center justify-between p-stack-md border border-outline-variant rounded-2 bg-surface-container-high opacity-70 hover:opacity-100 transition-opacity p-3">
+                            <div class="flex items-center gap-stack-md">
+                                <div class="w-12 h-8 bg-black/40 border border-outline-variant rounded-1 flex items-center justify-center mr-3">
+                                    <span class="font-bold text-[10px] text-white">MC</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-body-md text-body-md font-bold">Mastercard ending in 8891</span>
+                                    <span class="font-label-sm text-label-sm text-on-surface-variant mb-0">Expires 05/25</span>
+                                </div>
+                            </div>
+                            <button class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm bg-transparent border-0 font-bold">Set Primary</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Order Preferences -->
+                <section class="bg-surface-container border border-outline-variant p-stack-lg rounded-3 p-4">
+                    <div class="flex items-center gap-2 mb-stack-lg mb-4">
+                        <span class="material-symbols-outlined text-primary">restaurant</span>
+                        <h3 class="font-headline-md text-headline-md mb-0 font-bold">Order Preferences</h3>
+                    </div>
+                    <div class="space-y-stack-lg">
+                        <div class="mb-4">
+                            <h4 class="font-label-md text-label-md text-on-surface-variant mb-stack-md uppercase tracking-wider font-bold mb-2">Dietary Restrictions</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-4 py-2 rounded-full border border-primary-container bg-primary-container/10 text-primary-container font-label-sm text-label-sm flex items-center gap-1 cursor-pointer font-bold">Vegan <span class="material-symbols-outlined text-[16px]">close</span></span>
+                                <span class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm cursor-pointer hover:border-primary transition-colors font-bold">Gluten-Free</span>
+                                <span class="px-4 py-2 rounded-full border border-primary-container bg-primary-container/10 text-primary-container font-label-sm text-label-sm flex items-center gap-1 cursor-pointer font-bold">Nut-Free <span class="material-symbols-outlined text-[16px]">close</span></span>
+                                <span class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm cursor-pointer hover:border-primary transition-colors font-bold">Dairy-Free</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="font-label-md text-label-md text-on-surface-variant mb-stack-md uppercase tracking-wider font-bold mb-2">Favorite Cuisines</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                <div class="bg-surface-container-high border border-outline-variant p-2 rounded-2 text-center cursor-pointer hover:border-primary transition-all">
+                                    <span class="font-label-md text-label-md font-bold">Japanese</span>
+                                </div>
+                                <div class="bg-surface-container-high border border-primary text-primary p-2 rounded-2 text-center cursor-pointer">
+                                    <span class="font-label-md text-label-md font-bold">Italian</span>
+                                </div>
+                                <div class="bg-surface-container-high border border-outline-variant p-2 rounded-2 text-center cursor-pointer hover:border-primary transition-all">
+                                    <span class="font-label-md text-label-md font-bold">Mexican</span>
+                                </div>
+                                <div class="bg-surface-container-high border border-primary text-primary p-2 rounded-2 text-center cursor-pointer">
+                                    <span class="font-label-md text-label-md font-bold">Thai</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-stack-md pt-4 border-t border-outline-variant">
+                            <input checked class="w-5 h-5 rounded bg-background border-outline-variant text-primary-container focus:ring-primary-container mr-2" id="contactless" type="checkbox">
+                            <label class="font-body-md text-body-md mb-0" for="contactless">Always prefer contactless delivery</label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center py-stack-lg px-container-margin gap-stack-md mt-24 py-5">
+        <div class="flex flex-col items-center md:items-start gap-1">
+            <span class="font-headline-sm text-headline-sm font-bold text-primary">TestShare</span>
+            <span class="font-label-sm text-label-sm text-secondary mb-0">© 2024 TestShare Technologies Inc.</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-stack-lg gap-y-stack-sm gap-4">
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">About Us</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Careers</a>
+            <a href="seller_registration_testshare.html" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Partner with Us</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Terms of Service</a>
+            <a href="#" class="text-primary underline font-label-sm text-label-sm underline-offset-4 cursor-pointer text-decoration-none">Privacy Policy</a>
+            <a href="#" class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors underline-offset-4 cursor-pointer text-decoration-none">Contact Support</a>
+        </div>
+        <div class="flex gap-stack-md gap-2">
+            <div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group p-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-primary-container">language</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-primary-container transition-colors group p-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-primary-container">share</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Micro-interactions for input focus
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                const lbl = input.parentElement.querySelector('label');
+                if(lbl) lbl.classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                const lbl = input.parentElement.querySelector('label');
+                if(lbl) lbl.classList.remove('text-primary');
+            });
+        });
+    </script>
+</body>
+</html>

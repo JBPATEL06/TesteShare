@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TestShare - Explore Dishes</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN (Fallback for exact token matching) -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- Tailwind Theme Configuration -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-primary-fixed": "#2b1700",
+                    "outline": "#a28d7a",
+                    "on-surface": "#e5e2e1",
+                    "on-error": "#690005",
+                    "primary": "#ffc688",
+                    "surface": "#131313",
+                    "on-primary-fixed-variant": "#673d00",
+                    "inverse-primary": "#885200",
+                    "on-surface-variant": "#dac3ad",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "on-tertiary-fixed": "#001e2b",
+                    "on-tertiary": "#003547",
+                    "tertiary": "#90daff",
+                    "on-secondary": "#303030",
+                    "surface-variant": "#353534",
+                    "surface-dim": "#131313",
+                    "surface-container": "#201f1f",
+                    "on-tertiary-container": "#004d66",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-container": "#474746",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#00c3fd",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "background": "#131313",
+                    "primary-container": "#ff9f0d",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "tertiary-fixed-dim": "#70d2ff",
+                    "surface-container-low": "#1c1b1b",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-background": "#e5e2e1",
+                    "secondary": "#c8c6c5",
+                    "outline-variant": "#544434",
+                    "surface-tint": "#ffb868",
+                    "surface-bright": "#393939",
+                    "tertiary-fixed": "#c0e8ff",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed-dim": "#ffb868",
+                    "surface-container-highest": "#353534",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#ffddbb",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-primary-container": "#673d00",
+                    "on-primary": "#482900"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-sm": "4px",
+                    "stack-md": "12px",
+                    "gutter": "16px",
+                    "container-margin": "20px",
+                    "section-gap": "48px",
+                    "base": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+    <!-- TopNavBar -->
+    <header class="bg-surface sticky-top border-bottom border-outline-variant z-3">
+        <div class="container-xl d-flex justify-content-between align-items-center py-3 px-4">
+            <div class="d-flex align-items-center gap-3">
+                <a href="index.html" class="text-decoration-none"><span class="fs-4 fw-bold text-primary-custom">TestShare</span></a>
+            </div>
+            <div class="d-none d-md-flex align-items-center gap-4">
+                <a class="text-primary-custom fw-bold text-decoration-none border-bottom border-primary border-2 pb-1" href="index.html">Explore</a>
+                <a class="text-on-surface-variant text-decoration-none hover-primary transition" href="order_history_reviews_2.html">Orders</a>
+                <a class="text-on-surface-variant text-decoration-none hover-primary transition" href="redesigned_seller_menu_offers.html">Offers</a>
+                <a class="text-on-surface-variant text-decoration-none hover-primary transition" href="demo_form_design_testshare.html">Help</a>
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <button class="btn btn-link text-on-surface-variant p-0 hover-primary">
+                    <span class="material-symbols-outlined">location_on</span>
+                </button>
+                <a href="your_cart.html" class="btn btn-link text-on-surface-variant p-0 hover-primary position-relative">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary-custom text-dark" style="font-size: 10px;">3</span>
+                </a>
+                <a href="my_profile_testshare.html" class="w-8 h-8 rounded-circle border border-outline-variant overflow-hidden d-block" style="width: 32px; height: 32px;">
+                    <img class="w-100 h-100 object-fit-cover" alt="User Profile" src="images/user_header_avatar.png">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-xl px-4 pb-5 mb-5">
+        <!-- Hero Section -->
+        <section class="position-relative overflow-hidden rounded-3 my-4" style="height: 350px;">
+            <div class="position-absolute inset-0 w-100 h-100 z-0">
+                <div class="w-100 h-100 bg-cover bg-center opacity-40 parallax-bg" style="background-image: url('images/hero_section_bg.png'); background-size: cover; background-position: center;"></div>
+                <div class="position-absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent" style="background: linear-gradient(to top, #131313, transparent);"></div>
+            </div>
+            <div class="position-relative z-1 h-100 d-flex flex-column justify-content-end p-4 p-md-5 max-w-4xl">
+                <h1 class="display-5 fw-bold text-white mb-2">The city's finest dishes,<br><span class="text-primary-container">delivered to your door.</span></h1>
+                <p class="fs-5 text-on-surface-variant max-w-2xl mb-0">Discover individual masterpieces from local kitchens. From artisan sushi to wood-fired pizzas.</p>
+            </div>
+        </section>
+
+        <!-- Discovery Toggle & Filters -->
+        <div class="bg-surface py-3 border-bottom border-outline-variant mb-4">
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                <!-- Segmented Control -->
+                <div class="d-flex p-1 bg-surface-container rounded-3 border border-outline-variant w-fit">
+                    <a href="home_store_exploration.html" class="btn btn-link text-on-surface-variant text-decoration-none px-4 py-2 fw-semibold fs-7">Explore Restaurants</a>
+                    <a href="index.html" class="btn btn-primary-custom px-4 py-2 fw-semibold fs-7 text-decoration-none active-pill rounded-2">Explore Dishes</a>
+                </div>
+                <!-- Search Bar -->
+                <div class="position-relative w-100" style="max-width: 400px;">
+                    <span class="material-symbols-outlined position-absolute top-50 start-0 translate-middle-y ms-3 text-on-surface-variant">search</span>
+                    <input class="form-control bg-surface-container-low border-outline-variant text-white ps-5 pe-3 py-2 input-focus-amber" placeholder="Search for a specific dish..." type="text" style="color: #ffffff !important;">
+                </div>
+            </div>
+            <!-- Category Chips -->
+            <div class="d-flex gap-2 mt-3 overflow-x-auto no-scrollbar py-1">
+                <button class="btn bg-primary-custom rounded-pill px-4 py-1 fs-7 flex-shrink-0">All Dishes</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Pizza</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Sushi</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Vegan</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Burgers</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Pasta</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Desserts</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Tacos</button>
+                <button class="btn bg-surface-variant text-on-surface-variant border-outline-variant rounded-pill px-4 py-1 fs-7 flex-shrink-0 hover-primary">Smoothies</button>
+            </div>
+        </div>
+
+        <!-- Dish Feed (Grid) -->
+        <div id="dishes-feed" class="row gy-4 mb-5">
+            <!-- Card 1 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/spicy_tuna_crunch.png" class="dish-card-img" alt="Spicy Tuna Crunch">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $18.50</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Spicy Tuna Crunch</a></h5>
+                            <span class="text-primary-container fw-bold">$18.50</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> Moshi Moshi Sushi
+                        </p>
+                        <div class="d-flex gap-2 mt-auto">
+                            <span class="badge bg-surface-variant text-on-surface-variant border border-outline-variant text-uppercase">Spicy</span>
+                            <span class="badge bg-surface-variant text-on-surface-variant border border-outline-variant text-uppercase">Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/truffle_wagyu_burger.png" class="dish-card-img" alt="Truffle Wagyu Burger">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>4.9</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $22.00</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Truffle Wagyu Burger</a></h5>
+                            <span class="text-primary-container fw-bold">$22.00</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> The Burger Foundry
+                        </p>
+                        <div class="d-flex gap-2 mt-auto">
+                            <span class="badge bg-surface-variant text-on-surface-variant border border-outline-variant text-uppercase">Bestseller</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/margherita_pizza.png" class="dish-card-img" alt="Buffalo Margherita">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $16.00</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Buffalo Margherita</a></h5>
+                            <span class="text-primary-container fw-bold">$16.00</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> Napoli Fire
+                        </p>
+                        <div class="d-flex gap-2 mt-auto">
+                            <span class="badge bg-surface-variant text-on-surface-variant border border-outline-variant text-uppercase">Vegetarian</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/green_goddess_bowl.png" class="dish-card-img" alt="Green Goddess Bowl">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $14.50</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Green Goddess Bowl</a></h5>
+                            <span class="text-primary-container fw-bold">$14.50</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> Pure Greens
+                        </p>
+                        <div class="d-flex gap-2 mt-auto">
+                            <span class="badge bg-surface-variant text-on-surface-variant border border-outline-variant text-uppercase">Vegan</span>
+                            <span class="badge bg-surface-variant text-on-surface-variant border border-outline-variant text-uppercase">Healthy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/honeycomb_stack.png" class="dish-card-img" alt="Honeycomb Stack">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>4.9</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $12.00</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Honeycomb Stack</a></h5>
+                            <span class="text-primary-container fw-bold">$12.00</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> Early Bird Cafe
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/pappardelle_pasta.png" class="dish-card-img" alt="Wild Boar Pappardelle">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $19.50</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Wild Boar Pappardelle</a></h5>
+                            <span class="text-primary-container fw-bold">$19.50</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> Trattoria Urbano
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/carnitas_trio.png" class="dish-card-img" alt="Carnitas Trio">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $13.50</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Carnitas Trio</a></h5>
+                            <span class="text-primary-container fw-bold">$13.50</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> Taco District
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="dish-card">
+                    <div class="dish-card-img-wrapper">
+                        <img src="images/molten_gold_lava_cake.png" class="dish-card-img" alt="Molten Gold Lava Cake">
+                        <div class="badge-rating">
+                            <span class="material-symbols-outlined text-primary-container fs-8 filled">star</span>
+                            <span>5.0</span>
+                        </div>
+                        <div class="dish-card-overlay d-flex flex-column justify-content-end">
+                            <a href="your_cart.html" class="btn btn-primary-custom w-100 py-2 fs-7 fw-bold">Add to Cart • $9.00</a>
+                        </div>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h5 class="fw-bold mb-0"><a href="food_item_detail_wagyu_gold_tartare.html" class="text-white text-decoration-none">Molten Gold Lava Cake</a></h5>
+                            <span class="text-primary-container fw-bold">$9.00</span>
+                        </div>
+                        <p class="fs-8 text-on-surface-variant d-flex align-items-center gap-1 mb-2">
+                            <span class="material-symbols-outlined fs-8">restaurant</span> Sweet Endings
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading More State -->
+        <div class="d-flex flex-column align-items-center gap-3 my-5">
+            <div class="spinner-border text-primary-container" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="fs-6 text-on-surface-variant">Finding more deliciousness...</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container border-top border-outline-variant py-5">
+        <div class="container-xl d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+            <div class="d-flex flex-column align-items-center align-items-md-start gap-1">
+                <span class="fs-5 fw-bold text-on-surface">TestShare</span>
+                <p class="fs-8 text-on-surface-variant mb-0">© 2024 TestShare. All rights reserved.</p>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+                <a class="fs-8 text-on-surface-variant text-decoration-none hover-primary" href="#">Support</a>
+                <a class="fs-8 text-on-surface-variant text-decoration-none hover-primary" href="#">Privacy Policy</a>
+                <a class="fs-8 text-on-surface-variant text-decoration-none hover-primary" href="#">Terms of Service</a>
+                <a class="fs-8 text-on-surface-variant text-decoration-none hover-primary" href="seller_registration_testshare.html">Become a Partner</a>
+            </div>
+            <div class="d-flex gap-3">
+                <button class="btn btn-outline-secondary d-flex align-items-center justify-content-center p-2">
+                    <span class="material-symbols-outlined fs-6">face_nod</span>
+                </button>
+                <button class="btn btn-outline-secondary d-flex align-items-center justify-content-center p-2">
+                    <span class="material-symbols-outlined fs-6">share</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

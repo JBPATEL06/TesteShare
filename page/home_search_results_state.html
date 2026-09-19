@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+    <title>TestShare | Search Results: Pizza</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#00c3fd",
+                    "on-secondary-fixed-variant": "#474746",
+                    "primary": "#ffc688",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "secondary": "#c8c6c5",
+                    "on-tertiary": "#003547",
+                    "surface-bright": "#393939",
+                    "primary-fixed": "#ffddbb",
+                    "surface-container-highest": "#353534",
+                    "on-primary-container": "#673d00",
+                    "on-secondary-container": "#b7b5b4",
+                    "outline-variant": "#544434",
+                    "surface": "#131313",
+                    "secondary-container": "#474746",
+                    "on-surface-variant": "#dac3ad",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "inverse-primary": "#885200",
+                    "primary-container": "#ff9f0d",
+                    "on-primary-fixed-variant": "#673d00",
+                    "surface-dim": "#131313",
+                    "surface-container": "#201f1f",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed": "#001e2b",
+                    "outline": "#a28d7a",
+                    "on-primary-fixed": "#2b1700",
+                    "on-primary": "#482900",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-fixed-dim": "#70d2ff",
+                    "tertiary-fixed": "#c0e8ff",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb868",
+                    "on-background": "#e5e2e1",
+                    "background": "#131313",
+                    "surface-variant": "#353534",
+                    "on-error-container": "#ffdad6",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#303030",
+                    "inverse-surface": "#e5e2e1",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "on-tertiary-container": "#004d66",
+                    "on-surface": "#e5e2e1",
+                    "surface-tint": "#ffb868",
+                    "tertiary": "#90daff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "48px",
+                    "container-margin": "20px",
+                    "base": "8px",
+                    "stack-sm": "4px",
+                    "stack-md": "12px",
+                    "stack-lg": "24px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2D2D2D;
+            border-radius: 2px;
+        }
+        .pizza-active-glow {
+            box-shadow: 0 0 15px rgba(255, 159, 13, 0.2);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md custom-scrollbar overflow-x-hidden bg-surface text-on-surface">
+    <!-- TopNavBar -->
+    <header class="bg-surface border-b border-surface-variant docked full-width top-0 z-50 sticky-top">
+        <div class="flex justify-between items-center w-full px-container-margin py-base max-w-full">
+            <div class="flex items-center gap-stack-lg">
+                <a href="index.html" class="text-decoration-none"><span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">TestShare</span></a>
+                <nav class="hidden md:flex gap-stack-lg items-center">
+                    <a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-1 text-decoration-none font-label-md text-label-md" href="redesigned_seller_menu_offers.html">Offers</a>
+                </nav>
+            </div>
+            <!-- Search Bar (Active State) -->
+            <div class="flex-1 max-w-xl mx-gutter">
+                <div class="relative group">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">search</span>
+                    <input autofocus class="w-full bg-surface-container border border-primary-container ring-1 ring-primary-container text-on-surface rounded px-10 py-2 focus:outline-none transition-all duration-200 pizza-active-glow font-body-md" placeholder="Search for food or stores" type="text" value="Pizza">
+                    <span onclick="window.location.href='index.html'" class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant cursor-pointer hover:text-on-surface">close</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-stack-md">
+                <a href="my_profile_testshare.html" class="flex items-center justify-center p-2 hover:bg-surface-container-high transition-colors rounded-circle text-decoration-none">
+                    <span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen pt-gutter pb-32 max-w-5xl mx-auto px-container-margin my-4">
+        <!-- Search Header & Context -->
+        <section class="mb-section-gap my-4">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md">
+                <div>
+                    <h1 class="font-headline-xl text-headline-xl text-on-surface mb-2 hidden md:block font-bold">Showing results for "Pizza"</h1>
+                    <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 md:hidden font-bold">Results for "Pizza"</h1>
+                    <p class="text-on-surface-variant font-body-md mb-0">3 top-rated pizza artisans found near you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Chips Area -->
+        <section class="mb-stack-lg overflow-x-auto no-scrollbar py-2 my-4">
+            <div class="flex gap-stack-md items-center min-w-max">
+                <button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md flex items-center gap-2 border border-primary-container fw-bold">
+                    <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">local_pizza</span>
+                    Pizza
+                </button>
+                <button class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-lg font-label-md border border-surface-variant hover:text-on-surface transition-colors">
+                    Fast Delivery
+                </button>
+                <button class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-lg font-label-md border border-surface-variant hover:text-on-surface transition-colors">
+                    Rating 4.5+
+                </button>
+                <button class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-lg font-label-md border border-surface-variant hover:text-on-surface transition-colors">
+                    Offers
+                </button>
+                <button class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-lg font-label-md border border-surface-variant hover:text-on-surface transition-colors">
+                    Vegan
+                </button>
+            </div>
+        </section>
+
+        <!-- Restaurant List -->
+        <section class="space-y-gutter my-4">
+            <!-- Restaurant 1: Artisan Crust Lab -->
+            <div class="bg-surface-container border border-surface-variant group hover:border-primary transition-all duration-300 rounded-3 overflow-hidden mb-4">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-64 h-48 md:h-auto overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 z-10 transition-opacity group-hover:opacity-0"></div>
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 min-h-[200px]" style="background-image: url('images/home_banner_1.png')"></div>
+                        <div class="absolute top-2 left-2 z-20 bg-primary-container text-on-primary-container px-2 py-1 text-label-sm font-bold rounded-1">
+                            PROMOTED
+                        </div>
+                    </div>
+                    <div class="flex-1 p-gutter flex flex-col justify-between p-4">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Artisan Crust Lab</h2>
+                                <div class="flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded">
+                                    <span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="font-label-md text-on-surface">4.9</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant font-body-md mt-1 italic mb-2">Sourdough fermentation • Neapolitan Style • Premium Ingredients</p>
+                            <div class="flex gap-stack-md mt-stack-md mb-3">
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">25-35 min</span>
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">Free delivery</span>
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">$$</span>
+                            </div>
+                        </div>
+                        <div class="mt-stack-lg border-t border-surface-variant pt-stack-md flex items-center justify-between pt-3">
+                            <span class="text-label-sm text-on-surface-variant flex items-center gap-1 mb-0">
+                                <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+                                Use code PIZZA20 for 20% off
+                            </span>
+                            <button onclick="window.location.href='home_store_exploration.html'" class="text-primary font-label-md flex items-center gap-1 hover:underline transition-all active:scale-95 bg-transparent border-0 fw-bold">
+                                View Menu
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restaurant 2: The Pizza Artisan -->
+            <div class="bg-surface-container border border-surface-variant group hover:border-primary transition-all duration-300 rounded-3 overflow-hidden mb-4">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-64 h-48 md:h-auto overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 z-10 transition-opacity group-hover:opacity-0"></div>
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 min-h-[200px]" style="background-image: url('images/category_banner_2.png')"></div>
+                    </div>
+                    <div class="flex-1 p-gutter flex flex-col justify-between p-4">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h2 class="font-headline-md text-headline-md text-on-surface font-bold">The Pizza Artisan</h2>
+                                <div class="flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded">
+                                    <span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="font-label-md text-on-surface">4.7</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant font-body-md mt-1 italic mb-2">Detroit Style • Craft Pepperoni • Urban Kitchen</p>
+                            <div class="flex gap-stack-md mt-stack-md mb-3">
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">15-20 min</span>
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">$1.99 delivery</span>
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">$$</span>
+                            </div>
+                        </div>
+                        <div class="mt-stack-lg border-t border-surface-variant pt-stack-md flex items-center justify-between pt-3">
+                            <span class="text-label-sm text-on-surface-variant flex items-center gap-1 mb-0">
+                                <span class="material-symbols-outlined text-[16px]">timer</span>
+                                Super fast delivery area
+                            </span>
+                            <button onclick="window.location.href='home_store_exploration.html'" class="text-primary font-label-md flex items-center gap-1 hover:underline transition-all active:scale-95 bg-transparent border-0 fw-bold">
+                                View Menu
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restaurant 3: Midnight Slices -->
+            <div class="bg-surface-container border border-surface-variant group hover:border-primary transition-all duration-300 rounded-3 overflow-hidden mb-4">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-64 h-48 md:h-auto overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/20 z-10 transition-opacity group-hover:opacity-0"></div>
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 min-h-[200px]" style="background-image: url('images/category_banner_1.png')"></div>
+                    </div>
+                    <div class="flex-1 p-gutter flex flex-col justify-between p-4">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Midnight Slices</h2>
+                                <div class="flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded">
+                                    <span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="font-label-md text-on-surface">4.5</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant font-body-md mt-1 italic mb-2">NY Style • Open Late • Truffle Specials</p>
+                            <div class="flex gap-stack-md mt-stack-md mb-3">
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">30-45 min</span>
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">Free over $20</span>
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">$</span>
+                            </div>
+                        </div>
+                        <div class="mt-stack-lg border-t border-surface-variant pt-stack-md flex items-center justify-between pt-3">
+                            <span class="text-label-sm text-on-surface-variant flex items-center gap-1 mb-0">
+                                <span class="material-symbols-outlined text-[16px]">nights_stay</span>
+                                Open until 3 AM
+                            </span>
+                            <button onclick="window.location.href='home_store_exploration.html'" class="text-primary font-label-md flex items-center gap-1 hover:underline transition-all active:scale-95 bg-transparent border-0 fw-bold">
+                                View Menu
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container border-t border-surface-variant">
+        <a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-label-sm text-label-sm">Home</span>
+        </a>
+        <a href="redesigned_seller_menu_offers.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined" data-icon="local_offer">local_offer</span>
+            <span class="font-label-sm text-label-sm">Offers</span>
+        </a>
+        <a href="order_history_reviews_2.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+            <span class="font-label-sm text-label-sm">Orders</span>
+        </a>
+        <a href="your_cart.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface text-decoration-none">
+            <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+            <span class="font-label-sm text-label-sm">Cart</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="w-full px-container-margin py-section-gap flex flex-col md:flex-row justify-between items-center gap-stack-lg bg-surface-container-lowest border-t border-surface-variant mt-24 py-5">
+        <div class="flex flex-col items-center md:items-start gap-2">
+            <span class="font-headline-md text-headline-md text-primary font-bold">TestShare</span>
+            <p class="text-on-surface-variant text-body-md mb-0">© 2024 TestShare. All rights reserved.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-stack-lg">
+            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors text-decoration-none" href="#">About Us</a>
+            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors text-decoration-none" href="seller_registration_testshare.html">Partner with us</a>
+            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors text-decoration-none" href="#">Privacy Policy</a>
+            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors text-decoration-none" href="#">Support</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Micro-interaction for search bar
+        const searchInput = document.querySelector('input[type="text"]');
+        if(searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('scale-[1.01]');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('scale-[1.01]');
+            });
+        }
+    </script>
+</body>
+</html>

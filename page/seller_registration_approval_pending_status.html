@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Review Status | TestShare Seller Portal</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#2b1700",
+                        "on-primary-container": "#673d00",
+                        "tertiary-container": "#00c3fd",
+                        "on-tertiary": "#003547",
+                        "surface-container-highest": "#353534",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary": "#c8c6c5",
+                        "error-container": "#93000a",
+                        "background": "#131313",
+                        "surface": "#131313",
+                        "tertiary-fixed": "#c0e8ff",
+                        "inverse-primary": "#885200",
+                        "surface-container-low": "#1c1b1b",
+                        "on-background": "#e5e2e1",
+                        "outline-variant": "#544434",
+                        "tertiary-fixed-dim": "#70d2ff",
+                        "on-surface-variant": "#dac3ad",
+                        "secondary-container": "#474746",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-bright": "#393939",
+                        "primary": "#ffc688",
+                        "on-primary": "#482900",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a2a2a",
+                        "outline": "#a28d7a",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#474746",
+                        "inverse-on-surface": "#313030",
+                        "primary-fixed-dim": "#ffb868",
+                        "on-primary-fixed-variant": "#673d00",
+                        "surface-container": "#201f1f",
+                        "surface-tint": "#ffb868",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "surface-variant": "#353534",
+                        "primary-container": "#ff9f0d",
+                        "on-tertiary-container": "#004d66",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-fixed": "#ffddbb",
+                        "on-tertiary-fixed": "#001e2b",
+                        "on-secondary": "#303030",
+                        "tertiary": "#90daff",
+                        "surface-dim": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin": "20px",
+                        "section-gap": "48px",
+                        "stack-lg": "24px",
+                        "base": "8px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-complete { color: #ff9f0d; }
+        .step-active { color: #ffc688; }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #2D2D2D;
+            border-radius: 12px;
+        }
+        .status-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden bg-background text-on-surface">
+<div class="flex min-h-screen w-full">
+    <!-- SideNavBar -->
+    <aside class="hidden md:flex flex-col h-screen w-64 border-r border-outline-variant bg-surface-container-lowest fixed top-0 left-0 z-50 transition-all duration-200 ease-in-out">
+        <div class="px-6 py-8 flex flex-col gap-2">
+            <a href="index.html" class="text-decoration-none"><div class="font-headline-sm text-headline-sm text-primary-container font-bold">TestShare</div></a>
+            <div class="flex items-center gap-3 mt-4">
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+                    <img class="w-full h-full object-cover" data-alt="A professional headshot of a restaurant manager in a minimalist black studio setting, lit with warm amber accents." src="images/restaurant_manager_headshot.png">
+                </div>
+                <div>
+                    <p class="font-label-md text-label-md text-on-surface mb-0 font-bold">The Urban Grill</p>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Pending Approval</p>
+                </div>
+            </div>
+        </div>
+        <nav class="flex-1 px-4 py-4 flex flex-col gap-2">
+            <a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-surface-container-high rounded transition-all font-label-md text-label-md text-decoration-none" href="seller_registration_approval_pending_status.html">
+                <span class="material-symbols-outlined">pending_actions</span>
+                Review Status
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="seller_dashboard_overview_1.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                Dashboard Preview
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="seller_dashboard_overview_2.html">
+                <span class="material-symbols-outlined">analytics</span>
+                Advanced Metrics
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-all font-label-md text-label-md text-decoration-none" href="menu_order_management_1.html">
+                <span class="material-symbols-outlined">restaurant_menu</span>
+                Menu Management
+            </a>
+        </nav>
+        <div class="p-4 border-t border-outline-variant">
+            <button onclick="window.location.href='index.html'" class="w-full py-2 bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md rounded hover:bg-surface-container-highest transition-colors font-bold">
+                Exit Portal
+            </button>
+            <button onclick="toggleSupport()" class="w-full flex items-center justify-center gap-3 px-4 py-3 mt-2 text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md bg-transparent border-0 font-bold">
+                <span class="material-symbols-outlined">help</span>
+                Help Center
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Canvas -->
+    <main class="md:ml-64 flex-1 min-h-screen relative p-container-margin flex flex-col gap-section-gap p-8">
+        <!-- Header Shell -->
+        <header class="flex justify-between items-center h-16 sticky top-0 z-40 bg-background/80 backdrop-blur-md px-container-margin border-b border-outline-variant px-6 rounded-lg mb-8">
+            <h2 class="font-headline-md text-headline-md font-bold text-on-background mb-0">TestShare Seller Portal</h2>
+            <div class="flex items-center gap-stack-lg gap-4">
+                <button onclick="toggleSupport()" class="bg-primary text-on-primary font-label-md px-4 py-2 rounded font-bold border-0 hover:brightness-110 transition-all active:scale-95">
+                    Contact Support
+                </button>
+                <span onclick="toggleSupport()" class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors text-[24px]">help</span>
+                <div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+                    <img class="w-full h-full object-cover" src="images/restaurant_manager_headshot.png">
+                </div>
+            </div>
+        </header>
+        <!-- Content Area -->
+        <div class="max-w-5xl mx-auto w-full space-y-stack-lg space-y-8">
+            <!-- Hero Status Card (Bento Style) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter gap-6">
+                <div class="lg:col-span-2 glass-panel p-stack-lg flex flex-col justify-center relative overflow-hidden p-8">
+                    <div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
+                    <div class="flex items-start gap-stack-lg gap-6">
+                        <div class="bg-primary-container/20 p-stack-md rounded p-3">
+                            <span class="material-symbols-outlined text-[48px] text-primary status-pulse">verified_user</span>
+                        </div>
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg text-primary mb-stack-sm font-bold mb-2">Verification in Progress</h3>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-0">
+                                Your application is currently being reviewed by our verification team. We are cross-referencing your documents to ensure the highest quality standards for our platform.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-stack-lg pt-stack-md border-t border-primary/20 flex items-center gap-stack-sm mt-8 pt-4 gap-3">
+                        <span class="material-symbols-outlined text-[20px] text-primary/70">mail</span>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant opacity-80 mb-0">
+                            Once verified, your store login credentials will be sent to your registered email address.
+                        </p>
+                    </div>
+                </div>
+                <div class="glass-panel p-stack-lg flex flex-col justify-between border-primary/30 p-8">
+                    <div>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-stack-sm font-bold mb-2">Estimated Time</p>
+                        <h4 class="font-headline-xl text-headline-xl text-on-surface font-bold mb-0">24-48 <span class="text-headline-md text-on-surface-variant font-normal">Hours</span></h4>
+                    </div>
+                    <div class="flex items-center gap-stack-sm text-primary gap-2 mt-6">
+                        <span class="material-symbols-outlined text-[20px]">info</span>
+                        <span class="font-label-md text-label-md font-bold">Priority Review Active</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Application Details & Progress Tracker -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter gap-6">
+                <!-- Summary -->
+                <div class="glass-panel p-stack-lg space-y-stack-lg p-8 space-y-6">
+                    <h5 class="font-label-md text-label-md text-primary uppercase font-bold mb-6">Registration Summary</h5>
+                    <div class="space-y-stack-md space-y-4">
+                        <div class="flex flex-col mb-4">
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">Store Name</span>
+                            <span class="font-body-md text-body-md font-semibold text-on-surface">The Urban Grill</span>
+                        </div>
+                        <div class="flex flex-col mb-4">
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">Application ID</span>
+                            <span class="font-body-md text-body-md font-semibold text-on-surface">#88291</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">Date Submitted</span>
+                            <span class="font-body-md text-body-md font-semibold text-on-surface">October 24, 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline -->
+                <div class="lg:col-span-2 glass-panel p-stack-lg flex flex-col p-8">
+                    <h5 class="font-label-md text-label-md text-primary uppercase mb-stack-lg font-bold mb-8">Verification Timeline</h5>
+                    <div class="relative flex-1 flex flex-col justify-between pb-stack-md space-y-8">
+                        <!-- Connecting Line -->
+                        <div class="absolute left-[11px] top-4 bottom-4 w-[2px] bg-outline-variant"></div>
+                        <div class="absolute left-[11px] top-4 h-1/2 w-[2px] bg-primary"></div>
+                        <!-- Step 1 -->
+                        <div class="relative flex items-start gap-stack-lg z-10 gap-6">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-1">
+                                <span class="material-symbols-outlined text-[16px] text-on-primary-fixed" style="font-variation-settings: 'FILL' 1;">check</span>
+                            </div>
+                            <div>
+                                <p class="font-label-md text-label-md font-bold text-on-surface mb-1">Application Submitted</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Successfully received on Oct 24, 10:42 AM</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="relative flex items-start gap-stack-lg z-10 gap-6">
+                            <div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center border-2 border-primary shrink-0 mt-1">
+                                <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                            </div>
+                            <div>
+                                <p class="font-label-md text-label-md font-bold text-primary mb-1">Document Verification</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Under review by compliance team</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="relative flex items-start gap-stack-lg z-10 opacity-40 gap-6">
+                            <div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant shrink-0 mt-1">
+                            </div>
+                            <div>
+                                <p class="font-label-md text-label-md font-bold text-on-surface mb-1">Final Approval</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Awaiting completion of review</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- What's Next? (Informational Section) -->
+            <div class="glass-panel p-stack-lg p-8">
+                <h5 class="font-label-md text-label-md text-primary uppercase mb-stack-lg font-bold mb-6">What's Next?</h5>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg gap-6">
+                    <div class="flex gap-stack-md items-start p-stack-md bg-surface-container-lowest border border-outline-variant rounded p-6 gap-4">
+                        <span class="material-symbols-outlined text-primary text-[32px]">restaurant_menu</span>
+                        <div>
+                            <p class="font-label-md text-label-md font-bold text-on-surface mb-1">Menu Configuration</p>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant mt-1 mb-0">Prepare your high-quality dish images and descriptions for the digital storefront.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-stack-md items-start p-stack-md bg-surface-container-lowest border border-outline-variant rounded p-6 gap-4">
+                        <span class="material-symbols-outlined text-primary text-[32px]">campaign</span>
+                        <div>
+                            <p class="font-label-md text-label-md font-bold text-on-surface mb-1">Store Launch</p>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant mt-1 mb-0">Once approved, you can set your operating hours and go live to thousands of customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Support Interaction Layer -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm hidden" id="support-modal">
+    <div class="glass-panel w-full max-w-md p-stack-lg border-primary p-6 m-4">
+        <div class="flex justify-between items-center mb-stack-lg mb-6">
+            <h3 class="font-headline-md text-headline-md text-primary font-bold mb-0">Contact Support</h3>
+            <button class="material-symbols-outlined text-on-surface-variant hover:text-white bg-transparent border-0 text-[24px]" onclick="toggleSupport()">close</button>
+        </div>
+        <div class="space-y-stack-md space-y-4">
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6">Need help with your application? Our merchant support team is available 24/7.</p>
+            <div class="p-stack-md bg-surface-container-low border border-outline-variant flex items-center gap-stack-md p-4 rounded-lg gap-4">
+                <span class="material-symbols-outlined text-primary text-[28px]">chat_bubble</span>
+                <div>
+                    <p class="font-label-md text-label-md font-bold mb-1 text-on-surface">Live Chat</p>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">Average response time: 2 mins</p>
+                </div>
+            </div>
+            <div class="p-stack-md bg-surface-container-low border border-outline-variant flex items-center gap-stack-md p-4 rounded-lg gap-4">
+                <span class="material-symbols-outlined text-primary text-[28px]">mail</span>
+                <div>
+                    <p class="font-label-md text-label-md font-bold mb-1 text-on-surface">Email Support</p>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-0">merchants@testshare.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Custom Main JS -->
+<script src="../js/main.js"></script>
+<script>
+    function toggleSupport() {
+        const modal = document.getElementById('support-modal');
+        modal.classList.toggle('hidden');
+    }
+</script>
+</body>
+</html>

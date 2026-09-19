@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Obsidian Harvest - Design System Showcase | TestShare</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#131313",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#393939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "on-surface-variant": "#dac3ad",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#a28d7a",
+                        "outline-variant": "#544434",
+                        "surface-tint": "#ffb868",
+                        "primary": "#ffc688",
+                        "on-primary": "#482900",
+                        "primary-container": "#ff9f0d",
+                        "on-primary-container": "#673d00",
+                        "inverse-primary": "#885200",
+                        "secondary": "#c8c6c5",
+                        "on-secondary": "#303030",
+                        "secondary-container": "#474746",
+                        "on-secondary-container": "#b7b5b4",
+                        "tertiary": "#90daff",
+                        "on-tertiary": "#003547",
+                        "tertiary-container": "#00c3fd",
+                        "on-tertiary-container": "#004d66",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#ffddbb",
+                        "primary-fixed-dim": "#ffb868",
+                        "on-primary-fixed": "#2b1700",
+                        "on-primary-fixed-variant": "#673d00",
+                        "secondary-fixed": "#e5e2e1",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "on-secondary-fixed-variant": "#474746",
+                        "tertiary-fixed": "#c0e8ff",
+                        "tertiary-fixed-dim": "#70d2ff",
+                        "on-tertiary-fixed": "#001e2b",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "background": "#131313",
+                        "on-background": "#e5e2e1",
+                        "surface-variant": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .solid-card {
+            background-color: #201f1f;
+            border: 1px solid #353534;
+            border-radius: 0.5rem;
+        }
+        .solid-input {
+            background-color: #131313;
+            border: 1px solid #353534;
+            border-radius: 0.25rem;
+        }
+        .solid-input:focus {
+            border-color: #ff9f0d !important;
+            box-shadow: 0 0 0 1px #ff9f0d;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff9f0d;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-8 shrink-0 shadow-md">
+    <div class="flex items-center gap-6">
+        <a href="index.html" class="text-decoration-none">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center text-on-primary-container">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+                </div>
+                <h1 class="font-bold text-2xl text-primary mb-0">Obsidian Harvest</h1>
+            </div>
+        </a>
+        <span class="bg-surface-container-highest text-on-surface font-mono text-xs px-3 py-1 rounded border border-outline-variant hidden sm:inline-block font-bold">Solid-State UI Spec</span>
+    </div>
+    <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-8 mb-0">
+            <a href="#brand" class="font-bold text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Brand &amp; Style</a>
+            <a href="#colors" class="font-bold text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Color Palette</a>
+            <a href="#typography" class="font-bold text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Typography</a>
+            <a href="#components" class="font-bold text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Interactive Components</a>
+        </nav>
+        <a href="amber_noir.html" class="bg-surface-container-highest hover:bg-primary text-on-surface font-bold text-xs px-4 py-2 rounded border border-outline-variant transition-all text-decoration-none font-bold">
+            Switch to Amber Noir ⭢
+        </a>
+    </div>
+</header>
+
+<!-- Main Showcase Container -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-8 py-12 space-y-20">
+    <!-- Hero Header -->
+    <section class="space-y-6 text-center md:text-left border-b border-outline-variant pb-12">
+        <div class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary-container/30 px-4 py-1.5 rounded text-primary text-xs font-bold uppercase tracking-widest font-bold">
+            <span class="material-symbols-outlined text-sm">speed</span> High-Contrast Minimalism
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-on-surface">Obsidian Harvest <span class="text-primary-container">Design System</span></h1>
+        <p class="text-lg text-on-surface-variant max-w-3xl mb-0">Built on a foundation of High-Contrast Minimalism. It prioritizes extreme legibility and functional speed for the food delivery experience. By moving away from trendy translucent effects, the system leans into Solid-State UI—where every element feels intentional, grounded, and permanent.</p>
+    </section>
+
+    <!-- Brand & Style Section -->
+    <section id="brand" class="space-y-8 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">token</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Brand Philosophy &amp; Solid-State UI</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="solid-card p-8 space-y-4 shadow-lg">
+                <span class="material-symbols-outlined text-primary-container text-4xl">layers</span>
+                <h3 class="text-xl font-bold text-on-surface mb-0">Tonal Layering</h3>
+                <p class="text-on-surface-variant text-sm mb-0">Intentionally avoids ambient shadows and blurs. Depth is communicated through strictly curated surface levels (#131313 base, #201f1f surface, #2D2D2D overlay).</p>
+            </div>
+            <div class="solid-card p-8 space-y-4 shadow-lg">
+                <span class="material-symbols-outlined text-primary-container text-4xl">square</span>
+                <h3 class="text-xl font-bold text-on-surface mb-0">Razor-Sharp Borders</h3>
+                <p class="text-on-surface-variant text-sm mb-0">Every surface element features a crisp 1px solid border. In this system, borders do the heavy lifting that shadows typically perform in other designs.</p>
+            </div>
+            <div class="solid-card p-8 space-y-4 shadow-lg">
+                <span class="material-symbols-outlined text-primary-container text-4xl">ads_click</span>
+                <h3 class="text-xl font-bold text-on-surface mb-0">Singular Accent Action</h3>
+                <p class="text-on-surface-variant text-sm mb-0">Electric Amber (#FF9F0D) is reserved exclusively for interactive calls-to-action, status indicators, and critical brand highlights.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section id="colors" class="space-y-8 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">palette</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Color Palette Swatches</h2>
+        </div>
+        <p class="text-on-surface-variant text-sm mb-4">Click any color swatch to copy its exact HEX code to your clipboard.</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div onclick="copyHex('#131313', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#131313] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">surface / bg</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#131313</div>
+            </div>
+            <div onclick="copyHex('#1c1b1b', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#1c1b1b] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">surface-low</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#1c1b1b</div>
+            </div>
+            <div onclick="copyHex('#201f1f', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#201f1f] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">surface-container</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#201f1f</div>
+            </div>
+            <div onclick="copyHex('#2a2a2a', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#2a2a2a] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">surface-high</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#2a2a2a</div>
+            </div>
+            <div onclick="copyHex('#353534', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#353534] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">surface-highest</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#353534</div>
+            </div>
+            <div onclick="copyHex('#ffc688', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#ffc688] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">primary</div>
+                <div class="font-mono font-bold text-primary text-sm mt-1">#ffc688</div>
+            </div>
+            <div onclick="copyHex('#ff9f0d', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#ff9f0d] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">primary-container</div>
+                <div class="font-mono font-bold text-primary-container text-sm mt-1">#ff9f0d</div>
+            </div>
+            <div onclick="copyHex('#c8c6c5', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#c8c6c5] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">secondary</div>
+                <div class="font-mono font-bold text-[#c8c6c5] text-sm mt-1">#c8c6c5</div>
+            </div>
+            <div onclick="copyHex('#e5e2e1', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#e5e2e1] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">on-surface</div>
+                <div class="font-mono font-bold text-[#e5e2e1] text-sm mt-1">#e5e2e1</div>
+            </div>
+            <div onclick="copyHex('#dac3ad', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#dac3ad] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">on-surface-variant</div>
+                <div class="font-mono font-bold text-[#dac3ad] text-sm mt-1">#dac3ad</div>
+            </div>
+            <div onclick="copyHex('#ffb4ab', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#ffb4ab] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">error</div>
+                <div class="font-mono font-bold text-[#ffb4ab] text-sm mt-1">#ffb4ab</div>
+            </div>
+            <div onclick="copyHex('#a28d7a', this)" class="solid-card p-4 cursor-pointer text-center group shadow-md">
+                <div class="h-20 w-full rounded bg-[#a28d7a] border border-outline-variant mb-3 group-hover:border-primary transition-colors"></div>
+                <div class="text-xs text-on-surface-variant font-bold">outline</div>
+                <div class="font-mono font-bold text-[#a28d7a] text-sm mt-1">#a28d7a</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography Section -->
+    <section id="typography" class="space-y-8 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">font_download</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Typography Scale (Inter)</h2>
+        </div>
+        <div class="solid-card p-8 space-y-12 shadow-xl">
+            <div>
+                <div class="flex items-center justify-between text-xs text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold uppercase tracking-widest">
+                    <span>headline-xl (Inter • 40px • Bold • -0.02em tracking)</span>
+                    <span>Primary Page Anchors</span>
+                </div>
+                <div class="text-[40px] font-bold leading-[48px] tracking-[-0.02em] text-on-surface">
+                    The Obsidian Grill - Master Menu Studio
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold uppercase tracking-widest">
+                    <span>headline-lg (Inter • 32px • Bold • -0.01em tracking)</span>
+                    <span>Core Dashboard Sections</span>
+                </div>
+                <div class="text-[32px] font-bold leading-[40px] tracking-[-0.01em] text-on-surface">
+                    High-Contrast Minimalist Mechanics
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold uppercase tracking-widest">
+                    <span>headline-md (Inter • 24px • SemiBold)</span>
+                    <span>Card &amp; Panel Titles</span>
+                </div>
+                <div class="text-[24px] font-semibold leading-[32px] text-on-surface">
+                    Solid-State Inventory &amp; Logistics
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold uppercase tracking-widest">
+                    <span>body-lg (Inter • 18px • Regular)</span>
+                    <span>Primary Content Paragraphs</span>
+                </div>
+                <div class="text-[18px] font-normal leading-[28px] text-on-surface-variant">
+                    By moving away from trendy translucent effects, the system leans into Solid-State UI—where every element feels intentional, grounded, and permanent.
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold uppercase tracking-widest">
+                    <span>label-md &amp; label-sm (Inter • 14px/12px • Medium/SemiBold)</span>
+                    <span>Meta Information &amp; Status Labels</span>
+                </div>
+                <div class="text-[14px] font-semibold leading-[20px] tracking-[0.05em] text-primary-container uppercase font-bold">
+                    DELIVERY TIME: 20-30 MIN • MIN ORDER: $30.00 • TOP 1% IN CATEGORY
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="space-y-12 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">widgets</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Interactive Components</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Buttons & Badges -->
+            <div class="solid-card p-8 space-y-6 shadow-xl">
+                <h3 class="text-xl font-bold text-on-surface border-b border-outline-variant pb-3 mb-0">Solid Buttons &amp; Badges</h3>
+                <p class="text-sm text-on-surface-variant mb-4">Primary buttons are solid Electric Amber with Black text (#121212) for maximum contrast. No rounded ends; use the 4px (0.25rem) radius.</p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <button onclick="alert('Solid Electric Amber Clicked')" class="px-6 py-3 bg-primary-container text-[#121212] font-bold rounded text-sm hover:opacity-90 active:scale-95 transition-all border-0 font-bold shadow-lg">
+                        Primary Solid Action
+                    </button>
+                    <button onclick="alert('Secondary Transparent Clicked')" class="px-6 py-3 bg-transparent border border-white text-white font-bold rounded text-sm hover:bg-surface-container-high active:scale-95 transition-all font-bold">
+                        Secondary Transparent
+                    </button>
+                </div>
+                <div class="pt-6 border-t border-outline-variant space-y-4">
+                    <h4 class="text-sm font-bold text-on-surface mb-0">Meta Information Badges (#2D2D2D Background)</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-[#2D2D2D] text-white text-xs font-bold uppercase tracking-widest rounded border border-outline-variant font-bold">
+                            Fast Delivery
+                        </span>
+                        <span class="px-3 py-1 bg-[#2D2D2D] text-white text-xs font-bold uppercase tracking-widest rounded border border-outline-variant font-bold">
+                            Vegan Elite
+                        </span>
+                        <span class="px-3 py-1 bg-green-900/40 text-green-400 text-xs font-bold uppercase tracking-widest rounded border border-green-800 font-bold">
+                            Out for Delivery
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Fields & Controls -->
+            <div class="solid-card p-8 space-y-6 shadow-xl">
+                <h3 class="text-xl font-bold text-on-surface border-b border-outline-variant pb-3 mb-0">Solid Input Fields (#121212 Base)</h3>
+                <p class="text-sm text-on-surface-variant mb-4">Solid #121212 background with a 1px #2D2D2D border. On focus, the border changes to Electric Amber.</p>
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Customer Delivery Search</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                            <input type="text" placeholder="Search active orders..." class="w-full solid-input p-3 pl-10 text-sm text-on-surface outline-none">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Fulfillment Status Tier</label>
+                        <select class="w-full solid-input p-3 text-sm text-on-surface outline-none font-bold">
+                            <option>Stage 1 - Kitchen Prep</option>
+                            <option>Stage 2 - Packaging &amp; Quality Check</option>
+                            <option>Stage 3 - Out for Delivery</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Tracker Component -->
+        <div class="solid-card p-8 space-y-6 shadow-xl">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+                <h3 class="text-xl font-bold text-on-surface mb-0">Progress Tracker (Solid Horizontal Lines)</h3>
+                <span class="text-xs text-primary-container font-bold uppercase tracking-widest">ORDER #UE-88492-NY</span>
+            </div>
+            <p class="text-sm text-on-surface-variant mb-6">For order tracking, use solid vertical/horizontal lines in #2D2D2D, with Electric Amber segments representing completed stages.</p>
+            
+            <div class="space-y-8">
+                <!-- Step graphics -->
+                <div class="relative flex items-center justify-between w-full max-w-4xl mx-auto">
+                    <!-- Background Track -->
+                    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1.5 bg-[#2D2D2D] z-0 rounded-full"></div>
+                    <!-- Completed Track -->
+                    <div id="progressLine" class="absolute left-0 top-1/2 -translate-y-1/2 w-[66%] h-1.5 bg-primary-container z-0 rounded-full transition-all duration-500"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative z-10 flex flex-col items-center group">
+                        <div class="w-10 h-10 rounded-full bg-primary-container text-[#121212] font-bold flex items-center justify-center border-2 border-surface shadow-lg step-circle">
+                            <span class="material-symbols-outlined text-sm">done</span>
+                        </div>
+                        <span class="mt-3 text-xs font-bold text-on-surface uppercase tracking-widest">Confirmed</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative z-10 flex flex-col items-center group">
+                        <div class="w-10 h-10 rounded-full bg-primary-container text-[#121212] font-bold flex items-center justify-center border-2 border-surface shadow-lg step-circle">
+                            <span class="material-symbols-outlined text-sm">outdoor_grill</span>
+                        </div>
+                        <span class="mt-3 text-xs font-bold text-on-surface uppercase tracking-widest">Kitchen Prep</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative z-10 flex flex-col items-center group">
+                        <div class="w-10 h-10 rounded-full bg-primary-container text-[#121212] font-bold flex items-center justify-center border-2 border-surface shadow-lg step-circle">
+                            <span class="material-symbols-outlined text-sm">local_shipping</span>
+                        </div>
+                        <span class="mt-3 text-xs font-bold text-on-surface uppercase tracking-widest">Out for Delivery</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative z-10 flex flex-col items-center group">
+                        <div class="w-10 h-10 rounded-full bg-[#2D2D2D] text-on-surface-variant font-bold flex items-center justify-center border-2 border-surface shadow-lg step-circle" id="lastStepCircle">
+                            <span class="material-symbols-outlined text-sm">home</span>
+                        </div>
+                        <span class="mt-3 text-xs font-bold text-on-surface-variant uppercase tracking-widest" id="lastStepText">Delivered</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-4 pt-4">
+                    <button onclick="advanceProgress()" class="px-6 py-2.5 bg-primary text-[#121212] font-bold rounded text-sm hover:opacity-90 active:scale-95 transition-all border-0 font-bold shadow-lg">
+                        Advance Stage to Delivered
+                    </button>
+                    <button onclick="resetProgress()" class="px-6 py-2.5 bg-surface-container-highest text-on-surface font-bold rounded text-sm hover:bg-surface-bright active:scale-95 transition-all border border-outline-variant font-bold">
+                        Reset Stage
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- High-Density Food Lists -->
+        <div class="solid-card p-8 space-y-6 shadow-xl">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+                <h3 class="text-xl font-bold text-on-surface mb-0">High-Density Food Lists</h3>
+                <span class="text-xs text-primary font-bold uppercase tracking-widest">1PX SOLID HORIZONTAL DIVIDERS</span>
+            </div>
+            <p class="text-sm text-on-surface-variant mb-4">Food items should be separated by 1px solid horizontal dividers (#2D2D2D) rather than being placed in individual floating cards to maximize information density.</p>
+            
+            <div class="divide-y divide-[#2D2D2D] border border-[#2D2D2D] rounded-lg bg-surface">
+                <!-- Item 1 -->
+                <div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-3">
+                            <h4 class="font-bold text-on-surface text-base mb-0">Smoked Wagyu Gyoza</h4>
+                            <span class="px-2 py-0.5 bg-[#2D2D2D] text-primary text-[10px] font-bold uppercase tracking-widest rounded border border-outline-variant font-bold">Signature</span>
+                        </div>
+                        <p class="text-xs text-on-surface-variant mb-0">Pan-seared dumplings with smoked wagyu filling and a spicy ponzu dip.</p>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="text-primary font-bold text-base mb-0">$18.00</span>
+                        <button onclick="alert('Quick Add: Smoked Wagyu Gyoza')" class="px-4 py-2 bg-primary-container text-[#121212] font-bold rounded text-xs hover:opacity-90 border-0 font-bold shadow-md">ADD</button>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-3">
+                            <h4 class="font-bold text-on-surface text-base mb-0">Crispy Rice w/ Spicy Tuna</h4>
+                            <span class="px-2 py-0.5 bg-[#2D2D2D] text-white text-[10px] font-bold uppercase tracking-widest rounded border border-outline-variant font-bold">Best Seller</span>
+                        </div>
+                        <p class="text-xs text-on-surface-variant mb-0">Toasted rice cakes topped with spicy tuna tartare and jalapeño.</p>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="text-primary font-bold text-base mb-0">$22.00</span>
+                        <button onclick="alert('Quick Add: Crispy Rice w/ Spicy Tuna')" class="px-4 py-2 bg-primary-container text-[#121212] font-bold rounded text-xs hover:opacity-90 border-0 font-bold shadow-md">ADD</button>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-3">
+                            <h4 class="font-bold text-on-surface text-base mb-0">Miso Glazed Black Cod</h4>
+                        </div>
+                        <p class="text-xs text-on-surface-variant mb-0">24-hour marinated black cod with a silky miso glaze and baby bok choy.</p>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="text-primary font-bold text-base mb-0">$54.00</span>
+                        <button onclick="alert('Quick Add: Miso Glazed Black Cod')" class="px-4 py-2 bg-primary-container text-[#121212] font-bold rounded text-xs hover:opacity-90 border-0 font-bold shadow-md">ADD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant mt-24 shrink-0">
+    <div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+        <div class="flex flex-col items-center md:items-start gap-2">
+            <span class="font-bold text-xl text-on-surface mb-0">TestShare Design Systems</span>
+            <p class="text-xs text-on-surface-variant mb-0">Obsidian Harvest • High-Contrast Minimalist Specification</p>
+        </div>
+        <div class="flex gap-6">
+            <a class="text-xs text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="amber_noir.html">Explore Amber Noir</a>
+            <a class="text-xs text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="index.html">Back to Home</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Custom Main JS -->
+<script src="../js/main.js"></script>
+<script>
+    function copyHex(hex, element) {
+        navigator.clipboard.writeText(hex);
+        const originalHtml = element.innerHTML;
+        element.innerHTML = `<div class="h-20 w-full rounded bg-green-600 flex items-center justify-center text-white font-bold text-sm mb-3">COPIED!</div><div class="text-xs text-on-surface-variant font-bold">success</div><div class="font-mono font-bold text-green-400 text-sm mt-1">${hex}</div>`;
+        setTimeout(() => {
+            element.innerHTML = originalHtml;
+        }, 1500);
+    }
+
+    function advanceProgress() {
+        document.getElementById('progressLine').style.width = '100%';
+        const lastCircle = document.getElementById('lastStepCircle');
+        lastCircle.className = 'w-10 h-10 rounded-full bg-primary-container text-[#121212] font-bold flex items-center justify-center border-2 border-surface shadow-lg step-circle';
+        document.getElementById('lastStepText').className = 'mt-3 text-xs font-bold text-on-surface uppercase tracking-widest';
+    }
+
+    function resetProgress() {
+        document.getElementById('progressLine').style.width = '66%';
+        const lastCircle = document.getElementById('lastStepCircle');
+        lastCircle.className = 'w-10 h-10 rounded-full bg-[#2D2D2D] text-on-surface-variant font-bold flex items-center justify-center border-2 border-surface shadow-lg step-circle';
+        document.getElementById('lastStepText').className = 'mt-3 text-xs font-bold text-on-surface-variant uppercase tracking-widest';
+    }
+</script>
+</body>
+</html>

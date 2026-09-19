@@ -1,0 +1,222 @@
+@import url('google-fonts.css');
+@import url('google-fonts.css');
+
+:root {
+    --color-surface: #131313;
+    --color-surface-container: #201f1f;
+    --color-surface-container-low: #1c1b1b;
+    --color-surface-container-lowest: #0e0e0e;
+    --color-surface-variant: #353534;
+    --color-primary: #ffc688;
+    --color-primary-container: #ff9f0d;
+    --color-on-primary-container: #673d00;
+    --color-on-surface: #e5e2e1;
+    --color-on-surface-variant: #dac3ad;
+    --color-outline: #a28d7a;
+    --color-outline-variant: #544434;
+    --color-secondary: #c8c6c5;
+    --color-secondary-container: #474746;
+    --color-error: #ffb4ab;
+    --color-error-container: #93000a;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Material Symbols configuration */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+.material-symbols-outlined.filled {
+    font-variation-settings: 'FILL' 1;
+}
+
+/* Custom Backgrounds & Colors for Bootstrap */
+.bg-surface { background-color: var(--color-surface) !important; }
+.bg-surface-container { background-color: var(--color-surface-container) !important; }
+.bg-surface-container-low { background-color: var(--color-surface-container-low) !important; }
+.bg-surface-container-lowest { background-color: var(--color-surface-container-lowest) !important; }
+.bg-surface-variant { background-color: var(--color-surface-variant) !important; }
+.bg-primary-custom { background-color: var(--color-primary-container) !important; color: #131313 !important; font-weight: 600; }
+.bg-primary-custom:hover { filter: brightness(1.1); color: #131313 !important; }
+
+.text-primary-custom { color: var(--color-primary) !important; }
+.text-primary-container { color: var(--color-primary-container) !important; }
+.text-on-surface { color: var(--color-on-surface) !important; }
+.text-on-surface-variant { color: var(--color-on-surface-variant) !important; }
+.text-secondary-custom { color: var(--color-secondary) !important; }
+
+.border-outline { border-color: var(--color-outline) !important; }
+.border-outline-variant { border-color: var(--color-outline-variant) !important; }
+
+/* Custom components & utilities */
+.glass-overlay {
+    background: linear-gradient(to bottom, rgba(19, 19, 19, 0.7), rgba(19, 19, 19, 0.95));
+}
+
+.input-focus-amber:focus {
+    border-color: var(--color-primary-container) !important;
+    box-shadow: 0 0 0 1px var(--color-primary-container);
+}
+
+.active-pill {
+    background-color: var(--color-primary-container) !important;
+    color: #131313 !important;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(255, 159, 13, 0.3);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Dish card animations and styles */
+.dish-card {
+    background-color: var(--color-surface-container);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.dish-card:hover {
+    border-color: var(--color-primary-container);
+}
+.dish-card-img-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+}
+.dish-card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.dish-card:hover .dish-card-img {
+    transform: scale(1.05);
+}
+.badge-rating {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(19, 19, 19, 0.8);
+    backdrop-filter: blur(4px);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-outline-variant);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+}
+.dish-card-overlay {
+    position: absolute;
+    inset: 0;
+    top: auto;
+    padding: 0.75rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.dish-card:hover .dish-card-overlay {
+    opacity: 1;
+}
+
+/* Micro-interactions */
+.scale-95 {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.fs-7 { font-size: 0.875rem; }
+.fs-8 { font-size: 0.75rem; }
+
+/* Placeholder visibility styling */
+input::placeholder,
+textarea::placeholder {
+    color: #ffffff !important;
+    opacity: 0.65 !important;
+}
+
+/* Override Bootstrap brand primary colors with user panel theme primary colors */
+.bg-primary {
+    background-color: var(--color-primary-container) !important;
+    color: #131313 !important;
+}
+.text-primary {
+    color: var(--color-primary) !important;
+}
+.hover\:text-primary:hover {
+    color: var(--color-primary) !important;
+}
+.hover\:bg-primary-container:hover {
+    background-color: var(--color-primary-container) !important;
+}
+.bg-primary-container {
+    background-color: var(--color-primary-container) !important;
+}
+.text-primary-container {
+    color: var(--color-primary-container) !important;
+}
+.border-primary {
+    border-color: var(--color-primary-container) !important;
+}
+.btn-primary-custom {
+    background-color: var(--color-primary-container) !important;
+    color: #131313 !important;
+    font-weight: 600;
+}
+.btn-primary-custom:hover {
+    filter: brightness(1.1);
+    color: #131313 !important;
+}
+
+/* Accordion dark theme styling */
+.accordion {
+    --bs-accordion-bg: var(--color-surface-container) !important;
+    --bs-accordion-color: #f1f5f9 !important;
+    --bs-accordion-btn-bg: #262626 !important;
+    --bs-accordion-btn-color: #ffffff !important;
+    --bs-accordion-active-bg: #333333 !important;
+    --bs-accordion-active-color: #ff9f0d !important;
+    --bs-accordion-btn-focus-box-shadow: none !important;
+    --bs-accordion-border-color: var(--color-outline-variant) !important;
+}
+
+.accordion-body {
+    background-color: var(--color-surface-container) !important;
+    color: #f1f5f9 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
+.accordion-button {
+    background-color: #262626 !important;
+    color: #ffffff !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #333333 !important;
+    color: #ff9f0d !important;
+}
+
+.accordion-button::after {
+    filter: invert(1) !important;
+}
+
+

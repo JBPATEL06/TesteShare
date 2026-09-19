@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Amber Noir - Design System Showcase | TestShare</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="js/tailwind.min.js"></script>
+    <link href="css/google-fonts.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#1a120a",
+                        "surface-dim": "#1a120a",
+                        "surface-bright": "#42372d",
+                        "surface-container-lowest": "#140d06",
+                        "surface-container-low": "#221a11",
+                        "surface-container": "#271e15",
+                        "surface-container-high": "#32281f",
+                        "surface-container-highest": "#3d3329",
+                        "on-surface": "#f1e0d1",
+                        "on-surface-variant": "#dac3ad",
+                        "inverse-surface": "#f1e0d1",
+                        "inverse-on-surface": "#382f25",
+                        "outline": "#a28d7a",
+                        "outline-variant": "#544434",
+                        "surface-tint": "#ffb868",
+                        "primary": "#ffc688",
+                        "on-primary": "#482900",
+                        "primary-container": "#ff9f0d",
+                        "on-primary-container": "#673d00",
+                        "inverse-primary": "#885200",
+                        "secondary": "#b9c8de",
+                        "on-secondary": "#233143",
+                        "secondary-container": "#39485a",
+                        "on-secondary-container": "#a7b6cc",
+                        "tertiary": "#90daff",
+                        "on-tertiary": "#003547",
+                        "tertiary-container": "#00c3fd",
+                        "on-tertiary-container": "#004d66",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#ffddbb",
+                        "primary-fixed-dim": "#ffb868",
+                        "on-primary-fixed": "#2b1700",
+                        "on-primary-fixed-variant": "#673d00",
+                        "secondary-fixed": "#d4e4fa",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "tertiary-fixed": "#c0e8ff",
+                        "tertiary-fixed-dim": "#70d2ff",
+                        "on-tertiary-fixed": "#001e2b",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "background": "#1a120a",
+                        "on-background": "#f1e0d1",
+                        "surface-variant": "#3d3329"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "label-sm": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1a120a;
+            color: #f1e0d1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .b2b-card {
+            background-color: #271e15;
+            border: 1px solid #3d3329;
+            transition: all 0.2s ease-in-out;
+        }
+        .b2b-card:hover {
+            border-color: #ff9f0d;
+            box-shadow: 0 0 15px rgba(255, 159, 13, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a120a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3d3329;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff9f0d;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-8 shrink-0 shadow-lg">
+    <div class="flex items-center gap-6">
+        <a href="index.html" class="text-decoration-none">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center text-on-primary-container">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                </div>
+                <h1 class="font-bold text-2xl text-primary mb-0">Amber Noir</h1>
+            </div>
+        </a>
+        <span class="bg-surface-container-high text-on-surface-variant font-mono text-xs px-3 py-1 rounded border border-outline-variant hidden sm:inline-block font-bold">Design System Specification</span>
+    </div>
+    <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-8 mb-0">
+            <a href="#brand" class="font-mono text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Brand &amp; Style</a>
+            <a href="#colors" class="font-mono text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Color Palette</a>
+            <a href="#typography" class="font-mono text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Typography</a>
+            <a href="#components" class="font-mono text-sm text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold">Interactive Components</a>
+        </nav>
+        <a href="obsidian_harvest.html" class="bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-mono text-xs font-bold px-4 py-2 rounded-lg border border-outline-variant transition-all text-decoration-none font-bold">
+            Switch to Obsidian Harvest ⭢
+        </a>
+    </div>
+</header>
+
+<!-- Main Showcase Container -->
+<main class="flex-1 max-w-[1440px] w-full mx-auto px-8 md:px-16 py-12 space-y-24">
+    <!-- Hero Header -->
+    <section class="space-y-6 text-center md:text-left border-b border-outline-variant pb-12">
+        <div class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary-container/30 px-4 py-1.5 rounded-full text-primary-container text-xs font-mono uppercase tracking-widest font-bold">
+            <span class="material-symbols-outlined text-sm">handshake</span> B2B Commerce &amp; Enterprise SaaS
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-on-surface">Amber Noir <span class="text-primary-container">Design System</span></h1>
+        <p class="text-lg text-on-surface-variant max-w-3xl mb-0">Engineered for high-end B2B commerce and enterprise SaaS, where efficiency meets a premium aesthetic. The brand personality is authoritative, precise, and energetic, targeting professional buyers and store administrators who require high data density without sacrificing visual clarity.</p>
+    </section>
+
+    <!-- Brand & Style Section -->
+    <section id="brand" class="space-y-8 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Brand Philosophy &amp; Visual Style</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="b2b-card p-8 rounded-xl space-y-4">
+                <span class="material-symbols-outlined text-primary-container text-4xl">contrast</span>
+                <h3 class="text-xl font-bold text-on-surface mb-0">Minimalist-Premium</h3>
+                <p class="text-on-surface-variant text-sm mb-0">Characterized by a 'Dark Mode' first approach. It utilizes deep charcoal and warm obsidian surfaces to reduce eye strain during long working hours.</p>
+            </div>
+            <div class="b2b-card p-8 rounded-xl space-y-4">
+                <span class="material-symbols-outlined text-primary-container text-4xl">bolt</span>
+                <h3 class="text-xl font-bold text-on-surface mb-0">Electric Amber Accents</h3>
+                <p class="text-on-surface-variant text-sm mb-0">High-energy Electric Amber accents drive conversion and highlight crucial interactive states, ensuring primary actions are instantly recognizable.</p>
+            </div>
+            <div class="b2b-card p-8 rounded-xl space-y-4">
+                <span class="material-symbols-outlined text-primary-container text-4xl">grid_4x4</span>
+                <h3 class="text-xl font-bold text-on-surface mb-0">Architectural Rigidity</h3>
+                <p class="text-on-surface-variant text-sm mb-0">Relies on strict grid adherence, razor-sharp 1px borders, and generous whitespace to create an atmosphere of organized luxury and precision.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section id="colors" class="space-y-8 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">palette</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Color Palette Swatches</h2>
+        </div>
+        <p class="text-on-surface-variant text-sm mb-4">Click any color swatch to copy its exact HEX code to your clipboard.</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <!-- Swatch 1 -->
+            <div onclick="copyHex('#1a120a', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#1a120a] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">surface / bg</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#1a120a</div>
+            </div>
+            <!-- Swatch 2 -->
+            <div onclick="copyHex('#271e15', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#271e15] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">surface-container</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#271e15</div>
+            </div>
+            <!-- Swatch 3 -->
+            <div onclick="copyHex('#3d3329', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#3d3329] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">surface-highest</div>
+                <div class="font-mono font-bold text-on-surface text-sm mt-1">#3d3329</div>
+            </div>
+            <!-- Swatch 4 -->
+            <div onclick="copyHex('#ffc688', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#ffc688] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">primary</div>
+                <div class="font-mono font-bold text-primary text-sm mt-1">#ffc688</div>
+            </div>
+            <!-- Swatch 5 -->
+            <div onclick="copyHex('#ff9f0d', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#ff9f0d] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">primary-container</div>
+                <div class="font-mono font-bold text-primary-container text-sm mt-1">#ff9f0d</div>
+            </div>
+            <!-- Swatch 6 -->
+            <div onclick="copyHex('#b9c8de', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#b9c8de] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">secondary</div>
+                <div class="font-mono font-bold text-[#b9c8de] text-sm mt-1">#b9c8de</div>
+            </div>
+            <!-- Swatch 7 -->
+            <div onclick="copyHex('#90daff', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#90daff] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">tertiary</div>
+                <div class="font-mono font-bold text-[#90daff] text-sm mt-1">#90daff</div>
+            </div>
+            <!-- Swatch 8 -->
+            <div onclick="copyHex('#ffb4ab', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#ffb4ab] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">error</div>
+                <div class="font-mono font-bold text-[#ffb4ab] text-sm mt-1">#ffb4ab</div>
+            </div>
+            <!-- Swatch 9 -->
+            <div onclick="copyHex('#a28d7a', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#a28d7a] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">outline</div>
+                <div class="font-mono font-bold text-[#a28d7a] text-sm mt-1">#a28d7a</div>
+            </div>
+            <!-- Swatch 10 -->
+            <div onclick="copyHex('#f1e0d1', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#f1e0d1] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">on-surface</div>
+                <div class="font-mono font-bold text-[#f1e0d1] text-sm mt-1">#f1e0d1</div>
+            </div>
+            <!-- Swatch 11 -->
+            <div onclick="copyHex('#dac3ad', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#dac3ad] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">on-surface-variant</div>
+                <div class="font-mono font-bold text-[#dac3ad] text-sm mt-1">#dac3ad</div>
+            </div>
+            <!-- Swatch 12 -->
+            <div onclick="copyHex('#c0e8ff', this)" class="b2b-card p-4 rounded-xl cursor-pointer text-center group">
+                <div class="h-20 w-full rounded-lg bg-[#c0e8ff] border border-outline-variant mb-3 group-hover:scale-105 transition-transform"></div>
+                <div class="font-mono text-xs text-on-surface-variant font-bold">tertiary-fixed</div>
+                <div class="font-mono font-bold text-[#c0e8ff] text-sm mt-1">#c0e8ff</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography Section -->
+    <section id="typography" class="space-y-8 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">text_fields</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Typography Scale</h2>
+        </div>
+        <div class="b2b-card p-8 rounded-xl space-y-12">
+            <div>
+                <div class="flex items-center justify-between text-xs font-mono text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold">
+                    <span>display-lg (Inter • 48px • Bold • -0.02em tracking)</span>
+                    <span>For Major Hero Headers</span>
+                </div>
+                <div class="text-[48px] font-bold leading-[56px] tracking-[-0.02em] text-on-surface">
+                    Revolutionizing Enterprise Gastronomy
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs font-mono text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold">
+                    <span>headline-lg (Inter • 32px • Bold • -0.01em tracking)</span>
+                    <span>For Core Section Headers</span>
+                </div>
+                <div class="text-[32px] font-bold leading-[40px] tracking-[-0.01em] text-on-surface">
+                    Precision Menu Engineering &amp; Offer Mechanics
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs font-mono text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold">
+                    <span>headline-md (Inter • 24px • SemiBold)</span>
+                    <span>For Card &amp; Modal Titles</span>
+                </div>
+                <div class="text-[24px] font-semibold leading-[32px] text-on-surface">
+                    Special Promotions &amp; Active Vouchers
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs font-mono text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold">
+                    <span>body-lg (Inter • 18px • Regular)</span>
+                    <span>For Subtitles &amp; Lead Paragraphs</span>
+                </div>
+                <div class="text-[18px] font-normal leading-[28px] text-on-surface-variant">
+                    The visual style is Minimalist-Premium, characterized by a Dark Mode first approach. It utilizes deep charcoal surfaces to reduce eye strain during long working hours.
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between text-xs font-mono text-on-surface-variant border-b border-outline-variant pb-2 mb-4 font-bold">
+                    <span>label-md &amp; label-sm (JetBrains Mono • 14px/12px • Medium)</span>
+                    <span>For Tabular Data, SKU Numbers &amp; Status Labels</span>
+                </div>
+                <div class="font-mono text-[14px] font-medium leading-[20px] tracking-[0.05em] text-primary-container uppercase font-bold">
+                    SKU-99081-WAGYU • TABULAR B2B DATA • STATUS: VERIFIED ACTIVE
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="space-y-12 pt-4">
+        <div class="flex items-center gap-3 border-b border-outline-variant pb-4">
+            <span class="material-symbols-outlined text-primary text-3xl">widgets</span>
+            <h2 class="text-3xl font-bold text-on-surface mb-0">Interactive Components</h2>
+        </div>
+
+        <!-- Buttons & Chips -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="b2b-card p-8 rounded-xl space-y-6">
+                <h3 class="text-xl font-bold text-on-surface border-b border-outline-variant pb-3 mb-0">Buttons &amp; Actions</h3>
+                <p class="text-sm text-on-surface-variant mb-4">Solid Electric Amber with black text for primary actions. Ghost-style with #3d3329 border for secondary actions.</p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <button onclick="alert('Primary Action Triggered')" class="px-6 py-3 bg-primary-container text-on-primary-container font-mono font-bold rounded text-sm hover:opacity-90 active:scale-95 transition-all border-0 font-bold shadow-lg">
+                        Primary Action
+                    </button>
+                    <button onclick="alert('Secondary Action Triggered')" class="px-6 py-3 bg-transparent border border-outline text-on-surface font-mono font-bold rounded text-sm hover:bg-surface-container-high active:scale-95 transition-all font-bold">
+                        Secondary Ghost
+                    </button>
+                </div>
+                <div class="pt-4 border-t border-outline-variant space-y-4">
+                    <h4 class="text-sm font-bold text-on-surface mb-0">Interactive Filter Chips (JetBrains Mono)</h4>
+                    <div class="flex flex-wrap gap-3" id="chipGroup">
+                        <button onclick="toggleChip(this)" class="px-4 py-2 bg-primary-container text-on-primary-container font-mono text-xs rounded-full border border-primary-container font-bold transition-all chip-btn">
+                            ALL ORDERS (24)
+                        </button>
+                        <button onclick="toggleChip(this)" class="px-4 py-2 bg-transparent text-on-surface font-mono text-xs rounded-full border border-outline-variant font-bold hover:border-primary transition-all chip-btn">
+                            PENDING B2B
+                        </button>
+                        <button onclick="toggleChip(this)" class="px-4 py-2 bg-transparent text-on-surface font-mono text-xs rounded-full border border-outline-variant font-bold hover:border-primary transition-all chip-btn">
+                            VIP MERCHANTS
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Fields & Controls -->
+            <div class="b2b-card p-8 rounded-xl space-y-6">
+                <h3 class="text-xl font-bold text-on-surface border-b border-outline-variant pb-3 mb-0">Input Fields &amp; Live Validation</h3>
+                <p class="text-sm text-on-surface-variant mb-4">Background #1a120a (darker than card) with border. Focus state triggers Electric Amber outline.</p>
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="font-mono text-xs text-on-surface-variant uppercase tracking-wider font-bold">SKU Search / Item Code</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">qr_code</span>
+                            <input type="text" placeholder="Enter B2B item code..." class="w-full bg-surface border border-outline-variant focus:border-primary-container focus:ring-0 rounded p-3 pl-10 text-sm text-on-surface font-mono outline-none">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-mono text-xs text-on-surface-variant uppercase tracking-wider font-bold">Merchant License Tier</label>
+                        <select class="w-full bg-surface border border-outline-variant focus:border-primary-container focus:ring-0 rounded p-3 text-sm text-on-surface font-mono outline-none font-bold">
+                            <option>Tier 1 - Enterprise (Global)</option>
+                            <option>Tier 2 - Multichain Regional</option>
+                            <option>Tier 3 - Boutique Elite</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Tables -->
+        <div class="b2b-card p-8 rounded-xl space-y-6">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+                <h3 class="text-xl font-bold text-on-surface mb-0">Structured Data Table (JetBrains Mono Header)</h3>
+                <span class="font-mono text-xs text-primary-container font-bold">LIVE ENTERPRISE INVENTORY</span>
+            </div>
+            <p class="text-sm text-on-surface-variant mb-4">Header row uses subtle background with Slate Gray uppercase labels in JetBrains Mono. Row dividers are 1px solid #3d3329.</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-surface-container-high border-b border-outline-variant font-mono text-xs text-secondary tracking-wider uppercase font-bold">
+                            <th class="p-4 font-bold">SKU Code</th>
+                            <th class="p-4 font-bold">Product Name</th>
+                            <th class="p-4 font-bold">Category</th>
+                            <th class="p-4 font-bold">B2B Unit Price</th>
+                            <th class="p-4 font-bold">Stock Status</th>
+                            <th class="p-4 text-right font-bold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-outline-variant font-body-md text-sm">
+                        <tr class="hover:bg-surface-container-high/50 transition-colors">
+                            <td class="p-4 font-mono font-bold text-primary">SKU-WAGYU-01</td>
+                            <td class="p-4 font-bold text-on-surface">Smoked Wagyu Gyoza Pack</td>
+                            <td class="p-4 text-on-surface-variant">Appetizers (High-Density)</td>
+                            <td class="p-4 font-mono font-bold text-on-surface">$145.00 / case</td>
+                            <td class="p-4"><span class="px-3 py-1 bg-green-900/30 text-green-400 font-mono text-xs rounded border border-green-800 font-bold">IN STOCK</span></td>
+                            <td class="p-4 text-right"><button onclick="alert('Ordering SKU-WAGYU-01')" class="px-3 py-1 bg-primary-container text-on-primary-container font-mono text-xs rounded font-bold hover:opacity-90 border-0 font-bold">REORDER</button></td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-high/50 transition-colors">
+                            <td class="p-4 font-mono font-bold text-primary">SKU-RIBEYE-02</td>
+                            <td class="p-4 font-bold text-on-surface">Truffle Teriyaki Prime Ribeye</td>
+                            <td class="p-4 text-on-surface-variant">Premium Steaks</td>
+                            <td class="p-4 font-mono font-bold text-on-surface">$310.00 / case</td>
+                            <td class="p-4"><span class="px-3 py-1 bg-green-900/30 text-green-400 font-mono text-xs rounded border border-green-800 font-bold">IN STOCK</span></td>
+                            <td class="p-4 text-right"><button onclick="alert('Ordering SKU-RIBEYE-02')" class="px-3 py-1 bg-primary-container text-on-primary-container font-mono text-xs rounded font-bold hover:opacity-90 border-0 font-bold">REORDER</button></td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-high/50 transition-colors">
+                            <td class="p-4 font-mono font-bold text-primary">SKU-COD-03</td>
+                            <td class="p-4 font-bold text-on-surface">Miso Glazed Black Cod Fillets</td>
+                            <td class="p-4 text-on-surface-variant">Imported Seafood</td>
+                            <td class="p-4 font-mono font-bold text-on-surface">$280.00 / case</td>
+                            <td class="p-4"><span class="px-3 py-1 bg-red-900/30 text-red-400 font-mono text-xs rounded border border-red-800 font-bold">LOW INVENTORY</span></td>
+                            <td class="p-4 text-right"><button onclick="alert('Ordering SKU-COD-03')" class="px-3 py-1 bg-primary-container text-on-primary-container font-mono text-xs rounded font-bold hover:opacity-90 border-0 font-bold">REORDER</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant mt-24 shrink-0">
+    <div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 max-w-[1440px] mx-auto">
+        <div class="flex flex-col items-center md:items-start gap-2">
+            <span class="font-bold text-xl text-on-surface mb-0">TestShare Design Systems</span>
+            <p class="font-mono text-xs text-on-surface-variant mb-0">Amber Noir • Premium B2B Architectural Specification</p>
+        </div>
+        <div class="flex gap-6">
+            <a class="font-mono text-xs text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="obsidian_harvest.html">Explore Obsidian Harvest</a>
+            <a class="font-mono text-xs text-on-surface-variant hover:text-primary transition-colors text-decoration-none font-bold" href="index.html">Back to Home</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Custom Main JS -->
+<script src="../js/main.js"></script>
+<script>
+    function copyHex(hex, element) {
+        navigator.clipboard.writeText(hex);
+        const originalHtml = element.innerHTML;
+        element.innerHTML = `<div class="h-20 w-full rounded-lg bg-green-600 flex items-center justify-center text-white font-bold font-mono text-sm mb-3">COPIED!</div><div class="font-mono text-xs text-on-surface-variant font-bold">success</div><div class="font-mono font-bold text-green-400 text-sm mt-1">${hex}</div>`;
+        setTimeout(() => {
+            element.innerHTML = originalHtml;
+        }, 1500);
+    }
+
+    function toggleChip(btn) {
+        document.querySelectorAll('#chipGroup .chip-btn').forEach(b => {
+            b.className = 'px-4 py-2 bg-transparent text-on-surface font-mono text-xs rounded-full border border-outline-variant font-bold hover:border-primary transition-all chip-btn';
+        });
+        btn.className = 'px-4 py-2 bg-primary-container text-on-primary-container font-mono text-xs rounded-full border border-primary-container font-bold transition-all chip-btn';
+    }
+</script>
+</body>
+</html>
