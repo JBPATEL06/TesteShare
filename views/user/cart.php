@@ -128,7 +128,7 @@ if ($customerId) {
     $userAddresses = $stmtUserAddrs->fetchAll();
 }
 
-// Check User Location & Geofence Radius
+// Check User Location & Geofence Pincode
 $cartStoreId = $_SESSION['cart_store_id'] ?? null;
 $locationWarning = '';
 $isOutOfRadius = false;
@@ -138,12 +138,12 @@ $storeData = null;
 
 if ($cartStoreId && $customerId) {
     // Customer default address
-    $stmtUserAddr = $db->prepare("SELECT id, label, address_line1, city, lat, lng FROM user_addresses WHERE user_id = ? ORDER BY is_default DESC, id DESC LIMIT 1");
+    $stmtUserAddr = $db->prepare("SELECT id, label, address_line1, city, zip_code, lat, lng FROM user_addresses WHERE user_id = ? ORDER BY is_default DESC, id DESC LIMIT 1");
     $stmtUserAddr->execute([$customerId]);
     $userAddr = $stmtUserAddr->fetch();
 
     // Store location details
-    $stmtStoreLoc = $db->prepare("SELECT id, store_name, address, city, lat, lng, delivery_radius FROM stores WHERE id = ?");
+    $stmtStoreLoc = $db->prepare("SELECT id, store_name, address, city, pincode, lat, lng, delivery_radius FROM stores WHERE id = ?");
     $stmtStoreLoc->execute([$cartStoreId]);
     $storeData = $stmtStoreLoc->fetch();
 
@@ -151,26 +151,15 @@ if ($cartStoreId && $customerId) {
         $isOutOfRadius = true;
         $locationWarning = "Delivery Address Required: Please set your delivery location before placing an order.";
     } elseif ($storeData) {
-        $userLat = floatval($userAddr['lat'] ?? 0);
-        $userLng = floatval($userAddr['lng'] ?? 0);
-        $storeLat = floatval($storeData['lat'] ?? 40.7128);
-        $storeLng = floatval($storeData['lng'] ?? -74.0060);
-        $storeRadius = floatval($storeData['delivery_radius'] ?? 5.0);
+        $userZip = trim($userAddr['zip_code'] ?? '');
+        $storePincode = trim($storeData['pincode'] ?? '');
 
-        if ($userLat && $userLng && $storeLat && $storeLng) {
-            $earthRadius = 6371; // km
-            $dLat = deg2rad($storeLat - $userLat);
-            $dLon = deg2rad($storeLng - $userLng);
-            $a = sin($dLat / 2) * sin($dLat / 2) +
-                 cos(deg2rad($userLat)) * cos(deg2rad($storeLat)) *
-                 sin($dLon / 2) * sin($dLon / 2);
-            $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-            $distanceKm = round($earthRadius * $c, 1);
-
-            if ($distanceKm > $storeRadius) {
-                $isOutOfRadius = true;
-                $locationWarning = "Location Out of Delivery Range: Your address (" . htmlspecialchars($userAddr['address_line1'] . ', ' . $userAddr['city']) . ", " . $distanceKm . " km away) is outside " . htmlspecialchars($storeData['store_name']) . "'s delivery radius (" . number_format($storeRadius, 1) . " km max).";
-            }
+        if (empty($userZip)) {
+            $isOutOfRadius = true;
+            $locationWarning = "Delivery Pincode Required: Please update your delivery address with a valid pincode.";
+        } elseif (strcasecmp($userZip, $storePincode) !== 0) {
+            $isOutOfRadius = true;
+            $locationWarning = "Unable to Deliver: Your delivery pincode (" . htmlspecialchars($userZip) . ") does not match " . htmlspecialchars($storeData['store_name']) . "'s service pincode (" . htmlspecialchars($storePincode) . ").";
         }
     }
 }
@@ -404,13 +393,13 @@ view('partials/user_header', get_defined_vars());
             <div class="p-4 bg-red-500/10 border border-red-500/30 rounded-2xl text-red-400 text-sm font-semibold flex flex-col gap-2 mb-4 shadow-lg">
                 <div class="flex items-center gap-2">
                     <span class="material-symbols-outlined text-red-400">location_off</span>
-                    <span class="font-bold text-base">Delivery Location Out of Range</span>
+                    <span class="font-bold text-base">Delivery Pincode Mismatch</span>
                 </div>
                 <p class="mb-0 text-xs text-red-300"><?php echo htmlspecialchars($locationWarning); ?></p>
                 <div class="mt-2 pt-2 border-t border-red-500/20 flex justify-between items-center">
-                    <span class="text-[11px] text-red-400">Orders can only be placed within the merchant's delivery geofence.</span>
+                    <span class="text-[11px] text-red-400">Orders can only be placed if your delivery pincode matches the restaurant's pincode.</span>
                     <a href="<?php echo url('user/location'); ?>" class="px-3 py-1 bg-red-500/20 text-red-300 hover:text-white rounded-lg text-xs font-bold text-decoration-none border border-red-500/30 transition-all">
-                        Change Delivery Location &rarr;
+                        Change Delivery Pincode &rarr;
                     </a>
                 </div>
             </div>
@@ -595,11 +584,11 @@ view('partials/user_header', get_defined_vars());
 
             <?php if ($isOutOfRadius): ?>
                 <div class="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-center mb-3">
-                    <p class="text-xs text-red-400 font-bold mb-1">Order Disabled — Out of Delivery Radius</p>
-                    <a href="<?php echo url('user/location'); ?>" class="text-[11px] text-primary font-bold underline">Update Delivery Location</a>
+                    <p class="text-xs text-red-400 font-bold mb-1">Order Disabled — Pincode Mismatch</p>
+                    <a href="<?php echo url('user/location'); ?>" class="text-[11px] text-primary font-bold underline">Update Delivery Pincode</a>
                 </div>
                 <button type="button" disabled class="w-full bg-surface-container-high text-on-surface-variant/40 py-3 rounded-2 font-label-md text-label-md font-bold uppercase tracking-widest border border-outline-variant/30 cursor-not-allowed">
-                    Out of Delivery Range
+                    Pincode Mismatch
                 </button>
             <?php else: ?>
                 <form method="POST" action="" onsubmit="event.preventDefault(); payWithRazorpay(<?php echo $toPay; ?>, this);">

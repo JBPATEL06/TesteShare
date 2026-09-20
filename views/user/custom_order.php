@@ -85,12 +85,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_request'])) {
         ];
     }
 
-    // Geofence Radius Validation
-    $custAddrStmt = $db->prepare("SELECT lat, lng, address_line1, city FROM user_addresses WHERE user_id = ? ORDER BY is_default DESC, id DESC LIMIT 1");
+    // Geofence Pincode Validation
+    $custAddrStmt = $db->prepare("SELECT zip_code, address_line1, city FROM user_addresses WHERE user_id = ? ORDER BY is_default DESC, id DESC LIMIT 1");
     $custAddrStmt->execute([$userId]);
     $custAddr = $custAddrStmt->fetch();
 
-    $storeLocStmt = $db->prepare("SELECT id, store_name, lat, lng, delivery_radius FROM stores WHERE id = ?");
+    $storeLocStmt = $db->prepare("SELECT id, store_name, pincode FROM stores WHERE id = ?");
     $storeLocStmt->execute([$resolvedStoreId]);
     $targetStoreData = $storeLocStmt->fetch();
 
@@ -98,25 +98,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_request'])) {
     if (!$custAddr) {
         $customLocationError = "Please set a delivery address in your profile/location before submitting a custom order.";
     } elseif ($targetStoreData) {
-        $uLat = floatval($custAddr['lat'] ?? 0);
-        $uLng = floatval($custAddr['lng'] ?? 0);
-        $sLat = floatval($targetStoreData['lat'] ?? 40.7128);
-        $sLng = floatval($targetStoreData['lng'] ?? -74.0060);
-        $sRadius = floatval($targetStoreData['delivery_radius'] ?? 5.0);
+        $uZip = trim($custAddr['zip_code'] ?? '');
+        $sPincode = trim($targetStoreData['pincode'] ?? '');
 
-        if ($uLat && $uLng && $sLat && $sLng) {
-            $earthRadius = 6371; // km
-            $dLat = deg2rad($sLat - $uLat);
-            $dLon = deg2rad($sLng - $uLng);
-            $a = sin($dLat / 2) * sin($dLat / 2) +
-                 cos(deg2rad($uLat)) * cos(deg2rad($sLat)) *
-                 sin($dLon / 2) * sin($dLon / 2);
-            $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-            $custDistKm = round($earthRadius * $c, 1);
-
-            if ($custDistKm > $sRadius) {
-                $customLocationError = "Request Blocked: Your address is " . $custDistKm . " km away from " . htmlspecialchars($targetStoreData['store_name']) . ", which exceeds their maximum delivery radius of " . number_format($sRadius, 1) . " km.";
-            }
+        if (empty($uZip)) {
+            $customLocationError = "Delivery Pincode Required: Please specify a pincode in your delivery address.";
+        } elseif (strcasecmp($uZip, $sPincode) !== 0) {
+            $customLocationError = "Unable to Deliver: Your pincode (" . htmlspecialchars($uZip) . ") does not match " . htmlspecialchars($targetStoreData['store_name']) . "'s service pincode (" . htmlspecialchars($sPincode) . ").";
         }
     }
 

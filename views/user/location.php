@@ -92,9 +92,9 @@ if (!empty($addresses)) {
     $locationCity = $addresses[0]['city'];
 }
 
-// Fetch all active approved stores and compute exact distance
+// Fetch all active approved stores and check pincode matching
 $stmtStores = $db->query("
-    SELECT s.id, s.store_name, s.category, s.address, s.city, s.lat, s.lng, s.delivery_radius, s.store_logo,
+    SELECT s.id, s.store_name, s.category, s.address, s.city, s.pincode, s.lat, s.lng, s.delivery_radius, s.store_logo,
            IFNULL(AVG(r.rating_stars), 5.0) as avg_rating,
            COUNT(DISTINCT r.id) as reviews_count,
            (SELECT COUNT(*) FROM promotional_offers po WHERE po.store_id = s.id AND po.status = 'Active' AND po.end_date >= NOW()) as active_offers
@@ -105,19 +105,25 @@ $stmtStores = $db->query("
 ");
 $allStores = $stmtStores->fetchAll();
 
+$userPincode = trim(!empty($addresses[0]['zip_code']) ? $addresses[0]['zip_code'] : '');
+
 foreach ($allStores as &$st) {
     $stLat = floatval($st['lat'] ?? 40.7128);
     $stLng = floatval($st['lng'] ?? -74.0060);
-    $stRadius = floatval($st['delivery_radius'] ?? 5.0);
+    $stPincode = trim($st['pincode'] ?? '');
     
     $dist = calculateDistance($userLat, $userLng, $stLat, $stLng);
     $st['distance_km'] = $dist;
-    $st['in_radius'] = ($dist !== null) ? ($dist <= $stRadius) : true;
+    $st['pincode_match'] = ($userPincode && $stPincode) ? (strcasecmp($userPincode, $stPincode) === 0) : true;
+    $st['in_radius'] = $st['pincode_match'];
 }
 unset($st);
 
-// Sort stores by geographic proximity
+// Sort stores by pincode match first, then proximity
 usort($allStores, function($a, $b) {
+    if ($a['pincode_match'] !== $b['pincode_match']) {
+        return $b['pincode_match'] <=> $a['pincode_match'];
+    }
     return ($a['distance_km'] ?? 999) <=> ($b['distance_km'] ?? 999);
 });
 $nearestStores = array_slice($allStores, 0, 6);
@@ -300,10 +306,10 @@ view('partials/user_header', get_defined_vars());
                                     <?php endif; ?>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <?php if ($store['in_radius']): ?>
-                                        <span class="text-[10px] bg-green-500/10 text-green-400 border border-green-500/20 px-2 py-0.5 rounded-full font-bold">In Delivery Zone</span>
+                                    <?php if ($store['pincode_match']): ?>
+                                        <span class="text-[10px] bg-green-500/10 text-green-400 border border-green-500/20 px-2 py-0.5 rounded-full font-bold">Serves Pincode</span>
                                     <?php else: ?>
-                                        <span class="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full font-bold">Out of Range</span>
+                                        <span class="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full font-bold">Pincode Mismatch</span>
                                     <?php endif; ?>
                                     <div class="flex items-center gap-1 text-xs font-bold text-primary-container">
                                         <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -320,7 +326,7 @@ view('partials/user_header', get_defined_vars());
                                         <span class="font-bold text-on-surface font-mono"><?php echo $store['distance_km'] !== null ? $store['distance_km'] . ' km away' : 'Distance N/A'; ?></span>
                                     </span>
                                     <span class="text-on-surface-variant text-[11px]">
-                                        Radius: <?php echo number_format($store['delivery_radius'], 1); ?> km
+                                        Pincode: <?php echo htmlspecialchars($store['pincode'] ?? 'N/A'); ?>
                                     </span>
                                 </div>
                             </div>

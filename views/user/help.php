@@ -101,8 +101,8 @@ view('partials/user_header', get_defined_vars());
                 <div class="w-12 h-12 rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px;">
                     <span class="material-symbols-outlined fs-3">local_shipping</span>
                 </div>
-                <h5 class="fw-bold mb-2 text-light">Delivery & Geofencing</h5>
-                <p class="small mb-0" style="color: #cbd5e1 !important;">Learn how our Haversine geofencing engine works and why delivery is calculated based on live restaurant operational radius.</p>
+                <h5 class="fw-bold mb-2 text-light">Delivery & Pincodes</h5>
+                <p class="small mb-0" style="color: #cbd5e1 !important;">Learn how our pincode-based delivery validation works and why orders are matched directly against restaurant service pincodes.</p>
             </div>
         </div>
 
@@ -134,12 +134,12 @@ view('partials/user_header', get_defined_vars());
         <div class="faq-container shadow-lg">
             <div class="faq-item">
                 <button class="faq-trigger active" onclick="toggleFaq(this)">
-                    <span>How does the Delivery Radius checker work?</span>
+                    <span>How does Pincode Delivery validation work?</span>
                     <span class="material-symbols-outlined faq-icon">expand_more</span>
                 </button>
                 <div class="faq-content show">
                     <p>
-                        TestShare uses the server-side Haversine distance formula combined with OpenStreetMap geolocation. If your delivery pin falls outside a restaurant's operational radius (1km – 50km), the checkout system automatically notifies you before order placement.
+                        TestShare verifies delivery availability by matching your delivery address pincode with the restaurant's operational pincode. If your delivery pincode matches the restaurant's pincode, your order is permitted regardless of distance coordinates.
                     </p>
                 </div>
             </div>
