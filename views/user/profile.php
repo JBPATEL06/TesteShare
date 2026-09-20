@@ -63,32 +63,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $exp_month = intval($_POST['expiry_month'] ?? 0);
         $exp_year = intval($_POST['expiry_year'] ?? 0);
         if ($network && strlen($last_four) === 4 && $exp_month > 0 && $exp_year > 0) {
-            $ins = $db->prepare("INSERT INTO user_payment_methods (user_id, card_network, last_four, expiry_month, expiry_year) VALUES (?, ?, ?, ?, ?)");
-            $ins->execute([$userId, $network, $last_four, $exp_month, $exp_year]);
-            $successMsg = "Payment method added!";
+            try {
+                $ins = $db->prepare("INSERT INTO user_payment_methods (user_id, card_network, last_four, expiry_month, expiry_year) VALUES (?, ?, ?, ?, ?)");
+                $ins->execute([$userId, $network, $last_four, $exp_month, $exp_year]);
+                $successMsg = "Payment method added!";
+            } catch (PDOException $e) {
+                $errorMsg = "Failed to add payment method.";
+            }
         } else {
             $errorMsg = "Invalid payment method details.";
         }
     } elseif ($action === 'delete_payment') {
         $id = intval($_POST['payment_id'] ?? 0);
-        $del = $db->prepare("DELETE FROM user_payment_methods WHERE id = ? AND user_id = ?");
-        $del->execute([$id, $userId]);
-        $successMsg = "Payment method removed.";
+        try {
+            $del = $db->prepare("DELETE FROM user_payment_methods WHERE id = ? AND user_id = ?");
+            $del->execute([$id, $userId]);
+            $successMsg = "Payment method removed.";
+        } catch (PDOException $e) {
+            $errorMsg = "Failed to remove payment method.";
+        }
     } elseif ($action === 'update_preferences') {
         $dietary = implode(',', $_POST['dietary_restrictions'] ?? []);
         $cuisines = implode(',', $_POST['favorite_cuisines'] ?? []);
         $contactless = isset($_POST['contactless_delivery']) ? 1 : 0;
         
-        $chk = $db->prepare("SELECT user_id FROM user_preferences WHERE user_id = ?");
-        $chk->execute([$userId]);
-        if ($chk->fetch()) {
-            $upd = $db->prepare("UPDATE user_preferences SET dietary_restrictions = ?, favorite_cuisines = ?, contactless_delivery = ? WHERE user_id = ?");
-            $upd->execute([$dietary, $cuisines, $contactless, $userId]);
-        } else {
-            $ins = $db->prepare("INSERT INTO user_preferences (user_id, dietary_restrictions, favorite_cuisines, contactless_delivery) VALUES (?, ?, ?, ?)");
-            $ins->execute([$userId, $dietary, $cuisines, $contactless]);
+        try {
+            $chk = $db->prepare("SELECT user_id FROM user_preferences WHERE user_id = ?");
+            $chk->execute([$userId]);
+            if ($chk->fetch()) {
+                $upd = $db->prepare("UPDATE user_preferences SET dietary_restrictions = ?, favorite_cuisines = ?, contactless_delivery = ? WHERE user_id = ?");
+                $upd->execute([$dietary, $cuisines, $contactless, $userId]);
+            } else {
+                $ins = $db->prepare("INSERT INTO user_preferences (user_id, dietary_restrictions, favorite_cuisines, contactless_delivery) VALUES (?, ?, ?, ?)");
+                $ins->execute([$userId, $dietary, $cuisines, $contactless]);
+            }
+            $successMsg = "Preferences saved!";
+        } catch (PDOException $e) {
+            $errorMsg = "Failed to save preferences.";
         }
-        $successMsg = "Preferences saved!";
     } elseif ($action === 'upload_avatar' && isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
         $allowed = ['jpg', 'jpeg', 'png', 'webp'];
         $filename = $_FILES['avatar']['name'];
@@ -124,21 +136,36 @@ if (!$user) {
     exit;
 }
 
-$stmtAddr = $db->prepare("SELECT * FROM user_addresses WHERE user_id = ? ORDER BY is_default DESC, id ASC");
-$stmtAddr->execute([$userId]);
-$addresses = $stmtAddr->fetchAll();
+$addresses = [];
+try {
+    $stmtAddr = $db->prepare("SELECT * FROM user_addresses WHERE user_id = ? ORDER BY is_default DESC, id ASC");
+    $stmtAddr->execute([$userId]);
+    $addresses = $stmtAddr->fetchAll();
+} catch (PDOException $e) {
+    $addresses = [];
+}
 
-$stmtPay = $db->prepare("SELECT * FROM user_payment_methods WHERE user_id = ? ORDER BY is_primary DESC, id ASC");
-$stmtPay->execute([$userId]);
-$paymentMethods = $stmtPay->fetchAll();
+$paymentMethods = [];
+try {
+    $stmtPay = $db->prepare("SELECT * FROM user_payment_methods WHERE user_id = ? ORDER BY is_primary DESC, id ASC");
+    $stmtPay->execute([$userId]);
+    $paymentMethods = $stmtPay->fetchAll();
+} catch (PDOException $e) {
+    $paymentMethods = [];
+}
 
-$stmtPref = $db->prepare("SELECT * FROM user_preferences WHERE user_id = ?");
-$stmtPref->execute([$userId]);
-$preferences = $stmtPref->fetch();
+$preferences = false;
+try {
+    $stmtPref = $db->prepare("SELECT * FROM user_preferences WHERE user_id = ?");
+    $stmtPref->execute([$userId]);
+    $preferences = $stmtPref->fetch();
+} catch (PDOException $e) {
+    $preferences = false;
+}
 
-$userDietary = $preferences && $preferences['dietary_restrictions'] ? explode(',', $preferences['dietary_restrictions']) : [];
-$userCuisines = $preferences && $preferences['favorite_cuisines'] ? explode(',', $preferences['favorite_cuisines']) : [];
-$userContactless = $preferences && $preferences['contactless_delivery'] ? true : false;
+$userDietary = $preferences && !empty($preferences['dietary_restrictions']) ? explode(',', $preferences['dietary_restrictions']) : [];
+$userCuisines = $preferences && !empty($preferences['favorite_cuisines']) ? explode(',', $preferences['favorite_cuisines']) : [];
+$userContactless = $preferences && !empty($preferences['contactless_delivery']) ? true : false;
 
 view('partials/user_header', ['pageTitle' => 'My Profile', 'activeNav' => 'profile']);
 ?>

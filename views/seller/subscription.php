@@ -370,15 +370,16 @@ view('partials/seller_sidebar', get_defined_vars());
 <script>
 var _checkoutForm = null;
 
-function payWithRazorpay(tier, priceUSD, formElement) {
-    if (priceUSD <= 0) {
+function payWithRazorpay(tier, priceINR, formElement) {
+    if (priceINR <= 0) {
         formElement.submit();
         return;
     }
     _checkoutForm = formElement;
-    var priceINR = Math.round(priceUSD * 83);
-    document.getElementById('modal-amount').textContent = '₹' + priceINR.toLocaleString('en-IN');
-    document.getElementById('modal-plan-label').textContent = tier + ' Plan — ₹' + priceINR + '/month';
+    var numAmount = parseFloat(priceINR) || 0;
+    var formattedPrice = numAmount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('modal-amount').textContent = '₹' + formattedPrice;
+    document.getElementById('modal-plan-label').textContent = tier + ' Plan — ₹' + formattedPrice + '/month';
     document.getElementById('payment-methods-panel').style.display = 'block';
     document.getElementById('payment-processing-panel').style.display = 'none';
     document.getElementById('payment-modal').style.display = 'flex';

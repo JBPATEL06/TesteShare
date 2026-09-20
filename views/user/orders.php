@@ -37,7 +37,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'confirm_receipt') {
         $notifStmt->execute([
             $orderToConfirm['owner_id'],
             '✅ Order Completed — #UA-' . $orderIdToConfirm,
-            'Customer confirmed receipt for order #UA-' . $orderIdToConfirm . '. Total: $' . number_format($orderToConfirm['total_amount'], 2) . '. Order is now marked as Completed.'
+            'Customer confirmed receipt for order #UA-' . $orderIdToConfirm . '. Total: ₹' . number_format($orderToConfirm['total_amount'], 2) . '. Order is now marked as Completed.'
         ]);
     }
 

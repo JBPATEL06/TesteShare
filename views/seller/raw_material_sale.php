@@ -34,7 +34,7 @@ if (!hasFeature($storeId, 'raw_materials')) {
                 Listing surplus ingredients and raw materials for sale to other merchants is exclusively available to <strong class="text-amber-400">Ultra Premium VIP</strong> subscribers.
             </p>
             <a href="<?php echo url('seller/subscription'); ?>" class="inline-block px-8 py-3 bg-amber-500 text-black font-bold text-xs uppercase tracking-wider rounded-xl hover:brightness-110 transition-all text-decoration-none shadow-lg">
-                Upgrade to Ultra Premium ($149/mo)
+                Upgrade to Ultra Premium (₹149/mo)
             </a>
         </div>
     </div>
@@ -196,7 +196,7 @@ view('partials/seller_sidebar', get_defined_vars());
                                     <p class="text-xs text-on-surface-variant mb-0">Listed on: <?php echo date('M j, Y', strtotime($item['created_at'])); ?></p>
                                 </div>
                                 <div class="text-right space-y-3">
-                                    <span class="text-2xl font-bold text-primary block">$<?php echo number_format($item['price'], 2); ?></span>
+                                    <span class="text-2xl font-bold text-primary block">₹<?php echo number_format($item['price'], 2); ?></span>
                                     <button onclick="removeListing(<?php echo $item['id']; ?>)" class="px-3 py-1.5 border border-error text-error hover:bg-error/10 font-bold text-xs uppercase tracking-wider rounded-lg transition-all bg-transparent cursor-pointer">
                                         Delete
                                     </button>
@@ -224,7 +224,7 @@ view('partials/seller_sidebar', get_defined_vars());
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-body-md font-bold text-on-surface mb-1"><?php echo htmlspecialchars($ord['material_name']); ?></p>
-                                    <p class="text-sm text-on-surface-variant mb-0">Quantity: <?php echo htmlspecialchars($ord['quantity']); ?> | Price: $<?php echo number_format($ord['price'], 2); ?></p>
+                                    <p class="text-sm text-on-surface-variant mb-0">Quantity: <?php echo htmlspecialchars($ord['quantity']); ?> | Price: ₹<?php echo number_format($ord['price'], 2); ?></p>
                                 </div>
                                 <div class="pt-4 border-t border-outline-variant flex justify-end gap-2">
                                     <?php if ($ord['order_status'] === 'Pending'): ?>
@@ -262,7 +262,7 @@ view('partials/seller_sidebar', get_defined_vars());
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-body-md font-bold text-on-surface mb-1"><?php echo htmlspecialchars($ord['material_name']); ?></p>
-                                    <p class="text-sm text-on-surface-variant mb-0">Quantity: <?php echo htmlspecialchars($ord['quantity']); ?> | Price: $<?php echo number_format($ord['price'], 2); ?></p>
+                                    <p class="text-sm text-on-surface-variant mb-0">Quantity: <?php echo htmlspecialchars($ord['quantity']); ?> | Price: ₹<?php echo number_format($ord['price'], 2); ?></p>
                                 </div>
                                 <div class="pt-4 border-t border-outline-variant flex justify-end gap-2">
                                     <?php if ($ord['order_status'] === 'Delivered'): ?>

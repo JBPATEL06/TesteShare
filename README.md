@@ -53,24 +53,31 @@ Beyond standard food ordering, TestShare incorporates cutting-edge real-world fe
 
 ## 💻 Running the Application
 
-### 1. Database Connection (`TESTSHARE`)
-- Database Name: `TESTSHARE`
-- Connection configuration is defined in `web/db.php`:
-  ```php
-  define('DB_NAME', 'TESTSHARE');
-  define('DB_USER', 'root');
-  define('DB_PASS', '');
-  ```
+### 1. Database Setup (`testshare`)
+- **Database Name**: `testshare`
+- **SQL Import File**: Simply import `testshare.sql` in **phpMyAdmin** (`http://localhost/phpmyadmin`).
+  > **Note**: The application also features **Auto Database Setup**. If MySQL is running in XAMPP, visiting the web application will automatically create the `testshare` database and tables if they don't exist yet!
 
-### 2. Start Local Server
-Run PHP built-in web server inside `web/` directory:
-```bash
-cd web
-F:\Apps\xampp\php\php.exe -S localhost:8000
+### 2. Connection Configuration
+Defined in `db.php`:
+```php
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'testshare');
 ```
 
-Open your browser to:
-[http://localhost:8000/index.php?route=user/home](http://localhost:8000/index.php?route=user/home)
+### 3. Running the Project
+#### Option A: Via XAMPP Apache
+Place the project folder inside `C:\xampp\htdocs\` and open:
+`http://localhost/TestShare-main/web/`
+
+#### Option B: Via PHP Built-in Server
+Run inside the `web/` directory:
+```bash
+php -S localhost:8000
+```
+Then open: [http://localhost:8000/](http://localhost:8000/)
 
 ---
 

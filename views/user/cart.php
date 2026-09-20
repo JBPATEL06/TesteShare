@@ -232,7 +232,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 }
             }
             
-            $totalAmount = $totalSub - $discount;
+            // Compute delivery fee
+            $deliveryFee = 2.99;
+            if ($storeId) {
+                try {
+                    $stmtFee = $db->prepare("SELECT delivery_fee FROM stores WHERE id = ?");
+                    $stmtFee->execute([$storeId]);
+                    $customFee = $stmtFee->fetchColumn();
+                    if ($customFee !== false && $customFee !== null) {
+                        $deliveryFee = floatval($customFee);
+                    }
+                } catch (Exception $e) {}
+            }
+            
+            // Taxes & Final Order Total matching the Bill Details exactly
+            $taxes = round($totalSub * 0.06, 2);
+            $totalAmount = $totalSub - $discount + $deliveryFee + $taxes;
             if ($totalAmount < 0) $totalAmount = 0.0;
             
             // Fetch store commission
@@ -704,19 +719,20 @@ view('partials/user_header', get_defined_vars());
 <script>
 var _checkoutForm = null;
 
-function payWithRazorpay(priceUSD, formElement) {
+function payWithRazorpay(amount, formElement) {
     var noteEl = document.getElementById('cartOrderNote');
     var hiddenNoteEl = document.getElementById('hiddenOrderNote');
     if (noteEl && hiddenNoteEl) {
         hiddenNoteEl.value = noteEl.value;
     }
-    if (priceUSD <= 0) {
+    if (amount <= 0) {
         formElement.submit();
         return;
     }
     _checkoutForm = formElement;
-    var priceINR = Math.round(priceUSD * 83);
-    document.getElementById('modal-amount').textContent = '₹' + priceINR.toLocaleString('en-IN');
+    var numAmount = parseFloat(amount) || 0;
+    var formattedINR = numAmount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('modal-amount').textContent = '₹' + formattedINR;
     document.getElementById('payment-methods-panel').style.display = 'block';
     document.getElementById('payment-processing-panel').style.display = 'none';
     document.getElementById('payment-modal').style.display = 'flex';

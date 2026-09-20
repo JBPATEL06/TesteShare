@@ -450,7 +450,7 @@ view('partials/user_header', get_defined_vars());
                             <p class="text-on-surface-variant font-body-md mt-1 italic mb-2">NY Style • Open Late • Truffle Specials</p>
                             <div class="flex gap-4 mt-2 mb-3">
                                 <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">30-45 min</span>
-                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">Free over $20</span>
+                                <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">Free over ₹20</span>
                                 <span class="bg-surface-variant text-on-surface text-label-sm px-2 py-1 rounded">$</span>
                             </div>
                         </div>

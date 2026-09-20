@@ -209,7 +209,7 @@
                 </nav>
                 <div class="hidden md:flex gap-6">
                     <span class="text-label-sm text-on-surface-variant uppercase tracking-tighter font-bold mb-0">Delivery: <span class="text-on-surface font-bold">20-30 min</span></span>
-                    <span class="text-label-sm text-on-surface-variant uppercase tracking-tighter font-bold mb-0">Min. Order: <span class="text-on-surface font-bold">$30.00</span></span>
+                    <span class="text-label-sm text-on-surface-variant uppercase tracking-tighter font-bold mb-0">Min. Order: <span class="text-on-surface font-bold">₹30.00</span></span>
                 </div>
             </div>
         </div>
@@ -239,7 +239,7 @@
                     <div class="bg-surface-container border border-outline-variant rounded-2xl p-6 relative overflow-hidden group hover:border-primary transition-all shadow-xl">
                         <div class="absolute top-0 right-0 bg-tertiary text-on-tertiary font-bold px-4 py-1 rounded-bl-xl text-xs uppercase tracking-widest">Popular</div>
                         <h3 class="font-bold text-2xl text-on-surface mb-2">Free Smoked Gyoza</h3>
-                        <p class="text-on-surface-variant text-sm mb-6">Receive a complimentary signature Smoked Wagyu Gyoza appetizer on all orders over $75. Automatically applied.</p>
+                        <p class="text-on-surface-variant text-sm mb-6">Receive a complimentary signature Smoked Wagyu Gyoza appetizer on all orders over ₹75. Automatically applied.</p>
                         <div class="flex items-center justify-between bg-surface-container-low p-3 rounded-xl border border-outline-variant">
                             <span class="font-mono font-bold text-tertiary tracking-wider text-lg" id="code2">GYOZAFREE</span>
                             <button onclick="copyCode('code2', this)" class="bg-surface-container-high hover:bg-tertiary hover:text-on-tertiary text-on-surface font-bold px-4 py-2 rounded-lg text-sm transition-all border border-outline-variant font-bold">Copy Code</button>
@@ -260,7 +260,7 @@
                             <div class="p-6 flex flex-col flex-grow gap-4">
                                 <div class="flex justify-between items-start">
                                     <h3 class="font-bold text-xl text-on-surface mb-0">Smoked Wagyu Gyoza</h3>
-                                    <span class="text-primary font-bold text-lg mb-0">$18.00</span>
+                                    <span class="text-primary font-bold text-lg mb-0">₹18.00</span>
                                 </div>
                                 <div class="flex items-center text-primary-container text-label-sm font-bold">
                                     <span class="material-symbols-outlined filled-icon text-sm">star</span>
@@ -276,7 +276,7 @@
                             <div class="p-6 flex flex-col flex-grow gap-4">
                                 <div class="flex justify-between items-start">
                                     <h3 class="font-bold text-xl text-on-surface mb-0">Crispy Rice w/ Spicy Tuna</h3>
-                                    <span class="text-primary font-bold text-lg mb-0">$22.00</span>
+                                    <span class="text-primary font-bold text-lg mb-0">₹22.00</span>
                                 </div>
                                 <div class="flex items-center text-primary-container text-label-sm font-bold">
                                     <span class="material-symbols-outlined filled-icon text-sm">star</span>
@@ -299,7 +299,7 @@
                             <div class="p-6 flex flex-col flex-grow gap-4">
                                 <div class="flex justify-between items-start">
                                     <h3 class="font-bold text-xl text-on-surface mb-0">Miso Glazed Black Cod</h3>
-                                    <span class="text-primary font-bold text-lg mb-0">$54.00</span>
+                                    <span class="text-primary font-bold text-lg mb-0">₹54.00</span>
                                 </div>
                                 <div class="flex items-center text-primary-container text-label-sm font-bold">
                                     <span class="material-symbols-outlined filled-icon text-sm">star</span>
@@ -315,7 +315,7 @@
                             <div class="p-6 flex flex-col flex-grow gap-4">
                                 <div class="flex justify-between items-start">
                                     <h3 class="font-bold text-xl text-on-surface mb-0">Truffle Teriyaki Ribeye</h3>
-                                    <span class="text-primary font-bold text-lg mb-0">$72.00</span>
+                                    <span class="text-primary font-bold text-lg mb-0">₹72.00</span>
                                 </div>
                                 <div class="flex items-center text-primary-container text-label-sm font-bold">
                                     <span class="material-symbols-outlined filled-icon text-sm">star</span>
@@ -452,8 +452,8 @@
         const emptyMsg = document.getElementById('emptyCartMsg');
         if (cart.length === 0) {
             cartItemsDiv.innerHTML = '<p class="text-on-surface-variant text-center py-8 mb-0" id="emptyCartMsg">Your cart is currently empty.<br><span class="text-xs text-primary mt-2 block">Select items from the menu to get started.</span></p>';
-            document.getElementById('cartSubtotal').innerText = '$0.00';
-            document.getElementById('cartTotal').innerText = '$4.99';
+            document.getElementById('cartSubtotal').innerText = '₹0.00';
+            document.getElementById('cartTotal').innerText = '₹4.99';
             return;
         }
 
@@ -475,7 +475,7 @@
         });
 
         cartItemsDiv.innerHTML = html;
-        document.getElementById('cartSubtotal').innerText = '$' + subtotal.toFixed(2);
+        document.getElementById('cartSubtotal').innerText = '₹' + subtotal.toFixed(2);
 
         let discount = 0;
         if (promoApplied) {
@@ -487,7 +487,7 @@
         }
 
         let total = subtotal - discount + 4.99;
-        document.getElementById('cartTotal').innerText = '$' + total.toFixed(2);
+        document.getElementById('cartTotal').innerText = '₹' + total.toFixed(2);
     }
 
     function removeFromCart(index) {

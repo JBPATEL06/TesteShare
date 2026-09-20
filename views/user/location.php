@@ -128,8 +128,8 @@ view('partials/user_header', get_defined_vars());
 ?>
 
 <!-- Leaflet CSS & JS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="<?php echo asset('css/leaflet.css'); ?>" />
+<script src="<?php echo asset('js/leaflet.js'); ?>"></script>
 
 <main class="container-xl py-5 px-4" style="min-height: 80vh; background-color: #131313;">
     <div class="max-w-5xl mx-auto space-y-8">

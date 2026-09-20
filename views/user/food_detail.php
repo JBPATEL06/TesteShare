@@ -238,14 +238,14 @@ view('partials/user_header', get_defined_vars());
             if(qty > 1) {
                 qty--;
                 quantityEl.innerText = qty;
-                totalEl.innerText = '$' + (qty * unitPrice).toFixed(2);
+                totalEl.innerText = '₹' + (qty * unitPrice).toFixed(2);
             }
         });
         btnPlus.addEventListener('click', () => {
             let qty = parseInt(quantityEl.innerText);
             qty++;
             quantityEl.innerText = qty;
-            totalEl.innerText = '$' + (qty * unitPrice).toFixed(2);
+            totalEl.innerText = '₹' + (qty * unitPrice).toFixed(2);
         });
     }
 

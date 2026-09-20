@@ -7,37 +7,38 @@ date_default_timezone_set('Asia/Kolkata');
 require_once __DIR__ . '/helpers/subscription_gate.php';
 
 
+if (!function_exists('base_url')) {
+    /**
+     * Dynamically determine the base web URL path regardless of directory or server configuration.
+     * Works seamlessly in XAMPP subdirectories, Apache VirtualHosts, or PHP built-in server.
+     */
+    function base_url() {
+        $script = $_SERVER['SCRIPT_NAME'] ?? '';
+        $dir = str_replace('\\', '/', dirname($script));
+        if ($dir === '.' || $dir === '/' || $dir === '') {
+            return '/';
+        }
+        return rtrim($dir, '/') . '/';
+    }
+}
+
 if (!function_exists('url')) {
     /**
-     * Generate a route URL for the application.
-     * Example: url('user/home') -> /sutu/web/index.php?route=user/home
+     * Generate an application route URL.
+     * Example: url('user/home') -> /TesteShare-main/TesteShare-main/index.php?route=user/home
      */
     function url($path = 'user/home') {
-        $script = $_SERVER['SCRIPT_NAME'] ?? '';
-        $pos = strpos($script, '/web/');
-        if ($pos !== false) {
-            $base = substr($script, 0, $pos + 5);
-        } else {
-            $base = '/';
-        }
-        return $base . 'index.php?route=' . ltrim($path, '/');
+        return base_url() . 'index.php?route=' . ltrim($path, '/');
     }
 }
 
 if (!function_exists('asset')) {
     /**
      * Generate an asset URL.
-     * Example: asset('css/custom.css') -> /sutu/web/css/custom.css
+     * Example: asset('css/bootstrap.min.css') -> /TesteShare-main/TesteShare-main/css/bootstrap.min.css
      */
     function asset($path) {
-        $script = $_SERVER['SCRIPT_NAME'] ?? '';
-        $pos = strpos($script, '/web/');
-        if ($pos !== false) {
-            $base = substr($script, 0, $pos + 5);
-        } else {
-            $base = '/';
-        }
-        return $base . ltrim($path, '/');
+        return base_url() . ltrim($path, '/');
     }
 }
 

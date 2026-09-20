@@ -163,7 +163,7 @@
                         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-0">Hand-cut A5 Wagyu, smoked egg yolk, truffle emulsion, edible 24k gold leaf.</p>
                     </div>
                     <div class="flex flex-col items-start md:items-end gap-stack-sm">
-                        <span class="font-headline-lg text-headline-lg text-primary-container font-bold">$32.00</span>
+                        <span class="font-headline-lg text-headline-lg text-primary-container font-bold">₹32.00</span>
                         <div class="flex items-center gap-stack-md text-on-surface-variant font-label-md">
                             <div class="flex items-center gap-1">
                                 <span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -266,7 +266,7 @@
                     <div class="border-b border-surface-variant pb-4 mb-4">
                         <div class="flex justify-between items-center mb-2">
                             <span class="text-on-surface font-label-md text-label-md">Wagyu Gold Tartare</span>
-                            <span class="text-primary-container font-label-md text-label-md font-bold">$32.00</span>
+                            <span class="text-primary-container font-label-md text-label-md font-bold">₹32.00</span>
                         </div>
                         <p class="text-on-surface-variant font-label-sm text-label-sm mb-0">Preparation time: 20-30 minutes</p>
                     </div>
@@ -288,7 +288,7 @@
                     <!-- Total Calculation -->
                     <div class="border-t border-surface-variant pt-4 mb-4 flex justify-between items-end">
                         <span class="text-on-surface font-label-md text-label-md uppercase tracking-wider">Total Amount</span>
-                        <span class="font-headline-md text-headline-md text-primary font-bold" id="total-price">$32.00</span>
+                        <span class="font-headline-md text-headline-md text-primary font-bold" id="total-price">₹32.00</span>
                     </div>
 
                     <!-- Action Button -->
@@ -344,14 +344,14 @@
                 if(qty > 1) {
                     qty--;
                     quantityEl.innerText = qty;
-                    totalEl.innerText = '$' + (qty * unitPrice).toFixed(2);
+                    totalEl.innerText = '₹' + (qty * unitPrice).toFixed(2);
                 }
             });
             btnPlus.addEventListener('click', () => {
                 let qty = parseInt(quantityEl.innerText);
                 qty++;
                 quantityEl.innerText = qty;
-                totalEl.innerText = '$' + (qty * unitPrice).toFixed(2);
+                totalEl.innerText = '₹' + (qty * unitPrice).toFixed(2);
             });
         }
     </script>

@@ -218,7 +218,7 @@ view('partials/admin_sidebar', get_defined_vars());
                     </span>
                 </div>
                 <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Platform Gross GMV</span>
-                <div class="text-[32px] font-bold text-on-surface mt-2 mb-0 font-mono">$<?php echo number_format($totalRevenue, 2); ?></div>
+                <div class="text-[32px] font-bold text-on-surface mt-2 mb-0 font-mono">₹<?php echo number_format($totalRevenue, 2); ?></div>
             </div>
 
             <!-- Card 2: TOTAL COMMISSION COLLECTED -->
@@ -233,7 +233,7 @@ view('partials/admin_sidebar', get_defined_vars());
                     </span>
                 </div>
                 <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Admin Commission</span>
-                <div class="text-[32px] font-bold text-amber-400 mt-2 mb-0 font-mono">$<?php echo number_format($totalCommission, 2); ?></div>
+                <div class="text-[32px] font-bold text-amber-400 mt-2 mb-0 font-mono">₹<?php echo number_format($totalCommission, 2); ?></div>
             </div>
 
             <!-- Card 3: NET PAYOUTS -->
@@ -248,7 +248,7 @@ view('partials/admin_sidebar', get_defined_vars());
                     </span>
                 </div>
                 <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Merchant Net Payouts</span>
-                <div class="text-[32px] font-bold text-on-surface mt-2 mb-0 font-mono">$<?php echo number_format($netPayouts, 2); ?></div>
+                <div class="text-[32px] font-bold text-on-surface mt-2 mb-0 font-mono">₹<?php echo number_format($netPayouts, 2); ?></div>
             </div>
 
             <!-- Card 4: TOTAL TRANSACTIONS -->
@@ -304,7 +304,7 @@ view('partials/admin_sidebar', get_defined_vars());
                                         </span>
                                     </td>
                                     <td class="py-4 px-4 font-bold text-on-surface font-mono">
-                                        $<?php echo number_format($sb['store_gmv'], 2); ?>
+                                        ₹<?php echo number_format($sb['store_gmv'], 2); ?>
                                     </td>
                                     <td class="py-4 px-4 text-center">
                                         <span class="px-3 py-1 bg-primary/10 text-primary border border-primary/30 rounded-full font-bold text-xs font-mono">
@@ -313,11 +313,11 @@ view('partials/admin_sidebar', get_defined_vars());
                                     </td>
                                     <td class="py-4 px-4 text-center">
                                         <span class="px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/30 rounded-full font-bold text-xs font-mono">
-                                            $<?php echo number_format($sb['admin_fee'], 2); ?>
+                                            ₹<?php echo number_format($sb['admin_fee'], 2); ?>
                                         </span>
                                     </td>
                                     <td class="py-4 px-4 text-right font-bold text-green-400 font-mono">
-                                        $<?php echo number_format($sb['merchant_net'], 2); ?>
+                                        ₹<?php echo number_format($sb['merchant_net'], 2); ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -381,14 +381,14 @@ view('partials/admin_sidebar', get_defined_vars());
                                         <?php echo htmlspecialchars($tx['store_name']); ?>
                                     </td>
                                     <td class="py-4 px-4 font-bold text-on-surface font-mono">
-                                        $<?php echo number_format($tx['price'], 2); ?>
+                                        ₹<?php echo number_format($tx['price'], 2); ?>
                                     </td>
                                     <td class="py-4 px-4 text-on-surface-variant text-xs font-mono">
                                         <?php echo date('M d, Y | H:i', strtotime($tx['sell_time'])); ?>
                                     </td>
                                     <td class="py-4 px-4 text-center">
                                         <span class="inline-block px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/30 rounded-full font-bold text-xs font-mono">
-                                            $<?php echo number_format($commAmount, 2); ?>
+                                            ₹<?php echo number_format($commAmount, 2); ?>
                                         </span>
                                     </td>
                                     <td class="py-4 px-4">

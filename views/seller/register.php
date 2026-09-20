@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="<?php echo asset('js/tailwind.min.js'); ?>"></script>
     <link href="<?php echo asset('css/google-fonts.css'); ?>" rel="stylesheet">
     <!-- Custom Styles -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="<?php echo asset('css/custom.css'); ?>" rel="stylesheet">
     <!-- Tailwind Configuration -->
     <script id="tailwind-config">
       tailwind.config = {
@@ -478,7 +478,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Bootstrap 5 JS Bundle -->
     <script src="<?php echo asset('js/bootstrap.bundle.min.js'); ?>"></script>
     <!-- Custom Main JS -->
-    <script src="js/main.js"></script>
+    <script src="<?php echo asset('js/main.js'); ?>"></script>
     <script>
         // Micro-interactions for form focus
         const inputs = document.querySelectorAll('input, select, textarea');

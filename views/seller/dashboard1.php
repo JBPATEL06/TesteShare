@@ -353,14 +353,14 @@ view('partials/seller_sidebar', get_defined_vars());
                                         </div>
                                     </td>
                                     <td class="py-4 px-4 font-bold text-on-surface font-mono">
-                                        $<?php echo number_format($tx['price'], 2); ?>
+                                        ₹<?php echo number_format($tx['price'], 2); ?>
                                     </td>
                                     <td class="py-4 px-4 text-on-surface-variant text-xs font-mono">
                                         <?php echo date('M d, Y | H:i', strtotime($tx['sell_time'])); ?>
                                     </td>
                                     <td class="py-4 px-4 text-center">
                                         <span class="inline-block px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/30 rounded-full font-bold text-xs font-mono">
-                                            $<?php echo number_format($commAmount, 2); ?>
+                                            ₹<?php echo number_format($commAmount, 2); ?>
                                         </span>
                                     </td>
                                     <td class="py-4 px-4">

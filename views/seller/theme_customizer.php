@@ -43,7 +43,7 @@ if (!hasFeature($storeId, 'theme_customizer')) {
                 Customizing your merchant panel accent colors and user-facing storefront branding is exclusively available to <strong class="text-primary">Premium</strong> and <strong class="text-amber-400">Ultra Premium</strong> subscribers.
             </p>
             <a href="<?php echo url('seller/subscription'); ?>" class="inline-block px-8 py-3 bg-primary text-on-primary font-bold text-xs uppercase tracking-wider rounded-xl hover:brightness-110 transition-all text-decoration-none shadow-lg">
-                Upgrade to Premium ($49/mo)
+                Upgrade to Premium (₹49/mo)
             </a>
         </div>
     </div>

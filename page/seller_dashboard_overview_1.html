@@ -243,7 +243,7 @@
                         <div class="flex justify-between items-end mb-8">
                             <div>
                                 <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-1 font-bold">Total Revenue</h3>
-                                <p class="font-display-lg text-display-lg text-on-surface font-bold mb-0">$124,592.00</p>
+                                <p class="font-display-lg text-display-lg text-on-surface font-bold mb-0">₹124,592.00</p>
                             </div>
                             <div class="flex gap-2">
                                 <span class="px-3 py-1 bg-primary text-on-primary text-label-sm font-bold rounded-full">Live</span>
@@ -260,7 +260,7 @@
                             <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[75%]"></div>
                             <div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t h-[60%]"></div>
                             <div class="flex-1 bg-primary/40 h-full rounded-t relative">
-                                <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-surface-container-highest border border-primary px-2 py-1 rounded text-label-sm whitespace-nowrap font-bold">$18.2k</div>
+                                <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-surface-container-highest border border-primary px-2 py-1 rounded text-label-sm whitespace-nowrap font-bold">₹18.2k</div>
                             </div>
                         </div>
                         <div class="flex justify-between mt-4 text-on-surface-variant font-label-sm text-label-sm px-1 font-bold">
@@ -434,7 +434,7 @@
             if (revenue) {
                 const current = parseFloat(revenue.textContent.replace('$', '').replace(',', ''));
                 const next = (current + Math.random() * 10).toFixed(2);
-                revenue.textContent = '$' + next.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                revenue.textContent = '₹' + next.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
         }, 3000);
     });

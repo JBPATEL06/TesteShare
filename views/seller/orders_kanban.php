@@ -161,7 +161,7 @@ view('partials/seller_sidebar', get_defined_vars());
                                         <td class="p-6">
                                             <span class="px-3 py-1.5 rounded-full border border-outline-variant text-[12px] uppercase font-bold text-on-surface-variant"><?php echo htmlspecialchars($item['category']); ?></span>
                                         </td>
-                                        <td class="p-6 font-label-md text-on-surface font-bold">$<?php echo number_format($item['price'], 2); ?></td>
+                                        <td class="p-6 font-label-md text-on-surface font-bold">₹<?php echo number_format($item['price'], 2); ?></td>
                                         <td class="p-6">
                                             <span class="text-label-sm text-on-surface-variant italic">-</span>
                                         </td>
@@ -228,7 +228,7 @@ view('partials/seller_sidebar', get_defined_vars());
                                 </div>
                             </div>
                             <div class="text-right">
-                                <p class="font-label-md text-primary font-bold mb-2">$296.50</p>
+                                <p class="font-label-md text-primary font-bold mb-2">₹296.50</p>
                                 <span class="text-[12px] px-3 py-1 bg-on-tertiary-container/30 text-tertiary rounded-full uppercase font-bold">Preparing</span>
                             </div>
                         </div>
@@ -243,7 +243,7 @@ view('partials/seller_sidebar', get_defined_vars());
                                 </div>
                             </div>
                             <div class="text-right">
-                                <p class="font-label-md text-primary font-bold mb-2">$48.00</p>
+                                <p class="font-label-md text-primary font-bold mb-2">₹48.00</p>
                                 <span class="text-[12px] px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full uppercase font-bold">Ready</span>
                             </div>
                         </div>

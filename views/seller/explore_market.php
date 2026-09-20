@@ -37,7 +37,7 @@ if (!hasFeature($storeId, 'raw_materials')) {
                 Browsing and buying wholesale raw ingredients from other merchants is exclusively available to <strong class="text-amber-400">Ultra Premium VIP</strong> subscribers.
             </p>
             <a href="<?php echo url('seller/subscription'); ?>" class="inline-block px-8 py-3 bg-amber-500 text-black font-bold text-xs uppercase tracking-wider rounded-xl hover:brightness-110 transition-all text-decoration-none shadow-lg">
-                Upgrade to Ultra Premium ($149/mo)
+                Upgrade to Ultra Premium (₹149/mo)
             </a>
         </div>
     </div>
@@ -131,7 +131,7 @@ view('partials/seller_sidebar', get_defined_vars());
                                 <p class="text-xs text-on-surface-variant mb-0"><?php echo htmlspecialchars($sale['description']); ?></p>
                             </div>
                             <div class="mt-6 border-t border-outline-variant pt-4 flex justify-between items-center">
-                                <span class="text-xl font-bold text-primary">$<?php echo number_format($sale['price'], 2); ?></span>
+                                <span class="text-xl font-bold text-primary">₹<?php echo number_format($sale['price'], 2); ?></span>
                                 <form method="POST" style="margin:0;" onsubmit="event.preventDefault(); openMarketPayment('<?php echo htmlspecialchars($sale['name']); ?>', <?php echo floatval($sale['price']); ?>, this);">
                                     <input type="hidden" name="action" value="buy">
                                     <input type="hidden" name="sale_id" value="<?php echo $sale['id']; ?>">
@@ -223,10 +223,11 @@ view('partials/seller_sidebar', get_defined_vars());
 <script>
 var _marketForm = null;
 
-function openMarketPayment(itemName, priceUSD, formElement) {
+function openMarketPayment(itemName, priceINR, formElement) {
     _marketForm = formElement;
-    var priceINR = Math.round(priceUSD * 83);
-    document.getElementById('market-modal-amount').textContent = '₹' + priceINR.toLocaleString('en-IN');
+    var numAmount = parseFloat(priceINR) || 0;
+    var formattedINR = numAmount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('market-modal-amount').textContent = '₹' + formattedINR;
     document.getElementById('market-modal-label').textContent = 'Purchasing: ' + itemName;
     document.getElementById('market-methods-panel').style.display = 'block';
     document.getElementById('market-processing-panel').style.display = 'none';

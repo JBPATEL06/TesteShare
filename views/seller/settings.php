@@ -117,8 +117,8 @@ view('partials/seller_sidebar', get_defined_vars());
 ?>
 
 <!-- Leaflet CSS & JS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="<?php echo asset('css/leaflet.css'); ?>" />
+<script src="<?php echo asset('js/leaflet.js'); ?>"></script>
 
 <!-- Main Content Area -->
 <div class="flex-grow p-8 overflow-y-auto">

@@ -176,7 +176,7 @@ view('partials/user_header', get_defined_vars());
                     </div>
                     <div class="flex items-center gap-stack-sm font-label-md text-on-surface">
                         <span class="material-symbols-outlined text-primary mr-1">payments</span>
-                        Min. order $15.00
+                        Min. order ₹15.00
                     </div>
                 </div>
             </div>
@@ -328,7 +328,7 @@ view('partials/user_header', get_defined_vars());
                                     <button onclick="copyCode('code-<?php echo htmlspecialchars($offer['coupon_code']); ?>', this)" class="bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-bold px-4 py-2 rounded-lg text-sm transition-all border border-outline-variant font-bold">Copy Code</button>
                                 </div>
                                 <div class="mt-4 text-label-sm text-on-surface-variant">
-                                    Min. Order: $<?php echo number_format($offer['min_order_value'], 2); ?> | Discount: <?php echo number_format($offer['discount_percentage'], 0); ?>%
+                                    Min. Order: ₹<?php echo number_format($offer['min_order_value'], 2); ?> | Discount: <?php echo number_format($offer['discount_percentage'], 0); ?>%
                                 </div>
                             </div>
                         <?php endforeach; ?>

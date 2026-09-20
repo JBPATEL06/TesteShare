@@ -95,7 +95,7 @@ view('partials/admin_sidebar', get_defined_vars());
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-surface-container border border-outline p-5 rounded-2xl">
                 <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Monthly Recurring Revenue</span>
-                <div class="text-2xl font-bold font-mono text-primary mt-2">$<?php echo number_format($mrr, 2); ?></div>
+                <div class="text-2xl font-bold font-mono text-primary mt-2">₹<?php echo number_format($mrr, 2); ?></div>
                 <div class="text-xs text-on-surface-variant mt-1">Active agreement MRR aggregate</div>
             </div>
             <div class="bg-surface-container border border-outline p-5 rounded-2xl">
@@ -105,7 +105,7 @@ view('partials/admin_sidebar', get_defined_vars());
             </div>
             <div class="bg-surface-container border border-outline p-5 rounded-2xl">
                 <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Average Tier Rate</span>
-                <div class="text-2xl font-bold font-mono text-on-surface mt-2">$<?php echo number_format($avgTierRate, 2); ?> / mo</div>
+                <div class="text-2xl font-bold font-mono text-on-surface mt-2">₹<?php echo number_format($avgTierRate, 2); ?> / mo</div>
                 <div class="text-xs text-on-surface-variant mt-1">Average fee among active plans</div>
             </div>
         </div>
@@ -145,7 +145,7 @@ view('partials/admin_sidebar', get_defined_vars());
                                 </td>
                                 <td class="py-4 px-6">
                                     <span class="text-xs font-bold text-<?php echo $tierColor; ?> px-2.5 py-1 bg-<?php echo $tierColor; ?>/10 border border-<?php echo $tierColor; ?>/20 rounded font-mono">
-                                        <?php echo strtoupper($tier); ?> PLAN ($<?php echo number_format($price, 0); ?>/mo)
+                                        <?php echo strtoupper($tier); ?> PLAN (₹<?php echo number_format($price, 0); ?>/mo)
                                     </span>
                                 </td>
                                 <td class="py-4 px-6 font-mono text-xs text-on-surface-variant"><?php echo $sRow['start_date']; ?></td>

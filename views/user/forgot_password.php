@@ -94,10 +94,9 @@ $pageTitle = 'Forgot Password';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password — TestShare</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-    <style>
+    <link href="<?php echo asset('css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo asset('css/google-fonts.css'); ?>" rel="stylesheet">
+<style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #0f0f11;

@@ -86,7 +86,7 @@ view('partials/admin_sidebar', get_defined_vars());
                 <div class="flex justify-between items-start mb-4">
                     <div>
                         <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Platform GMV</span>
-                        <div class="text-2xl font-bold font-mono text-on-surface mt-2">$<?php echo number_format($gmv, 2); ?></div>
+                        <div class="text-2xl font-bold font-mono text-on-surface mt-2">₹<?php echo number_format($gmv, 2); ?></div>
                     </div>
                     <span class="material-symbols-outlined text-primary text-3xl">payments</span>
                 </div>
@@ -101,7 +101,7 @@ view('partials/admin_sidebar', get_defined_vars());
                 <div class="flex justify-between items-start mb-4">
                     <div>
                         <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Commission (5%)</span>
-                        <div class="text-2xl font-bold font-mono text-on-surface mt-2">$<?php echo number_format($commission, 2); ?></div>
+                        <div class="text-2xl font-bold font-mono text-on-surface mt-2">₹<?php echo number_format($commission, 2); ?></div>
                     </div>
                     <span class="material-symbols-outlined text-primary text-3xl">account_balance_wallet</span>
                 </div>
@@ -139,7 +139,7 @@ view('partials/admin_sidebar', get_defined_vars());
                                         <span><?php echo htmlspecialchars($storeRow['store_name']); ?></span>
                                     </td>
                                     <td class="py-3 text-right font-mono font-semibold"><?php echo number_format($storeRow['orders_count']); ?></td>
-                                    <td class="py-3 text-right font-mono font-bold text-primary">$<?php echo number_format($storeRow['total_rev'], 2); ?></td>
+                                    <td class="py-3 text-right font-mono font-bold text-primary">₹<?php echo number_format($storeRow['total_rev'], 2); ?></td>
                                     <td class="py-3 text-right font-mono font-semibold text-yellow-400"><?php echo number_format($storeRow['avg_rating'], 1); ?> ★</td>
                                 </tr>
                             <?php endforeach; ?>
@@ -178,7 +178,7 @@ view('partials/admin_sidebar', get_defined_vars());
                                         <span class="text-[9px] text-on-surface-variant font-mono"><?php echo htmlspecialchars($customerRow['email']); ?></span>
                                     </td>
                                     <td class="py-3 text-right font-mono font-semibold"><?php echo number_format($customerRow['orders_count']); ?></td>
-                                    <td class="py-3 text-right font-mono font-bold text-primary">$<?php echo number_format($customerRow['total_spent'], 2); ?></td>
+                                    <td class="py-3 text-right font-mono font-bold text-primary">₹<?php echo number_format($customerRow['total_spent'], 2); ?></td>
                                     <td class="py-3 text-right">
                                         <button onclick="openSpecialOfferModal('<?php echo addslashes($customerRow['fullname']); ?>')" class="px-2.5 py-1.5 bg-primary/10 border border-primary/20 hover:bg-primary/20 text-primary font-bold rounded-lg tracking-wide transition-all cursor-pointer">
                                             Release Offer
@@ -220,7 +220,7 @@ view('partials/admin_sidebar', get_defined_vars());
                 <label class="text-xs text-on-surface-variant font-bold block mb-1">Offer / Reward Type</label>
                 <select id="offerTypeSelect" class="w-full bg-surface border border-outline rounded-xl px-3 py-2.5 text-sm text-on-surface">
                     <option value="15% Discount Coupon">15% Off Cart Discount</option>
-                    <option value="$10 Wallet Cashback">$10 Wallet Cash Reward</option>
+                    <option value="₹10 Wallet Cashback">₹10 Wallet Cash Reward</option>
                     <option value="Free Dessert Reward">Free Dessert Voucher</option>
                     <option value="Free Delivery Code">Free Delivery Code (5 Orders)</option>
                 </select>
